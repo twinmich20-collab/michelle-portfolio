@@ -1,6 +1,9 @@
 # Portfolio password — never commit
 auth.js
 
+# Vercel (local link; use `vercel link` on each machine)
+.vercel
+
 # OS files
 .DS_Store
 Thumbs.db
