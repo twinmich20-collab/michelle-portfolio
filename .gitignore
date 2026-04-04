@@ -1,0 +1,6 @@
+# Portfolio password — never commit
+auth.js
+
+# OS files
+.DS_Store
+Thumbs.db
