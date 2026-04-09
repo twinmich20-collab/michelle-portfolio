@@ -1153,8 +1153,8 @@ ul, ol {
 
 .about-industry-item {
   display: flex;
-  align-items: baseline;
-  gap: 16px;
+  align-items: flex-start;
+  gap: 20px;
   padding: 16px 20px;
   border-bottom: 1px solid var(--border);
 }
@@ -1170,14 +1170,28 @@ ul, ol {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   white-space: nowrap;
-  min-width: 150px;
+  width: 200px;
   flex-shrink: 0;
+  padding-top: 2px;
 }
 
 .about-industry-desc {
   font-size: 0.85rem;
   color: var(--text-muted);
   line-height: 1.6;
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 560px) {
+  .about-industry-item {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .about-industry-label {
+    width: auto;
+    white-space: normal;
+  }
 }
 
 /* ============================================
@@ -1741,7 +1755,7 @@ ul, ol {
 
 /* project-tags inside cs-hero should not have bottom margin (meta bar follows directly) */
 .cs-hero .project-tags {
-  margin-bottom: 0;
+  margin-bottom: 28px;
 }
 
 /* standalone cs-outcome cards used outside .cs-outcomes grid (e.g. in two-col overview) */
@@ -1929,6 +1943,14 @@ ul, ol {
   margin-top: 40px;
 }
 
+.cs-outcomes--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.cs-outcomes--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .cs-outcome {
   background-color: var(--surface);
   border: 1px solid var(--border);
@@ -2096,18 +2118,6 @@ ul, ol {
   letter-spacing: 0.05em;
 }
 
-.edu-item--cert .edu-degree::before {
-  content: '';
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background-color: var(--accent);
-  border-radius: 50%;
-  margin-right: 8px;
-  vertical-align: middle;
-  position: relative;
-  top: -1px;
-}
 
 @media (max-width: 768px) {
   .edu-grid {
@@ -2460,7 +2470,9 @@ ul, ol {
     gap: 32px;
   }
 
-  .cs-outcomes {
+  .cs-outcomes,
+  .cs-outcomes--4,
+  .cs-outcomes--2 {
     grid-template-columns: 1fr;
   }
 

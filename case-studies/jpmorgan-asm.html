@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JPMorgan Chase — Access &amp; Security Manager | Michelle DaSilva</title>
-  <meta name="description" content="A 2-year, 5-phase UX strategy engagement for ASM — Chase's entitlement platform serving 8.7M customers." />
+  <title>Access &amp; Security Manager — Leading US Bank | Michelle DaSilva</title>
+  <meta name="description" content="A 2-year, 5-phase UX design leadership engagement for ASM — a leading US bank's entitlement platform serving 8.7M+ business customers." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -67,14 +67,19 @@
     /* Phase-specific colors matching the section banners */
     .asm-phase-step--p1 .asm-phase-step-inner { border-color: var(--accent); background: var(--accent-glow); }
     .asm-phase-step--p1 .asm-phase-step-num { color: var(--accent); }
+    .asm-phase-step--p1 .asm-phase-step-name { color: var(--accent); }
     .asm-phase-step--p2 .asm-phase-step-inner { border-color: var(--phase-teal); background: var(--phase-teal-glow); }
     .asm-phase-step--p2 .asm-phase-step-num { color: var(--phase-teal); }
+    .asm-phase-step--p2 .asm-phase-step-name { color: var(--phase-teal); }
     .asm-phase-step--p3 .asm-phase-step-inner { border-color: var(--phase-amber); background: var(--phase-amber-glow); }
     .asm-phase-step--p3 .asm-phase-step-num { color: var(--phase-amber); }
+    .asm-phase-step--p3 .asm-phase-step-name { color: var(--phase-amber); }
     .asm-phase-step--p4 .asm-phase-step-inner { border-color: var(--phase-purple); background: var(--phase-purple-glow); }
     .asm-phase-step--p4 .asm-phase-step-num { color: var(--phase-purple); }
+    .asm-phase-step--p4 .asm-phase-step-name { color: var(--phase-purple); }
     .asm-phase-step--p5 .asm-phase-step-inner { border-color: var(--phase-teal); background: var(--phase-teal-glow); }
     .asm-phase-step--p5 .asm-phase-step-num { color: var(--phase-teal); }
+    .asm-phase-step--p5 .asm-phase-step-name { color: var(--phase-teal); }
     .asm-phase-connector { width: 20px; height: 2px; background: var(--border); flex-shrink: 0; align-self: center; }
     .asm-phase-step-num { font-size: 0.62rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
     .asm-phase-step-name { font-size: 0.8rem; font-weight: 700; color: var(--text); white-space: nowrap; }
@@ -148,12 +153,40 @@
     .asm-contribution-item:nth-child(4) { border-left: 2px solid var(--phase-purple); }
     .asm-contribution-item:nth-child(4) .asm-contribution-icon { background: var(--phase-purple-bg); border-color: var(--phase-purple-dim); color: var(--phase-purple); }
 
-    /* ── Scale cards (stats) ── */
-    .asm-scale-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px; margin-top: 32px; }
-    .asm-scale-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; text-align: center; }
-    .asm-scale-value { font-size: 1.75rem; font-weight: 700; color: var(--accent); line-height: 1; }
-    .asm-scale-segment { font-size: 0.68rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 6px; }
-    .asm-scale-desc { font-size: 0.72rem; color: var(--text-muted); margin-top: 4px; }
+    /* ── Scale stat bar ── */
+    .asm-scale-grid {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-top: 32px;
+    }
+    .asm-scale-card--hero {
+      padding: 28px 24px;
+      text-align: center;
+      background: var(--accent-glow);
+      border-bottom: 1px solid var(--border);
+    }
+    .asm-scale-card--hero .asm-scale-value { font-size: 3rem; color: var(--accent); }
+    .asm-scale-card--hero .asm-scale-segment { font-size: 0.8rem; }
+    .asm-scale-card--hero .asm-scale-desc { font-size: 0.78rem; }
+    .asm-scale-sub {
+      display: flex;
+    }
+    .asm-scale-card {
+      flex: 1;
+      padding: 20px 16px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .asm-scale-card:last-child { border-right: none; }
+    .asm-scale-value { font-size: 1.6rem; font-weight: 700; color: var(--phase-teal); line-height: 1; letter-spacing: -0.03em; }
+    .asm-scale-card:nth-child(2) .asm-scale-value { color: var(--phase-amber); }
+    .asm-scale-card:nth-child(3) .asm-scale-value { color: var(--phase-purple); }
+    .asm-scale-segment { font-size: 0.68rem; font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 7px; }
+    .asm-scale-desc { font-size: 0.68rem; color: var(--text-muted); margin-top: 3px; }
 
     /* ── Janet section ── */
     .asm-janet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; margin-top: 36px; }
@@ -408,7 +441,7 @@
     .asm-retro-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 24px; }
     .asm-retro-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
     .asm-retro-card:first-child .asm-retro-label { color: var(--accent); }
-    .asm-retro-card:last-child .asm-retro-label { color: var(--accent); }
+    .asm-retro-card:last-child .asm-retro-label { color: var(--phase-amber); }
     .asm-retro-list { display: flex; flex-direction: column; gap: 8px; }
     .asm-retro-item { font-size: 0.83rem; color: var(--text-muted); line-height: 1.55; padding-left: 14px; position: relative; }
     .asm-retro-item::before { content: '·'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
@@ -488,9 +521,9 @@
         <span class="hamburger-line"></span>
       </button>
       <ul class="nav-menu" id="nav-menu" role="list">
-        <li><a href="../index.html#work" class="nav-link">Work</a></li>
         <li><a href="../index.html#about" class="nav-link">About</a></li>
-        <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+        <li><a href="../index.html#work" class="nav-link">Work</a></li>
+        <li><a href="../index.html#skills" class="nav-link">Experience</a></li>
         <li><a href="../index.html#resume" class="nav-link">Resume</a></li>
         <li><a href="../index.html#contact" class="nav-link nav-link--cta">Contact</a></li>
       </ul>
@@ -516,25 +549,27 @@
           Back to Work
         </a>
 
-        <p class="cs-hero-eyebrow">JPMorgan Chase &amp; Co. · Business Banking</p>
+        <p class="cs-hero-eyebrow">Leading US Bank · Business Banking</p>
         <h1 class="cs-hero-title">The Journey to a Customer-Centric Access Platform</h1>
-        <p class="cs-hero-desc">Led end-to-end UX strategy across a 5-phase initiative for ASM — Chase's entitlement platform serving 8.7M customers. From alignment and discovery through co-creation, definition, and now MVP delivery, this engagement transformed how JPMorgan Chase understands and designs for business customer access management.</p>
+        <p class="cs-hero-desc">When customers can't confidently grant access to their own accounts, they either call support or over-privilege their employees. Both signal a broken experience. I led the UX strategy for ASM — a permissions platform serving 8.7M business customers — driving cross-functional alignment and validated concept design toward a simpler, clearer way to delegate access.</p>
 
         <div class="project-tags">
+          <span class="tag">UX Research</span>
+          <span class="tag">Service Design</span>
           <span class="tag">UX Strategy</span>
-          <span class="tag">Research &amp; Discovery</span>
           <span class="tag">Co-Creation</span>
-          <span class="tag">Enterprise FinTech</span>
+          <span class="tag">Fintech</span>
+          <span class="tag">Design Leadership</span>
         </div>
 
         <div class="cs-meta">
           <div class="cs-meta-item">
             <span class="cs-meta-label">Client</span>
-            <span class="cs-meta-value">JPMorgan Chase &amp; Co.</span>
+            <span class="cs-meta-value">Leading US Bank</span>
           </div>
           <div class="cs-meta-item">
             <span class="cs-meta-label">Role</span>
-            <span class="cs-meta-value">UX Strategy Lead</span>
+            <span class="cs-meta-value">UX Design Lead</span>
           </div>
           <div class="cs-meta-item">
             <span class="cs-meta-label">Timeline</span>
@@ -609,7 +644,7 @@
         <div class="asm-subsection fade-in">
           <p class="cs-section-label">My Contribution</p>
           <h2 class="cs-section-title">What I Led Across This Engagement</h2>
-          <p class="cs-text">As UX Strategy Lead, I owned the research direction, facilitated cross-functional alignment, and synthesized evidence into actionable design direction — bridging customer needs, business goals, and technical constraints across a complex, multi-stakeholder organization.</p>
+          <p class="cs-text">As UX Design Lead, I owned the research direction, facilitated cross-functional alignment, and synthesized evidence into actionable design direction — bridging customer needs, business goals, and technical constraints across a complex, multi-stakeholder organization.</p>
         </div>
 
         <div class="asm-contribution fade-in">
@@ -660,30 +695,32 @@
           <div class="fade-in">
             <p class="cs-section-label">Overview</p>
             <h2 class="cs-section-title">What is Access &amp; Security Manager?</h2>
-            <p class="cs-text">ASM is JPMorgan Chase's proprietary entitlement platform — the system through which business customers manage user access, roles, and permissions across their banking accounts. It is the operational backbone of how organizations control who can do what within their Chase accounts.</p>
+            <p class="cs-text">ASM is the bank's entitlement platform — the system through which business customers manage user access, roles, and permissions across their banking accounts. It is the operational backbone of how organizations control who can do what within their accounts.</p>
             <p class="cs-text" style="margin-top: 14px;">The platform spans three distinct banking segments — Business Banking, Commercial Banking, and Private Banking — each with its own administrator tier, complexity level, and user expectations. Despite its critical role, ASM had grown fragmented, inconsistent, and difficult to use over more than a decade of organic growth.</p>
           </div>
           <div class="fade-in">
-            <div class="asm-scale-grid">
-              <div class="asm-scale-card">
-                <div class="asm-scale-value">8.7M</div>
-                <div class="asm-scale-segment">Total Users</div>
-                <div class="asm-scale-desc">All banking segments</div>
+            <div class="asm-scale-grid fade-in">
+              <div class="asm-scale-card--hero">
+                <div class="asm-scale-value">8.7M+</div>
+                <div class="asm-scale-segment">Customers Impacted</div>
+                <div class="asm-scale-desc">Across all banking segments</div>
               </div>
-              <div class="asm-scale-card">
-                <div class="asm-scale-value">8M</div>
-                <div class="asm-scale-segment">BB Admins</div>
-                <div class="asm-scale-desc">Business Banking</div>
-              </div>
-              <div class="asm-scale-card">
-                <div class="asm-scale-value">51K</div>
-                <div class="asm-scale-segment">CML Admins</div>
-                <div class="asm-scale-desc">Commercial Banking</div>
-              </div>
-              <div class="asm-scale-card">
-                <div class="asm-scale-value">500K</div>
-                <div class="asm-scale-segment">PB Admins</div>
-                <div class="asm-scale-desc">Private Banking</div>
+              <div class="asm-scale-sub">
+                <div class="asm-scale-card">
+                  <div class="asm-scale-value">8M</div>
+                  <div class="asm-scale-segment">BB Admins</div>
+                  <div class="asm-scale-desc">Business Banking</div>
+                </div>
+                <div class="asm-scale-card">
+                  <div class="asm-scale-value">51K</div>
+                  <div class="asm-scale-segment">CML Admins</div>
+                  <div class="asm-scale-desc">Commercial Banking</div>
+                </div>
+                <div class="asm-scale-card">
+                  <div class="asm-scale-value">500K</div>
+                  <div class="asm-scale-segment">PB Admins</div>
+                  <div class="asm-scale-desc">Private Banking</div>
+                </div>
               </div>
             </div>
           </div>
@@ -700,58 +737,10 @@
           <p class="cs-text">The primary ASM user is a small business owner like Janet — someone running a local business who needs to give trusted employees the right level of access to company accounts, without needing a banking or IT background to do it.</p>
         </div>
 
-        <div class="asm-janet-grid fade-in">
-          <div class="asm-janet-profile">
-            <div class="asm-janet-header">
-              <div class="asm-janet-avatar">J</div>
-              <div>
-                <div class="asm-janet-name">Janet</div>
-                <div class="asm-janet-title">Small Business Owner · Bakery</div>
-              </div>
-            </div>
-            <div class="asm-janet-bio">Janet runs a thriving local bakery and handles her own banking. She delegates financial tasks to trusted employees but wants confidence that each person only has access to what they need. She values simplicity above all: she shouldn't need to read documentation to add a new hire or change a permission.</div>
-          </div>
-          <div>
-            <p style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 12px;">Janet's 5 Employee Types &amp; Their Access Needs</p>
-            <div class="asm-employee-list">
-              <div class="asm-employee-item">
-                <div class="asm-employee-dot"></div>
-                <div>
-                  <div class="asm-employee-role">Business Partner</div>
-                  <div class="asm-employee-access">Co-owner level · Full account visibility</div>
-                </div>
-              </div>
-              <div class="asm-employee-item">
-                <div class="asm-employee-dot"></div>
-                <div>
-                  <div class="asm-employee-role">CFO</div>
-                  <div class="asm-employee-access">Financial reporting · Payment approval</div>
-                </div>
-              </div>
-              <div class="asm-employee-item">
-                <div class="asm-employee-dot"></div>
-                <div>
-                  <div class="asm-employee-role">Bookkeeper</div>
-                  <div class="asm-employee-access">Transaction view · Reconciliation tools</div>
-                </div>
-              </div>
-              <div class="asm-employee-item">
-                <div class="asm-employee-dot"></div>
-                <div>
-                  <div class="asm-employee-role">Accountant</div>
-                  <div class="asm-employee-access">Read-only statements · Tax documents</div>
-                </div>
-              </div>
-              <div class="asm-employee-item">
-                <div class="asm-employee-dot"></div>
-                <div>
-                  <div class="asm-employee-role">Accounts Payable / Receivable</div>
-                  <div class="asm-employee-access">Invoice management · Payment initiation</div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="fade-in" style="margin-top:28px;">
+          <img src="../assets/images/jpmorgan/ASM customer.png" alt="Janet — small business owner customer ecosystem diagram showing her 5 employee types and their access relationships" style="width:100%; display:block; border-radius:var(--radius-md);" />
         </div>
+
       </div>
     </section>
 
@@ -782,7 +771,20 @@
           </div>
         </div>
 
-        <div class="cs-callout fade-in" style="margin-top: 36px;">
+        <div class="fade-in" style="margin-top:36px;">
+          <img src="../assets/images/jpmorgan/ASM original design.png" alt="ASM original design — the existing permissions interface showing its complexity and fragmented layout" style="width:100%; display:block; border-radius:var(--radius-md);" />
+        </div>
+      </div>
+    </section>
+
+    <!-- What We Heard -->
+    <section class="cs-section">
+      <div class="container">
+        <div class="fade-in">
+          <p class="cs-section-label">What We Heard</p>
+          <h2 class="cs-section-title">Straight From Our Customers</h2>
+        </div>
+        <div class="cs-callout fade-in" style="margin-top: 28px;">
           <p>"I like having other people sign in to the account and have access — but it's not the most streamlined process."</p>
           <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 10px; margin-bottom: 0;">— Business Banking Customer, September 2023</p>
         </div>
@@ -790,7 +792,7 @@
     </section>
 
     <!-- Cross-Functional Alignment -->
-    <section class="cs-section">
+    <section class="cs-section cs-section--alt">
       <div class="container">
         <div class="fade-in">
           <p class="cs-section-label">Cross-Functional Alignment</p>
@@ -856,7 +858,7 @@
     </section>
 
     <!-- ─────────── PHASE 01: ALIGN ─────────── -->
-    <section class="cs-section cs-section--alt">
+    <section class="cs-section">
       <div class="container">
         <div class="asm-phase-banner fade-in">
           <div class="asm-phase-num">01</div>
@@ -926,7 +928,7 @@
           <div class="cs-okr-card">
             <div class="cs-okr-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
             <div class="cs-okr-title">Time Spent</div>
-            <div class="cs-okr-desc">Decrease support call volume by enabling customers to self-serve confidently — reducing burden on Chase's client service teams.</div>
+            <div class="cs-okr-desc">Decrease support call volume by enabling customers to self-serve confidently — reducing burden on the bank's client service teams.</div>
           </div>
           <div class="cs-okr-card">
             <div class="cs-okr-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
@@ -955,49 +957,8 @@
           <p class="cs-text">I structured discovery as a sequenced research program — each milestone building on the last, from platform assessment through validated concept directions. The goal was a complete evidence base before any design direction was committed to.</p>
         </div>
 
-        <div class="asm-timeline fade-in">
-          <div class="asm-timeline-item asm-timeline-item--active">
-            <div class="asm-timeline-dot"><div class="asm-timeline-dot-inner"></div></div>
-            <div class="asm-timeline-date">2023</div>
-            <div class="asm-timeline-title">Profile Harmonization — Quant &amp; Qual Studies</div>
-            <div class="asm-timeline-detail">25 cross-functional attendees. Combined quantitative and qualitative research to validate top SMB personas, jobs-to-be-done, and entitlement patterns across Business Banking.</div>
-          </div>
-          <div class="asm-timeline-item asm-timeline-item--active">
-            <div class="asm-timeline-dot"><div class="asm-timeline-dot-inner"></div></div>
-            <div class="asm-timeline-date">2023–2024</div>
-            <div class="asm-timeline-title">ASM CX Assessment — Service Blueprint &amp; Heuristic Evaluation</div>
-            <div class="asm-timeline-detail">14 evaluators assessed 3 core use cases using a CX framework. Produced 100+ RICE-prioritized CX gaps and a full end-to-end service blueprint mapped to 3 customer scenarios.</div>
-          </div>
-          <div class="asm-timeline-item asm-timeline-item--active">
-            <div class="asm-timeline-dot"><div class="asm-timeline-dot-inner"></div></div>
-            <div class="asm-timeline-date">2024</div>
-            <div class="asm-timeline-title">Future State Explorations — Blue Sky Concepts &amp; BRM Advisory</div>
-            <div class="asm-timeline-detail">De-risked new concepts by gathering early insights from BRMs and customers through concept sketching and testing. Two distinct prototypes built from research, gap discovery, and team collaboration.</div>
-          </div>
-          <div class="asm-timeline-item asm-timeline-item--active">
-            <div class="asm-timeline-dot"><div class="asm-timeline-dot-inner"></div></div>
-            <div class="asm-timeline-date">October 2024</div>
-            <div class="asm-timeline-title">Co-Creation Workshop — 2-Day Session</div>
-            <div class="asm-timeline-detail">Collaborative 2-day workshop with the ASM Quad, product partners, and 6 SB customers. Co-designed 4 user-centric solution concepts and tested them on Day 2.</div>
-          </div>
-          <div class="asm-timeline-item asm-timeline-item--active">
-            <div class="asm-timeline-dot"><div class="asm-timeline-dot-inner"></div></div>
-            <div class="asm-timeline-date">2024</div>
-            <div class="asm-timeline-title">Benchmark Test — Current State Experience</div>
-            <div class="asm-timeline-detail">Usability benchmark with 250+ BB/CML/PB users across 3 task flows. Validated identified gaps and established a baseline to measure the redesign against.</div>
-          </div>
-        </div>
-
-        <!-- VISUAL SLOT: Discovery timeline artifact -->
-        <div class="asm-visual-slot fade-in">
-          <div class="asm-visual-slot-body">
-            <div class="asm-visual-slot-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            </div>
-            <div class="asm-visual-slot-label">Discovery Journey — Timeline Visual</div>
-            <div class="asm-visual-slot-hint">Add a screenshot or export of the full discovery roadmap slide — the 2014–2025 horizontal timeline showing all milestones from CX Assessment through Design MVP.</div>
-          </div>
-          <div class="asm-visual-slot-caption"><p>Discovery roadmap showing 5 milestones from ASM CX Assessment through MVP Entitlement Feature Enhancements, 2014–2025.</p></div>
+        <div class="fade-in" style="margin-top:28px;">
+          <img src="../assets/images/jpmorgan/discovery journey.png" alt="Discovery journey timeline showing 5 research milestones from CX Assessment through MVP delivery, 2023–2025" style="width:100%; display:block; border-radius:var(--radius-md);" />
         </div>
 
         <!-- Personas -->
@@ -1009,41 +970,35 @@
 
         <div class="asm-persona-grid fade-in">
           <div class="asm-persona-card">
-            <div class="asm-persona-initial">BO</div>
+            <img src="../assets/images/jpmorgan/business owner.png" alt="Business Owner persona" style="width:100%; display:block; border-radius:var(--radius-sm); margin-bottom:12px;" />
             <div class="asm-persona-name">Business Owner</div>
             <div class="asm-persona-title">Authorized Representative</div>
             <div class="asm-persona-desc">Primary account holder with full authority over all access decisions. Delegates to others but needs confidence that controls are in place. Often has low platform fluency.</div>
           </div>
           <div class="asm-persona-card">
-            <div class="asm-persona-initial">M</div>
+            <img src="../assets/images/jpmorgan/Manager.png" alt="Manager persona" style="width:100%; display:block; border-radius:var(--radius-sm); margin-bottom:12px;" />
             <div class="asm-persona-name">Manager</div>
             <div class="asm-persona-title">Signer</div>
             <div class="asm-persona-desc">Can initiate and approve payments. Needs to understand their own access limits and quickly onboard or adjust access for team members within their scope.</div>
           </div>
           <div class="asm-persona-card">
-            <div class="asm-persona-initial">BK</div>
+            <img src="../assets/images/jpmorgan/Bookkeeper.png" alt="Bookkeeper persona" style="width:100%; display:block; border-radius:var(--radius-sm); margin-bottom:12px;" />
             <div class="asm-persona-name">Bookkeeper</div>
             <div class="asm-persona-title">Sub-User / Account Controller</div>
             <div class="asm-persona-desc">Manages day-to-day transactions and reconciliation. Needs account data access without payment authority — a precise permission slice the current platform makes hard to configure.</div>
           </div>
           <div class="asm-persona-card">
-            <div class="asm-persona-initial">AC</div>
+            <img src="../assets/images/jpmorgan/Accountant.png" alt="Accountant persona" style="width:100%; display:block; border-radius:var(--radius-sm); margin-bottom:12px;" />
             <div class="asm-persona-name">Accountant</div>
             <div class="asm-persona-title">Sub-User / Account Associate</div>
             <div class="asm-persona-desc">Needs read-only access to statements and tax documents. Over-provisioning this role creates compliance risk, yet least-privilege is difficult to achieve in the current platform.</div>
           </div>
         </div>
 
-        <!-- VISUAL SLOT: Persona framework -->
-        <div class="asm-visual-slot fade-in">
-          <div class="asm-visual-slot-body">
-            <div class="asm-visual-slot-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <div class="asm-visual-slot-label">Persona Framework — Workshop Output</div>
-            <div class="asm-visual-slot-hint">Add the persona cards or workshop output showing the 4 validated SMB personas with their JTBDs, access needs, and entitlement complexity — ideally the actual deliverable shared with stakeholders.</div>
-          </div>
-          <div class="asm-visual-slot-caption"><p>SMB persona framework defining 4 archetypes from sole proprietor (Business Owner / Authorized Rep) through Account Associate, validated across 25 cross-functional attendees.</p></div>
+        <div class="fade-in" style="margin-top:36px;">
+          <p style="font-size:0.82rem; font-weight:600; color:var(--text); margin-bottom:6px;">Profile Harmonization Workshop</p>
+          <p class="cs-text" style="margin-bottom:14px;">The profile harmonization workshop brought together 25 cross-functional attendees to align on a shared set of SMB personas — validating the Business Owner archetype as the primary ASM user and establishing a common language across product, marketing, and customer success.</p>
+          <img src="../assets/images/jpmorgan/profile harm business owner.png" alt="Profile harmonization — business owner workshop output" style="width:100%; display:block; border-radius:var(--radius-md);" />
         </div>
 
         <!-- Customer themes -->
@@ -1082,7 +1037,58 @@
           <div class="asm-theme-card">
             <div class="asm-theme-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
             <div class="asm-theme-name">One Bank View</div>
-            <div class="asm-theme-desc">Unified view of access across all Chase products — no managing permissions in separate silos per account type.</div>
+            <div class="asm-theme-desc">Unified view of access across all banking products — no managing permissions in separate silos per account type.</div>
+          </div>
+        </div>
+
+        <!-- Quant Study Results -->
+        <div class="asm-subsection fade-in">
+          <p class="cs-section-label">Profile Harmonization Quant Study</p>
+          <h2 class="cs-section-title">Quant Study Results — Executive Summary</h2>
+          <p class="cs-text"><strong>Goal:</strong> To identify the "actors of influence" that SBOs work and consult with in their businesses. (Sept. 2023)</p>
+        </div>
+
+        <div class="asm-findings-grid fade-in" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="asm-finding-card">
+            <div class="asm-finding-title">Top Personas</div>
+            <div class="asm-finding-desc">
+              <strong>1. Business Owner · 2. Accountant · 3. Accounts Payable &amp; Receivable · 4. Bookkeeper · 5. Business Partner · 6. CFO · 7. Accounts Payable</strong><br/><br/>
+              <span style="font-size:0.75rem;">4 personas consistent with prior work. 3 new: AP&amp;R, CFO, AP. General Manager removed.</span>
+            </div>
+          </div>
+          <div class="asm-finding-card">
+            <div class="asm-finding-title">Top 5 Jobs to Be Done</div>
+            <div class="asm-finding-desc">Access to accounts for: Paying bills · Paying employees · Receiving payments · Analyzing business finances · Add/remove employees &amp; vendors to financial accounts</div>
+          </div>
+          <div class="asm-finding-card">
+            <div class="asm-finding-title">Top 5 Entitlements Turned On</div>
+            <div class="asm-finding-desc">1. See &amp; refund transactions on Smart Terminal and POS app · 2. View activity and balance · 3. View and download tax documents · 4. Bill pay · 5. View statements, documents, and disclosures</div>
+          </div>
+        </div>
+
+        <!-- Understand Our Product -->
+        <div class="asm-subsection fade-in">
+          <p class="cs-section-label">Discovery Journey — Step 2</p>
+          <h2 class="cs-section-title">Understand Our Product</h2>
+          <p class="cs-text"><strong>Activity:</strong> ASM CX Assessment &nbsp;·&nbsp; <strong>Outcome:</strong> Prioritized gaps in our ASM product backlog.</p>
+        </div>
+
+        <div class="asm-findings-grid fade-in" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="asm-finding-card" style="border-left-color: var(--accent);">
+            <div class="asm-finding-title" style="color: var(--accent);">Design</div>
+            <div class="asm-finding-desc">Understand our ASM entitlement experience</div>
+          </div>
+          <div class="asm-finding-card" style="border-left-color: var(--phase-teal);">
+            <div class="asm-finding-title" style="color: var(--phase-teal);">Data</div>
+            <div class="asm-finding-desc">Understand the data usage</div>
+          </div>
+          <div class="asm-finding-card" style="border-left-color: var(--phase-amber);">
+            <div class="asm-finding-title" style="color: var(--phase-amber);">Tech</div>
+            <div class="asm-finding-desc">Understand constraints on legacy platforms (e.g. GWS) that affect the customer experience</div>
+          </div>
+          <div class="asm-finding-card" style="border-left-color: var(--phase-purple);">
+            <div class="asm-finding-title" style="color: var(--phase-purple);">Product</div>
+            <div class="asm-finding-desc">Understand where the pain points are within our product entitlements</div>
           </div>
         </div>
 
@@ -1198,75 +1204,142 @@
           </div>
         </div>
 
-        <!-- VISUAL SLOT: Service Blueprint -->
-        <div class="asm-visual-slot fade-in">
-          <div class="asm-visual-slot-body">
-            <div class="asm-visual-slot-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-            </div>
-            <div class="asm-visual-slot-label">Service Blueprint — ASM End-to-End Journey</div>
-            <div class="asm-visual-slot-hint">Add a screenshot or export of the service blueprint artifact — ideally a section showing the gap categories mapped to the customer journey, or the RICE-prioritized backlog visual.</div>
-          </div>
-          <div class="asm-visual-slot-caption"><p>End-to-end service blueprint mapping customer touchpoints to backstage dependencies, gap types, and prioritized opportunities across Business Banking &amp; Digital scope.</p></div>
+        <div class="fade-in" style="margin-top:36px;">
+          <p style="font-size:0.82rem; font-weight:600; color:var(--text); margin-bottom:6px;">RICE Prioritization Matrix</p>
+          <p class="cs-text" style="margin-bottom:14px;">Each opportunity was scored across desirability and feasibility dimensions — customer need, employee impact, technical complexity, and dependencies — to produce a total RICE score that anchored the design backlog and stakeholder prioritization conversations.</p>
+          <img src="../assets/images/jpmorgan/RICE.png" alt="RICE prioritization matrix scoring CX opportunities across desirability and feasibility" style="width:100%; display:block; border-radius:var(--radius-md);" />
         </div>
-      </div>
-    </section>
 
-    <!-- ─────────── PHASE 03: DEFINE ─────────── -->
-    <section class="cs-section cs-section--alt">
-      <div class="container">
-        <div class="asm-phase-banner asm-phase-banner--define fade-in">
-          <div class="asm-phase-num">03</div>
+        <div class="fade-in" style="margin-top:36px;">
+          <p style="font-size:0.82rem; font-weight:600; color:var(--text); margin-bottom:6px;">Service Blueprint</p>
+          <p class="cs-text" style="margin-bottom:14px;">The service blueprint maps the end-to-end experience of a business owner managing employee access — from initial setup through ongoing changes — connecting frontstage customer actions to backstage systems and surfacing the moments of friction, confusion, and drop-off that the redesign needed to address.</p>
+          <img src="../assets/images/jpmorgan/journey map.png" alt="ASM journey map — customer experience mapped across touchpoints, pain points, and opportunities" style="width:100%; display:block; border-radius:var(--radius-md);" />
+        </div>
+
+        <div class="fade-in" style="margin-top:36px;">
+          <p style="font-size:0.82rem; font-weight:600; color:var(--text); margin-bottom:6px;">Heuristic Evaluation</p>
+          <p class="cs-text" style="margin-bottom:14px;">The heuristic evaluation assessed ASM across 3 core use cases — adding a user, editing permissions, and removing access — rating each against a CX framework to surface the most critical usability failures.</p>
+          <img src="../assets/images/jpmorgan/heuristic.png" alt="Heuristic evaluation — ASM CX assessment findings across 3 core use cases" style="width:100%; display:block; border-radius:var(--radius-md);" />
+        </div>
+
+        <!-- Future State Explorations -->
+        <div class="asm-subsection fade-in">
+          <p class="cs-section-label">Future State Explorations</p>
+          <h2 class="cs-section-title">From Assessment to Vision</h2>
+          <p class="cs-text">With a clear evidence base established, the team moved into future state exploration — testing role-based template concepts with BRMs, running blue sky concept tests, co-creating with customers, and benchmarking the current experience.</p>
+        </div>
+
+        <!-- BRM Advisory -->
+        <div class="asm-subsection fade-in">
+          <p class="cs-section-label">BRM Advisory Board</p>
+          <h2 class="cs-section-title">Strong Enthusiasm for Role Templates — With Important Nuance</h2>
+          <p class="cs-text">BRMs provided strong enthusiasm and support for role-based templates as a concept. The advisory conversations also revealed that the nuances of what permissions are best for each role template — and how to handle custom roles — required further research before locking in a specific approach.</p>
+
+          <div class="asm-hypothesis">
+            <div class="asm-hypothesis-label">Role Template Framework Emerging</div>
+            <div class="asm-hypothesis-text"><strong>Business Owner / Leaders</strong> (all entitlements on) · <strong>Strategic Financial Roles</strong> — Accountant, Bookkeeper (all on except certain Checking/Credit card permissions) · <strong>Operational Financial Roles</strong> — AP/AR (operational access only).</div>
+          </div>
+        </div>
+
+        <!-- Blue Sky Concept Test -->
+        <div class="asm-subsection fade-in">
+          <p class="cs-section-label">Blue Sky Concept Test</p>
+          <h2 class="cs-section-title">Concepts Tested</h2>
+          <p class="cs-text">We kicked off the design of the blue sky concepts with two distinct prototypes based on ideas pulled from research, gap discovery work, heuristic evaluations, and collaboration from the entire product team.</p>
+        </div>
+
+        <div class="fade-in" style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:28px;">
           <div>
-            <div class="asm-phase-label">Phase Three</div>
-            <div class="asm-phase-title">Define</div>
-            <div class="asm-phase-question">Which entitlement experience solves our customer's needs?</div>
+            <p style="font-size:0.82rem; font-weight:600; color:var(--text); margin-bottom:6px;">Prototype A — User-Focused Concept</p>
+            <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:12px; line-height:1.5;">A reimagined Access & Security Manager dashboard giving admins an at-a-glance summary of user actions, pending transactions, and their own profile — reducing time-to-task from the first screen.</p>
+            <img src="../assets/images/jpmorgan/North Star 2.png" alt="Prototype A — user-focused Access & Security Manager dashboard" style="width:100%; display:block; border-radius:var(--radius-md);" />
+          </div>
+          <div>
+            <p style="font-size:0.82rem; font-weight:600; color:var(--text); margin-bottom:6px;">Prototype B — Company-Focused Concept</p>
+            <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:12px; line-height:1.5;">A refreshed Access Manager home with a consolidated user list, quick-action shortcuts, and a proactive Insights panel surfacing security alerts and pending approvals in context.</p>
+            <img src="../assets/images/jpmorgan/North Star 1.png" alt="Prototype B — company-focused Access Manager with insights panel" style="width:100%; display:block; border-radius:var(--radius-md);" />
           </div>
         </div>
 
-        <div class="fade-in">
+        <div class="asm-subsection fade-in">
+          <h3 class="asm-sub-title">What the Prototypes Revealed</h3>
+        </div>
+
+        <div class="asm-findings-grid fade-in" style="grid-template-columns: repeat(5, 1fr);">
+          <div class="asm-finding-card">
+            <div class="asm-finding-title">Company Categorization</div>
+            <div class="asm-finding-desc">Useful for large accounts — added noise for smaller ones. Needs to adapt to business size.</div>
+          </div>
+          <div class="asm-finding-card">
+            <div class="asm-finding-title">Accounts First</div>
+            <div class="asm-finding-desc">Users preferred choosing accounts before entitling — a key mental model shift that reshaped the flow.</div>
+          </div>
+          <div class="asm-finding-card">
+            <div class="asm-finding-title">Combined Tab</div>
+            <div class="asm-finding-desc">Merging Account &amp; Security tabs was overwhelmingly successful for helping users find ASM.</div>
+          </div>
+          <div class="asm-finding-card">
+            <div class="asm-finding-title">Step Navigation</div>
+            <div class="asm-finding-desc">Horizontal step navigation with reduced steps received strong positive feedback.</div>
+          </div>
+          <div class="asm-finding-card">
+            <div class="asm-finding-title">User vs. Company</div>
+            <div class="asm-finding-desc">Both concepts tested equally well — for different reasons: scannability vs. proactive insights.</div>
+          </div>
+        </div>
+
+        <!-- Co-Creation Workshop -->
+        <div class="asm-subsection fade-in">
           <p class="cs-section-label">Co-Creation Workshop</p>
           <h2 class="cs-section-title">Four Concepts, Co-Designed With Customers</h2>
-          <p class="cs-text">Workshop goal: conceptualize a next-gen entitlements experience enabling business owners to quickly, confidently, and securely assign permissions based on employee roles. By end of Day 2, the ASM Quad, product partners, and 6 SB customers had co-designed and tested 4 user-centric solutions.</p>
+          <p class="cs-text"><strong>Workshop goal:</strong> conceptualize a next-gen entitlements experience enabling business owners to quickly, confidently, and securely assign permissions based on employee roles. By end of Day 2, the ASM Quad, product partners, and 6 SB customers had co-designed and tested 4 user-centric solutions.</p>
         </div>
 
         <div class="asm-concept-grid fade-in">
-          <div class="asm-concept-card">
-            <div class="asm-concept-num">Concept 01</div>
-            <div class="asm-concept-title">JTBD-Based Entitlement</div>
-            <div class="asm-concept-desc">"What do you want this person to do?" — surfacing permissions by task rather than by system category. Entitlement is organized around jobs-to-be-done.</div>
-            <div class="asm-concept-tag">User-focused</div>
-          </div>
-          <div class="asm-concept-card">
-            <div class="asm-concept-num">Concept 02</div>
-            <div class="asm-concept-title">Role-Based Templates + AI Assist</div>
-            <div class="asm-concept-desc">Permission templates by role (Accountant, Co-owner, Operations) with an AI-powered chatbot to guide setup, answer questions, and help configure custom roles.</div>
-            <div class="asm-concept-tag">AI-assisted</div>
-          </div>
-          <div class="asm-concept-card">
-            <div class="asm-concept-num">Concept 03</div>
-            <div class="asm-concept-title">AI-Guided Role Recommender</div>
-            <div class="asm-concept-desc">"What best describes this person's role?" — guides the user to a list of recommended roles with viewable permission details before the user confirms the assignment.</div>
-            <div class="asm-concept-tag">Guided flow</div>
-          </div>
-          <div class="asm-concept-card">
-            <div class="asm-concept-num">Concept 04</div>
-            <div class="asm-concept-title">Activity-Based Entitlement</div>
-            <div class="asm-concept-desc">Align entitlements with real-world day-to-day activities: "View Money Movement, Send Money, Receive Money, Approve/Control Money, Payroll" — making permissions tangible.</div>
-            <div class="asm-concept-tag">Activity-aligned</div>
-          </div>
-        </div>
-
-        <!-- VISUAL SLOT: Co-Creation workshop -->
-        <div class="asm-visual-slot fade-in">
-          <div class="asm-visual-slot-body">
-            <div class="asm-visual-slot-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <div class="asm-concept-card" style="padding:0; overflow:hidden;">
+            <div style="background:var(--surface-2); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; padding:12px;">
+              <img src="../assets/images/jpmorgan/concept 1.png" alt="Concept 01 — JTBD-Based Entitlement" style="width:100%; height:100%; object-fit:contain;" />
             </div>
-            <div class="asm-visual-slot-label">Co-Creation Workshop — Activities &amp; Outputs</div>
-            <div class="asm-visual-slot-hint">Add a photo from the workshop session or a screenshot of the 4 concept wireframes side-by-side — showing the range of directions explored with customers and product partners on Day 1.</div>
+            <div style="padding:20px 24px;">
+              <div class="asm-concept-num">Concept 01</div>
+              <div class="asm-concept-title">JTBD-Based Entitlement</div>
+              <div class="asm-concept-desc">"What do you want this person to do?" — surfacing permissions by task rather than by system category. Entitlement is organized around jobs-to-be-done.</div>
+              <div class="asm-concept-tag">User-focused</div>
+            </div>
           </div>
-          <div class="asm-visual-slot-caption"><p>2-day co-creation workshop with the ASM Quad, affected product partners, and 6 SB customers — producing 4 co-designed entitlement concept directions tested on Day 2.</p></div>
+          <div class="asm-concept-card" style="padding:0; overflow:hidden;">
+            <div style="background:var(--surface-2); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; padding:12px;">
+              <img src="../assets/images/jpmorgan/concept 2.png" alt="Concept 02 — Role-Based Templates + AI Assist" style="width:100%; height:100%; object-fit:contain;" />
+            </div>
+            <div style="padding:20px 24px;">
+              <div class="asm-concept-num">Concept 02</div>
+              <div class="asm-concept-title">Role-Based Templates + AI Assist</div>
+              <div class="asm-concept-desc">Permission templates by role (Accountant, Co-owner, Operations) with an AI-powered chatbot to guide setup, answer questions, and help configure custom roles.</div>
+              <div class="asm-concept-tag">AI-assisted</div>
+            </div>
+          </div>
+          <div class="asm-concept-card" style="padding:0; overflow:hidden;">
+            <div style="background:var(--surface-2); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; padding:12px;">
+              <img src="../assets/images/jpmorgan/concept 3.png" alt="Concept 03 — AI-Guided Role Recommender" style="width:100%; height:100%; object-fit:contain;" />
+            </div>
+            <div style="padding:20px 24px;">
+              <div class="asm-concept-num">Concept 03</div>
+              <div class="asm-concept-title">AI-Guided Role Recommender</div>
+              <div class="asm-concept-desc">"What best describes this person's role?" — guides the user to a list of recommended roles with viewable permission details before the user confirms the assignment.</div>
+              <div class="asm-concept-tag">Guided flow</div>
+            </div>
+          </div>
+          <div class="asm-concept-card" style="padding:0; overflow:hidden;">
+            <div style="background:var(--surface-2); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; padding:12px;">
+              <img src="../assets/images/jpmorgan/concept 4.png" alt="Concept 04 — Activity-Based Entitlement" style="width:100%; height:100%; object-fit:contain;" />
+            </div>
+            <div style="padding:20px 24px;">
+              <div class="asm-concept-num">Concept 04</div>
+              <div class="asm-concept-title">Activity-Based Entitlement</div>
+              <div class="asm-concept-desc">Align entitlements with real-world day-to-day activities: "View Money Movement, Send Money, Receive Money, Approve/Control Money, Payroll" — making permissions tangible.</div>
+              <div class="asm-concept-tag">Activity-aligned</div>
+            </div>
+          </div>
         </div>
 
         <!-- Key findings -->
@@ -1292,56 +1365,6 @@
           <div class="asm-finding-card">
             <div class="asm-finding-title">Role and Entitlement Clarity</div>
             <div class="asm-finding-desc">Clear, accurate categorization of roles and entitlements is critical. Customers need to understand what each permission actually does before they can assign it confidently.</div>
-          </div>
-        </div>
-
-        <!-- Blue Sky + Benchmark -->
-        <div class="asm-subsection fade-in">
-          <p class="cs-section-label">Blue Sky Concept Test</p>
-          <h2 class="cs-section-title">What the Prototypes Revealed</h2>
-          <p class="cs-text">Two distinct prototypes were built from research findings and tested with customers. The results surfaced four critical design decisions that reshaped the flow architecture.</p>
-        </div>
-
-        <div class="asm-findings-grid fade-in">
-          <div class="asm-finding-card">
-            <div class="asm-finding-title">Company Categorization</div>
-            <div class="asm-finding-desc">Categorizing users by company was useful for those with many users and companies — but added noise for those who didn't. Needs to be adaptive to business size.</div>
-          </div>
-          <div class="asm-finding-card">
-            <div class="asm-finding-title">Accounts First</div>
-            <div class="asm-finding-desc">Users preferred choosing accounts first, then entitling. This mental model inversion was a critical insight that reshaped the flow architecture for all subsequent concepts.</div>
-          </div>
-          <div class="asm-finding-card">
-            <div class="asm-finding-title">Combined Account &amp; Security Tab</div>
-            <div class="asm-finding-desc">Combining Account management and Security tabs was overwhelmingly successful for finding ASM. A single access point dramatically improved navigation discoverability.</div>
-          </div>
-          <div class="asm-finding-card">
-            <div class="asm-finding-title">User vs. Company Focus</div>
-            <div class="asm-finding-desc">Both concepts were preferred equally — but for different reasons. User-focused = scannability &amp; findability. Company-focused = proactive insights usefulness. Both signals matter.</div>
-          </div>
-        </div>
-
-        <!-- VISUAL SLOT: Blue Sky prototypes -->
-        <div class="asm-visual-2up fade-in">
-          <div class="asm-visual-slot">
-            <div class="asm-visual-slot-body">
-              <div class="asm-visual-slot-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              </div>
-              <div class="asm-visual-slot-label">Prototype A — User-Focused Concept</div>
-              <div class="asm-visual-slot-hint">Add screenshot of the user-focused blue sky prototype showing the combined Access &amp; Security tab and user-centric dashboard layout.</div>
-            </div>
-            <div class="asm-visual-slot-caption"><p>Blue sky concept A: unified Access &amp; Security manager with user-centric dashboard, insights panel, and combined navigation.</p></div>
-          </div>
-          <div class="asm-visual-slot">
-            <div class="asm-visual-slot-body">
-              <div class="asm-visual-slot-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              </div>
-              <div class="asm-visual-slot-label">Prototype B — Company-Focused Concept</div>
-              <div class="asm-visual-slot-hint">Add screenshot of the company-focused prototype showing company-grouped user lists, proactive insights surface, and the horizontal step navigation that tested well.</div>
-            </div>
-            <div class="asm-visual-slot-caption"><p>Blue sky concept B: company-grouped navigation, proactive security insights, and reduced-step horizontal flow.</p></div>
           </div>
         </div>
 
@@ -1384,15 +1407,15 @@
       </div>
     </section>
 
-    <!-- ─────────── PHASE 04: DESIGN ─────────── -->
-    <section class="cs-section">
+    <!-- ─────────── PHASE 03: DEFINE ─────────── -->
+    <section class="cs-section cs-section--alt">
       <div class="container">
-        <div class="asm-phase-banner asm-phase-banner--design fade-in">
-          <div class="asm-phase-num">04</div>
+        <div class="asm-phase-banner asm-phase-banner--define fade-in">
+          <div class="asm-phase-num">03</div>
           <div>
-            <div class="asm-phase-label">Phase Four</div>
-            <div class="asm-phase-title">Design</div>
-            <div class="asm-phase-question">Define, refine, and test our next-gen entitlement experiences.</div>
+            <div class="asm-phase-label">Phase Three</div>
+            <div class="asm-phase-title">Define</div>
+            <div class="asm-phase-question">Define, refine, and test our entitlement experience concepts.</div>
           </div>
         </div>
 
@@ -1403,44 +1426,79 @@
         </div>
 
         <div class="asm-concept-grid fade-in">
-          <div class="asm-concept-card">
-            <div class="asm-concept-num">Direction 01</div>
-            <div class="asm-concept-title">Jobs to Be Done</div>
-            <div class="asm-concept-desc">Tabbed grouping: Money Movement, See Activity, Manage Employees, Communications. Permissions organized by what the user needs to do — not by system category.</div>
-          </div>
-          <div class="asm-concept-card">
-            <div class="asm-concept-num">Direction 02</div>
-            <div class="asm-concept-title">Product Grouping</div>
-            <div class="asm-concept-desc">Permissions grouped by financial product — Checking, Credit Card, Merchant Services, Tax Actions. Account-first navigation with a left sidebar tracking which account is being edited.</div>
-          </div>
-          <div class="asm-concept-card">
-            <div class="asm-concept-num">Direction 03</div>
-            <div class="asm-concept-title">Tiers</div>
-            <div class="asm-concept-desc">Most closely represents current state — with targeted improvements for clarity, hierarchy, and navigation. Serves as the benchmark against which the other directions are measured.</div>
-          </div>
-        </div>
-
-        <!-- VISUAL SLOT: 3 refined directions -->
-        <div class="asm-visual-slot fade-in">
-          <div class="asm-visual-slot-body">
-            <div class="asm-visual-slot-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          <div class="asm-concept-card" style="padding:0; overflow:hidden;">
+            <div style="background:var(--surface-2); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; padding:12px;">
+              <img src="../assets/images/jpmorgan/new concept 1.png" alt="Direction 01 — Jobs to Be Done" style="width:100%; height:100%; object-fit:contain;" />
             </div>
-            <div class="asm-visual-slot-label">Refined Concepts — 3 Entitlement Directions</div>
-            <div class="asm-visual-slot-hint">Add the three entitlement prototype screenshots side-by-side: JTBD (tabbed by financial job), Product Grouping (by account/product with sidebar), and Tiers (hierarchy-based, closest to current state).</div>
+            <div style="padding:20px 24px;">
+              <div class="asm-concept-num">Direction 01</div>
+              <div class="asm-concept-title">Jobs to Be Done</div>
+              <div class="asm-concept-desc">Tabbed grouping: Money Movement, See Activity, Manage Employees, Communications. Permissions organized by what the user needs to do — not by system category.</div>
+            </div>
           </div>
-          <div class="asm-visual-slot-caption"><p>Three refined entitlement directions tested with BRMs and customers — JTBD grouping, Product grouping with account sidebar, and Tier-based hierarchy.</p></div>
+          <div class="asm-concept-card" style="padding:0; overflow:hidden;">
+            <div style="background:var(--surface-2); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; padding:12px;">
+              <img src="../assets/images/jpmorgan/new concept 2.png" alt="Direction 02 — Product Grouping" style="width:100%; height:100%; object-fit:contain;" />
+            </div>
+            <div style="padding:20px 24px;">
+              <div class="asm-concept-num">Direction 02</div>
+              <div class="asm-concept-title">Product Grouping</div>
+              <div class="asm-concept-desc">Permissions grouped by financial product — Checking, Credit Card, Merchant Services, Tax Actions. Account-first navigation with a left sidebar tracking which account is being edited.</div>
+            </div>
+          </div>
+          <div class="asm-concept-card" style="padding:0; overflow:hidden;">
+            <div style="background:var(--surface-2); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; padding:12px;">
+              <img src="../assets/images/jpmorgan/new concept 3.png" alt="Direction 03 — Tiers" style="width:100%; height:100%; object-fit:contain;" />
+            </div>
+            <div style="padding:20px 24px;">
+              <div class="asm-concept-num">Direction 03</div>
+              <div class="asm-concept-title">Tiers</div>
+              <div class="asm-concept-desc">Most closely represents current state — with targeted improvements for clarity, hierarchy, and navigation. Serves as the benchmark against which the other directions are measured.</div>
+            </div>
+          </div>
         </div>
 
-        <!-- BRM Advisory -->
-        <div class="asm-subsection fade-in">
-          <p class="cs-section-label">BRM Advisory Board</p>
-          <h2 class="cs-section-title">Strong Enthusiasm for Role Templates — With Important Nuance</h2>
-          <p class="cs-text">BRMs provided strong enthusiasm and support for role-based templates as a concept. The advisory conversations also revealed that the nuances of what permissions are best for each role template — and how to handle custom roles — required further research before locking in a specific approach.</p>
+        <div class="fade-in" style="margin-top:28px;">
+          <p style="font-size:0.82rem; font-weight:600; color:var(--text); margin-bottom:6px;">Dual Track Roadmap</p>
+          <p class="cs-text" style="margin-bottom:14px;">Two parallel tracks defined our path forward — Modernization for incremental CX improvements, and Redesign for the full future-state entitlements experience.</p>
+          <img src="../assets/images/jpmorgan/dual track.png" alt="Dual track delivery roadmap — Modernization and Redesign tracks running in parallel" style="width:100%; display:block; border-radius:var(--radius-md); border:1px solid var(--border);" />
+        </div>
 
-          <div class="asm-hypothesis">
-            <div class="asm-hypothesis-label">Role Template Framework Emerging</div>
-            <div class="asm-hypothesis-text"><strong>Business Owner / Leaders</strong> (all entitlements on) · <strong>Strategic Financial Roles</strong> — Accountant, Bookkeeper (all on except certain Checking/Credit card permissions) · <strong>Operational Financial Roles</strong> — AP/AR (operational access only).</div>
+        <div class="asm-subsection fade-in">
+          <p class="cs-section-label">What We Learned</p>
+          <h2 class="cs-section-title">Key Takeaways From Define Phase</h2>
+          <p class="cs-text">Testing three distinct entitlement models surfaced a consistent signal. These learnings directly shaped the design refinement work in Phase 4.</p>
+        </div>
+
+        <div class="asm-findings-grid fade-in" style="grid-template-columns: repeat(3, 1fr); margin-top: 24px;">
+          <div class="asm-finding-card">
+            <div style="font-size:1.5rem; font-weight:700; color:var(--text-muted); line-height:1; margin-bottom:10px;">01</div>
+            <div class="asm-finding-title">Account-First Navigation</div>
+            <div class="asm-finding-desc">Customers consistently wanted to choose accounts before assigning entitlements — a mental model shift that needed to be built into the core flow.</div>
+          </div>
+          <div class="asm-finding-card">
+            <div style="font-size:1.5rem; font-weight:700; color:var(--text-muted); line-height:1; margin-bottom:10px;">02</div>
+            <div class="asm-finding-title">Clear Role Labels</div>
+            <div class="asm-finding-desc">Permission names needed to map to real-world roles and tasks. Jargon-heavy labels eroded confidence — plain language that matched how owners think about their employees was essential.</div>
+          </div>
+          <div class="asm-finding-card">
+            <div style="font-size:1.5rem; font-weight:700; color:var(--text-muted); line-height:1; margin-bottom:10px;">03</div>
+            <div class="asm-finding-title">Flexibility Beyond Templates</div>
+            <div class="asm-finding-desc">Role templates were a strong starting point, but every SBO wanted the ability to fine-tune. Rigid templates felt constraining — customization drove confidence in the final assignment.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── PHASE 04: DESIGN ─────────── -->
+    <section class="cs-section">
+      <div class="container">
+        <div class="asm-phase-banner asm-phase-banner--design fade-in">
+          <div class="asm-phase-num">04</div>
+          <div>
+            <div class="asm-phase-label">Phase Four</div>
+            <div class="asm-phase-title">Design</div>
+            <div class="asm-phase-question">Refine and test the entitlement concepts further with BRMs and customers.</div>
           </div>
         </div>
 
@@ -1450,22 +1508,55 @@
           <h2 class="cs-section-title">What Refined Testing Revealed</h2>
         </div>
 
-        <div class="asm-findings-grid fade-in">
+        <div class="asm-concept-grid fade-in">
+          <div class="asm-concept-card" style="padding:0; overflow:hidden;">
+            <div style="background:var(--surface-2); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; padding:12px;">
+              <img src="../assets/images/jpmorgan/refined concept 1.png" alt="Refined concept 1 — Jobs to Be Done" style="width:100%; height:100%; object-fit:contain;" />
+            </div>
+            <div style="padding:20px 24px;">
+              <div class="asm-concept-num">Refined Direction 01</div>
+              <div class="asm-concept-title">Jobs to Be Done</div>
+              <div class="asm-concept-desc">Tabbed grouping based on common financial jobs to be done — Money Movement, See Activity, Manage Employees, Communications.</div>
+            </div>
+          </div>
+          <div class="asm-concept-card" style="padding:0; overflow:hidden;">
+            <div style="background:var(--surface-2); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; padding:12px;">
+              <img src="../assets/images/jpmorgan/refined concept 2.png" alt="Refined concept 2 — Product Grouping" style="width:100%; height:100%; object-fit:contain;" />
+            </div>
+            <div style="padding:20px 24px;">
+              <div class="asm-concept-num">Refined Direction 02</div>
+              <div class="asm-concept-title">Product Grouping</div>
+              <div class="asm-concept-desc">Permissions grouped by financial products — with a left sidebar tracking which account is being edited.</div>
+            </div>
+          </div>
+          <div class="asm-concept-card" style="padding:0; overflow:hidden;">
+            <div style="background:var(--surface-2); aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; padding:12px;">
+              <img src="../assets/images/jpmorgan/refined concept 3.png" alt="Refined concept 3 — Tiers" style="width:100%; height:100%; object-fit:contain;" />
+            </div>
+            <div style="padding:20px 24px;">
+              <div class="asm-concept-num">Refined Direction 03</div>
+              <div class="asm-concept-title">Tiers</div>
+              <div class="asm-concept-desc">Most closely represents current state — with targeted improvements for clarity, hierarchy, and navigation.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="asm-findings-grid fade-in" style="margin-top:28px;">
           <div class="asm-finding-card">
             <div class="asm-finding-title">User Mental Model</div>
-            <div class="asm-finding-desc">Assigning entitlements by account was more intuitive than selecting accounts for each entitlement. "This approach simply makes sense." — P4. Account-first, entitle-second was consistently preferred.</div>
+            <div class="asm-finding-desc">Many participants felt that assigning entitlements by account was more intuitive than selecting accounts for each entitlement. <em>"This approach simply makes sense."</em> — P4. Account-first, entitle-second was consistently preferred.</div>
           </div>
           <div class="asm-finding-card">
             <div class="asm-finding-title">Navigation and Guidance</div>
-            <div class="asm-finding-desc">Participants wanted more conversational language and guidance. Icons enhanced comprehension and scanning. The account sidebar was particularly helpful for tracking which account was being edited.</div>
+            <div class="asm-finding-desc">Many participants expressed a desire for more conversational language and guidance. Users appreciated the inclusion of icons, which enhanced comprehension and made scanning easier. The sidebar displaying accounts was particularly helpful for identifying which account they were editing.</div>
           </div>
           <div class="asm-finding-card">
             <div class="asm-finding-title">Progress Tracker</div>
-            <div class="asm-finding-desc">The left sidebar in the product categories concept helped users monitor which account they were editing — a critical wayfinding mechanism for multi-account businesses.</div>
+            <div class="asm-finding-desc">The left sidebar in the "product categories" concept, which displays accounts, assists users in monitoring the account they are currently editing — a critical wayfinding mechanism for multi-account businesses.</div>
           </div>
           <div class="asm-finding-card">
             <div class="asm-finding-title">Desired Functionality</div>
-            <div class="asm-finding-desc">"Choose all" in entitlement sections was appreciated for granularity without over-entitling. Users wanted progress saved automatically — not via a manual "save progress" button.</div>
+            <div class="asm-finding-desc">The feedback on the "choose all" feature was varied, but a majority appreciated the ability to select all options in the entitlement section. Many users also expressed a desire for progress to be saved automatically as they navigate between screens, applying changes immediately after submission instead of relying on a "save progress" button.</div>
           </div>
         </div>
 
@@ -1481,49 +1572,49 @@
               <div class="asm-insight-num">1</div>
               <div class="asm-insight-title">Account-First Structure</div>
             </div>
-            <div class="asm-insight-text">Organize accounts on separate pages — let admins select entitlements for each account individually rather than all at once.</div>
+            <div class="asm-insight-text">Consider organizing accounts on separate pages, allowing admins to select entitlements for each account individually.</div>
           </div>
           <div class="asm-insight-item">
             <div class="asm-insight-header">
               <div class="asm-insight-num">2</div>
               <div class="asm-insight-title">Icons for Scanning</div>
             </div>
-            <div class="asm-insight-text">Incorporate section icons for quick scanning — icons significantly improved comprehension in all tested concepts.</div>
+            <div class="asm-insight-text">To enhance user experience, incorporate section icons for quick scanning and visual appeal.</div>
           </div>
           <div class="asm-insight-item">
             <div class="asm-insight-header">
               <div class="asm-insight-num">3</div>
               <div class="asm-insight-title">Sidebar Wayfinding</div>
             </div>
-            <div class="asm-insight-text">Use a sidebar to indicate the account being edited — enabling easy navigation between accounts during the entitlement process.</div>
+            <div class="asm-insight-text">Utilize a sidebar to indicate the account being edited and enable users to easily navigate between accounts.</div>
           </div>
           <div class="asm-insight-item">
             <div class="asm-insight-header">
               <div class="asm-insight-num">4</div>
               <div class="asm-insight-title">Guided Flow Inspiration</div>
             </div>
-            <div class="asm-insight-text">Look to apps like Credit Karma, TurboTax, or Gusto for flow inspiration — these set the mental model for guided financial task completion.</div>
+            <div class="asm-insight-text">Look to successful apps like Credit Karma, Turbo Tax, or Gusto for inspiration on user flow.</div>
           </div>
           <div class="asm-insight-item">
             <div class="asm-insight-header">
               <div class="asm-insight-num">5</div>
               <div class="asm-insight-title">Careful Access Labels</div>
             </div>
-            <div class="asm-insight-text">Avoid using "full access" except for co-owners, admins, or proxy admins — this label creates a cognitive shortcut that leads to dangerous over-entitling.</div>
+            <div class="asm-insight-text">Avoid using "full access" except for co-owners, admins or proxy admins.</div>
           </div>
           <div class="asm-insight-item">
             <div class="asm-insight-header">
               <div class="asm-insight-num">6</div>
               <div class="asm-insight-title">Bulk Selection Controls</div>
             </div>
-            <div class="asm-insight-text">Include a "Choose all" option in entitlement sections — granularity without forcing customers to individually select every permission.</div>
+            <div class="asm-insight-text">Include an option for "Choose all" in entitlement sections for granularity without over-entitling users.</div>
           </div>
           <div class="asm-insight-item">
             <div class="asm-insight-header">
               <div class="asm-insight-num">7</div>
               <div class="asm-insight-title">Segment-Aware Features</div>
             </div>
-            <div class="asm-insight-text">"Copy entitlements" was not well-received by SBOs due to limited accounts — reserve this feature for commercial segment customers.</div>
+            <div class="asm-insight-text">Note that the feature "Copy entitlements" was not well-received by small business owners due to their limited number of accounts.</div>
           </div>
         </div>
       </div>
@@ -1537,70 +1628,41 @@
           <div>
             <div class="asm-phase-label">Phase Five · Current</div>
             <div class="asm-phase-title">Delivery</div>
-            <div class="asm-phase-question">MVP — North Star redesign targeted for Q4 delivery.</div>
+            <div class="asm-phase-question">MVP Entitlements redesign — moving research into production.</div>
           </div>
         </div>
 
         <div class="fade-in">
           <div class="asm-current-badge">Currently in Delivery</div>
           <p class="cs-section-label">Where We Are Today</p>
-          <h2 class="cs-section-title">Two Parallel Tracks to the Future State</h2>
-          <p class="cs-text">The team is currently exploring concepts for a North Star redesign of ASM — focusing on a refreshed landing page and an MVP manual entitlements flow targeted for Q4. Two delivery tracks run in parallel: Modernization (incremental CX gap fixes) and Redesign (the full future-state experience).</p>
+          <h2 class="cs-section-title">From Discovery to Delivery</h2>
+          <p class="cs-text">The team is currently executing the MVP Entitlements redesign — moving the Octagon component work forward by migrating the legacy BlueJS implementation to React, paired with targeted design enhancements that address the highest-priority CX gaps identified across two years of research.</p>
         </div>
 
-        <!-- VISUAL SLOT: Current state redesign prototype -->
-        <div class="asm-visual-slot fade-in">
-          <div class="asm-visual-slot-body">
-            <div class="asm-visual-slot-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            </div>
-            <div class="asm-visual-slot-label">MVP North Star Redesign — Current Prototype</div>
-            <div class="asm-visual-slot-hint">Add a screenshot of the current-state MVP prototype — the refreshed landing page showing the updated "Manage users" interface with the Activity Overview panel, Help &amp; Support sidebar, and the updated Add User / Proxy Admin flows. Desktop and mobile views side-by-side if available.</div>
+        <div class="asm-findings-grid fade-in" style="grid-template-columns: repeat(2, 1fr); margin-top: 28px;">
+          <div class="asm-finding-card">
+            <div class="asm-finding-title">MVP Entitlements Redesign — Now</div>
+            <div class="asm-finding-desc">Migrating the entitlements experience from BlueJS to React (Octagon components) with design enhancements that resolve key CX gaps originally identified in discovery — clearer labels, account-first navigation, and improved role assignment flow.</div>
           </div>
-          <div class="asm-visual-slot-caption"><p>MVP North Star redesign exploring a refreshed ASM landing page and manual entitlements flow — targeted for Q4 delivery and measured against the benchmark test baseline.</p></div>
+          <div class="asm-finding-card">
+            <div class="asm-finding-title">Role-Based Discovery — 2026</div>
+            <div class="asm-finding-desc">Continuing with role-based template exploration and additional rounds of customer testing — building on the validated concept direction to define the next phase of the ASM experience.</div>
+          </div>
         </div>
 
-        <div class="asm-roadmap fade-in">
-          <div class="asm-roadmap-track asm-roadmap-track--modernization">
-            <div class="asm-roadmap-track-header">
-              <div class="asm-roadmap-track-pip"></div>
-              <div class="asm-roadmap-track-name">Track 1 — Modernization</div>
-              <div class="asm-roadmap-track-sub">Incremental CX fixes</div>
-            </div>
-            <div class="asm-roadmap-items">
-              <div class="asm-roadmap-item">Octagon Modernization</div>
-              <div class="asm-roadmap-item">Roadmap Planning</div>
-              <div class="asm-roadmap-item">CX Gap — Add/Enhance Confirmation page</div>
-              <div class="asm-roadmap-item">CX Gap — Improve L1 Navigation</div>
-              <div class="asm-roadmap-item">CX Gap — Enhance Clarity of Terms</div>
-              <div class="asm-roadmap-item">Payroll Entitlements</div>
-              <div class="asm-roadmap-item">Proxy Admin Enhancements &amp; Dual Control</div>
-              <div class="asm-roadmap-item">CaaS Integration</div>
-              <div class="asm-roadmap-item">Proxy Admin in Mobile</div>
-              <div class="asm-roadmap-item">Add Campaign Mgr Entitlements</div>
-            </div>
-          </div>
-          <div class="asm-roadmap-track asm-roadmap-track--redesign">
-            <div class="asm-roadmap-track-header">
-              <div class="asm-roadmap-track-pip"></div>
-              <div class="asm-roadmap-track-name">Track 2 — Redesign</div>
-              <div class="asm-roadmap-track-sub">Future-state platform</div>
-            </div>
-            <div class="asm-roadmap-items">
-              <div class="asm-roadmap-item">Benchmark Test</div>
-              <div class="asm-roadmap-item">Feature Test</div>
-              <div class="asm-roadmap-item">Define Mobile Strategy</div>
-              <div class="asm-roadmap-item">Experimentation Test — L1 Navigation</div>
-              <div class="asm-roadmap-item">Content Strategy — Role-Based Templates</div>
-              <div class="asm-roadmap-item">Entitlements Redesign</div>
-              <div class="asm-roadmap-item">Define Add AU Flow</div>
-              <div class="asm-roadmap-item">Design Mobile Experience</div>
-              <div class="asm-roadmap-item">Notification/Communication Discovery</div>
-              <div class="asm-roadmap-item asm-roadmap-item--current">Finalize Entitlements Experience</div>
-              <div class="asm-roadmap-item asm-roadmap-item--current">Design MVP Entitlement Feature Enhancements</div>
-              <div class="asm-roadmap-item asm-roadmap-item--current">Usability Test of Refined ASM Redesign</div>
-            </div>
-          </div>
+        <div class="fade-in" style="margin-top:32px;">
+          <p style="font-size:0.82rem; font-weight:600; color:var(--text); margin-bottom:6px;">Delivery Roadmap</p>
+          <img src="../assets/images/jpmorgan/final roadmap.png" alt="Final roadmap — ASM delivery plan" style="width:100%; display:block; border-radius:var(--radius-md); border:1px solid var(--border);" />
+        </div>
+
+        <div class="asm-subsection fade-in">
+          <p class="cs-section-label">MVP Delivery · 2026</p>
+          <h2 class="cs-section-title">The MVP Entitlements Experience</h2>
+          <p class="cs-text">The first shippable milestone — a redesigned entitlements flow built on the Octagon component system, incorporating the highest-priority CX improvements identified through research. The longer-term north star, a fully role-based entitlements experience, is currently back in active discovery.</p>
+        </div>
+
+        <div class="fade-in" style="margin-top:24px;">
+          <img src="../assets/images/jpmorgan/final MVP.png" alt="Final MVP design — the target ASM entitlements experience" style="width:100%; display:block; border-radius:var(--radius-md);" />
         </div>
 
         <div class="asm-subsection fade-in">
@@ -1655,8 +1717,39 @@
           <div class="cs-outcome">
             <div class="cs-outcome-value">4</div>
             <div class="cs-outcome-label">SMB Personas Adopted</div>
-            <div class="cs-outcome-desc">Validated persona framework now used across product, marketing, and customer success at JPMorgan Chase.</div>
+            <div class="cs-outcome-desc">Validated persona framework now used across product, marketing, and customer success at the bank.</div>
           </div>
+        </div>
+
+        <div class="cs-callout fade-in" style="margin-top: 48px;">
+          <p>"This project is the work I'm most proud of in my career — not because of the designs, but because of what it took to get there. Leading a two-year initiative from discovery through definition, design, and MVP delivery at this scale required as much facilitation, alignment, and strategic clarity as it did design craft. It taught me that great design leadership means making the complex navigable — for your team, your partners, and ultimately your customers."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Came Next: SecureAccess -->
+    <section class="cs-section cs-section--alt">
+      <div class="container">
+        <div class="fade-in">
+          <p class="cs-section-label">What's Next</p>
+          <h2 class="cs-section-title">Role-Based Design Meets SecureAccess</h2>
+          <p class="cs-text">With the MVP entitlements redesign in delivery, the next chapter brings two parallel threads together — a return to role-based discovery to design and validate the full entitlements experience, and the introduction of SecureAccess, a vision for what ASM becomes when AI is built into the core of how access is managed.</p>
+        </div>
+
+        <div class="asm-findings-grid fade-in" style="grid-template-columns: repeat(2, 1fr); margin-top: 32px;">
+          <div class="asm-finding-card" style="border-left-color: var(--phase-teal);">
+            <div class="asm-finding-title" style="color: var(--phase-teal);">Role-Based Design — Back in Discovery</div>
+            <div class="asm-finding-desc">Building on validated concept directions, the team is re-entering discovery to design and test role-based entitlement templates with customers — moving toward the full future-state ASM experience.</div>
+          </div>
+          <div class="asm-finding-card" style="border-left-color: var(--accent);">
+            <div class="asm-finding-title" style="color: var(--accent);">SecureAccess — North Star Vision</div>
+            <div class="asm-finding-desc">A reimagining of access management built on the ASM foundation — with AI-suggested permissions by role, anomaly flagging, and plain-language guidance. The owner stays in control; AI guides, not decides.</div>
+          </div>
+        </div>
+
+        <div class="cs-callout fade-in" style="margin-top: 36px;">
+          <p>"ASM told me what the problem was. SecureAccess is my vision for how AI could finally solve it."</p>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 12px; margin-bottom: 0;"><a href="jpmorgan-secureaccess.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">View the SecureAccess case study →</a></p>
         </div>
       </div>
     </section>
