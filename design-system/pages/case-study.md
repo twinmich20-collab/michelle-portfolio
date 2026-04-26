@@ -54,6 +54,132 @@ When user has flipped to dark mode, the hero becomes the dark slab variant:
 - Faint `--clay-500` radial glow in top-right corner (opacity 0.18)
 - No color panel (the dark slab is itself the visual anchor)
 
+### Engagement Phase Tracker (`.cs-phase-track`)
+
+The signature pattern for showing a multi-phase engagement (research → delivery, alignment → launch). Replaces the old phase tracker that used the bright phase palette (teal/amber/purple/pink) — which read as utility/dashboard and fought the editorial system.
+
+**Layout:** Horizontal row of phase cards. Each card is a 2-column grid: a full-height saturated color slab on the left holding the phase number, and content sitting beside it. Color slab runs edge-to-edge top-to-bottom.
+
+**Color spectrum (5-phase journey):**
+
+| Phase | Color slab | Logic |
+|-------|------------|-------|
+| Phase 01 | `--teal-900` | Foundation — institutional weight |
+| Phase 02 | `--teal-700` | Brand primary — the work begins |
+| Phase 03 | `--sage-700` | Pivot — synthesis/research midpoint |
+| Phase 04 | `--clay-700` | Heat — the work crystallizes |
+| Phase 05 | `--clay-500` | Delivery — closing energy |
+
+The spectrum tells a story: **deep teal opens with authority → sage carries the research midpoint → clay closes with delivery energy.** Five phases is the maximum the brand spectrum comfortably supports; for engagements with more or fewer phases, redistribute across the same color stops or document a project-specific variant.
+
+**Variants (choose based on case study needs):**
+
+#### Variant A — `.cs-phase-track` (default — recommended for most case studies)
+
+Each card shows: small "Phase" label + phase title + one supporting metric.
+
+```html
+<div class="cs-phase-track">
+  <div class="cs-phase-card cs-phase-card--p1">
+    <div class="cs-phase-card__chip">01</div>
+    <div class="cs-phase-card__body">
+      <div class="cs-phase-card__label">Phase</div>
+      <div class="cs-phase-card__title">Alignment</div>
+      <div class="cs-phase-card__metric"><strong>25+</strong> stakeholders</div>
+    </div>
+  </div>
+  <!-- ... phases 02 through 05 ... -->
+</div>
+```
+
+- Card height: ~104px (compact)
+- Per-phase metric: short Satoshi line, the number in `--teal-700` weight 700
+- Use when each phase produced a concrete, quantifiable output
+- **Best fit for VP/Director-level case studies** — recruiters at that level skim for quantifiable evidence of senior scope
+
+#### Variant B — `.cs-phase-track--minimal` (optional)
+
+Same structure, metric line removed.
+
+- Card height: ~78px (most compact)
+- Use when per-phase metrics aren't meaningful or available
+- Reads as a pure visual table of contents — the surrounding section lede carries the explanation
+
+> **Don't include long descriptions inside phase cards.** The section's surrounding lede paragraph already contextualizes the journey. Body copy inside the cards duplicates the explanation and doubles the height.
+
+**Style specs:**
+
+```css
+.cs-phase-card {
+  background: var(--paper-0);
+  border: 1px solid var(--ink-100);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: stretch;
+  overflow: hidden;
+  transition: transform 220ms var(--ease-out),
+              box-shadow 220ms var(--ease-out),
+              border-color 220ms var(--ease-out);
+}
+.cs-phase-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--ink-200);
+}
+.cs-phase-card__chip {
+  /* Full-height color slab */
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 700;
+  color: var(--paper-0);
+  letter-spacing: -0.02em;
+}
+.cs-phase-card__body {
+  padding: 18px 22px;
+  display: flex; flex-direction: column; justify-content: center;
+  gap: 8px;
+}
+.cs-phase-card__label {
+  font-family: var(--font-display);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-400);
+}
+.cs-phase-card__title {
+  font-family: var(--font-display);
+  font-size: 17px; font-weight: 700;
+  color: var(--ink-900);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.cs-phase-card__metric {
+  font-family: var(--font-display);
+  font-size: 12px; font-weight: 600;
+  color: var(--ink-600);
+}
+.cs-phase-card__metric strong {
+  color: var(--teal-700); font-weight: 700;
+}
+
+/* Mobile: stack to 1 col */
+@media (max-width: 600px) {
+  .cs-phase-track { grid-template-columns: 1fr; }
+}
+```
+
+**Migration note:** This pattern replaces the previous `.phase-step` / `.cs-process-step` pattern that used the phase palette (`--phase-teal`, `--phase-amber`, etc.) for **engagement-overview trackers**. The phase palette is preserved for **process diagrams** (a different functional job — see below).
+
+### Process Diagrams (`.cs-process-diagram`)
+
+For the *Process* section deeper inside a case study — illustrating methodology, decision flows, or research workflow steps. Different functional job than the engagement phase tracker.
+
+- **Phase palette preserved unchanged:** `--phase-teal → --phase-amber → --phase-purple → --phase-pink`
+- Multi-color sequential differentiation appropriate here because process diagrams are *more granular* and *more functional* than engagement trackers
+- Reserved for technical/methodology diagrams — never use for engagement narrative
+
+> **The rule:** Engagement phase tracker uses brand spectrum (teal/sage/clay). Process diagrams use phase palette. Different jobs, different colors.
+
 ### Outcome Cards (`.cs-outcome`)
 
 - `border-top: 3px solid` — color rotates by `nth-child`:
@@ -101,7 +227,7 @@ For research-driven case studies (SecureAccess, Patient Onboarding, etc.). Inher
 
 ### Cover Gradient Palette
 
-**Updated to align with sector colors.** Each gradient now reinforces the case study's sector identity (matches the card sector strip and icon).
+**Aligned with sector colors.** Each gradient reinforces the case study's sector identity (matches the card sector strip and icon).
 
 | Sector | Class | Gradient |
 |--------|-------|----------|
@@ -112,14 +238,7 @@ For research-driven case studies (SecureAccess, Patient Onboarding, etc.). Inher
 
 Grid overlay: `opacity: 0.08` for texture (preserved from previous system).
 
-> **Migration note:** Old class names `cs-cover--1` (navy), `cs-cover--2` (forest), `cs-cover--3` (indigo) are deprecated. Existing case studies should be updated to use sector-aligned classes. The old gradients introduced colors outside the system palette — the new ones tie cover, card strip, and icon together as a single sector signal.
-
-### Process Steps (`.cs-process-step`)
-
-**Phase palette preserved.** Process diagrams need multi-color sequential differentiation — this is functionally distinct from sector branding.
-
-- Step number color cycle: `--phase-teal → --phase-amber → --phase-purple → --phase-pink`
-- Number sizing/weight: per Master
+> **Migration note:** Old class names `cs-cover--1` (navy), `cs-cover--2` (forest), `cs-cover--3` (indigo) are deprecated. Existing case studies should be updated to use sector-aligned classes.
 
 ### Stat Callouts (within case study body)
 
@@ -150,14 +269,15 @@ Recommended section order for a complete case study:
 
 1. **Hero** — title + lede + color panel + meta row (role / sector / timeline / outcome)
 2. **Cover strip** — sector-aligned gradient with project name (optional, used for visual transition)
-3. **Context** — the problem space, prose body
-4. **Research** — persona blocks (1–3), pull quotes from interviews
-5. **Process** — process steps with phase-palette numbering
-6. **Solution** — screen showcases, design rationale
-7. **Outcome cards** — the "did it work?" moment, sector-cycled border colors
-8. **Callout** — one editorial moment near the end (clay rule)
-9. **Reflection** — Inter prose, lessons learned
-10. **Nav footer** — prev/next case studies
+3. **Engagement Phase Tracker** — five-phase journey overview (`.cs-phase-track`)
+4. **Context** — the problem space, prose body
+5. **Research** — persona blocks (1–3), pull quotes from interviews
+6. **Process Diagram** — methodology / decision flow (uses phase palette, not brand spectrum)
+7. **Solution** — screen showcases, design rationale
+8. **Outcome cards** — the "did it work?" moment, sector-cycled border colors
+9. **Callout** — one editorial moment near the end (clay rule)
+10. **Reflection** — Inter prose, lessons learned
+11. **Nav footer** — prev/next case studies
 
 Not every case study needs every section. Pick the 6–7 that serve the narrative.
 
@@ -171,12 +291,14 @@ Not every case study needs every section. Pick the 6–7 that serve the narrativ
 - ✅ Outcome card color cycle updated to sector palette (was accent/teal/purple)
 - ✅ Callout block now uses `--clay-500` (was `--accent`) per the signature accent rule
 - ✅ Persona block and pull quote documented as case study patterns
+- ✅ **Engagement Phase Tracker added as canonical pattern** — horizontal chip layout, brand spectrum coloring (teal-900 → clay-500), title + supporting metric per phase
 - ✅ Page composition pattern added
 
 ### v0.6 and earlier
 - Cover gradients used standalone palette (navy/forest/indigo)
 - Outcome cards cycled accent/teal/purple
 - Callout used `--accent` border + `--accent-glow` bg
+- Phase tracker used phase palette (teal/amber/purple/pink) for engagement overviews
 
 ---
 

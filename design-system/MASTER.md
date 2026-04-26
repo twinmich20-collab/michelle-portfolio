@@ -97,9 +97,9 @@ These keep existing component classes working. Update components by editing alia
 | `--font` | `var(--font-body)` | was `'Inter', system` |
 | `--font-headline` | `var(--font-display)` | was `'Plus Jakarta Sans'` |
 
-### Phase Palette (case studies, process diagrams)
+### Phase Palette (process diagrams only)
 
-**Preserved unchanged.** Multi-color sequential differentiation in process diagrams is a different job from brand surface — both palettes coexist, neither replaces the other.
+**Preserved unchanged.** Multi-color sequential differentiation for process diagrams (methodology, workflow, decision flows) — a different functional job from brand surface or engagement narrative.
 
 | Token | Value | Use |
 |-------|-------|-----|
@@ -110,6 +110,8 @@ These keep existing component classes working. Update components by editing alia
 | `--phase-cyan` | `#06b6d4` | Data callouts |
 | `--phase-orange` | `#f97316` | Warning / highlight |
 | `--phase-green` | `#22c55e` | Success / positive metric |
+
+> **Critical distinction (v0.7):** The phase palette is for **process diagrams** — granular methodology illustration. **Engagement phase trackers** (the high-level "here are the 5 phases of this project" component) use the **brand spectrum** (`teal-900 → teal-700 → sage-700 → clay-700 → clay-500`) instead. See [`pages/case-study.md`](pages/case-study.md#engagement-phase-tracker-cs-phase-track).
 
 ### Semantic States
 
@@ -342,6 +344,10 @@ Clay rule on the left, Satoshi 300 italic at 32px, clay eyebrow above ("From the
 
 For light-mode case study heroes. A gradient panel (teal-700 → teal-500 → sage-500) holding the headline outcome stat. Persona-portrait gradient family — ties the system together. Used only on the case study hero, once per page. **See [pages/case-study.md](pages/case-study.md) for full hero composition rules.**
 
+### Engagement Phase Tracker (`.cs-phase-track`)
+
+Compact horizontal-row tracker for showing a multi-phase engagement (e.g., Alignment → Discovery → Synthesis → Definition → Delivery). Each phase card has a full-height saturated color slab on the left holding the phase number; content sits beside it. Color uses brand spectrum (`teal-900 → teal-700 → sage-700 → clay-700 → clay-500`) — the journey through the brand. Two variants: default with one supporting metric per phase, minimal variant with title only. **See [pages/case-study.md](pages/case-study.md#engagement-phase-tracker-cs-phase-track) for full specs.**
+
 ### Form
 
 - Labels: visible, above input, Satoshi 700 caps with 0.14em tracking
@@ -452,6 +458,7 @@ When adding a new page type with its own conventions (e.g., a writing/blog index
   - Persona blocks (gradient portrait + italic quote)
   - Pull quote with clay rule
   - Theme toggle pill (sun/moon editorial style)
+  - Engagement phase tracker — horizontal chip layout, brand spectrum (teal-900 → clay-500), title + supporting metric per phase. **Replaces the old phase-palette-based phase tracker for engagement overviews.** See `pages/case-study.md`.
 - ✅ Typography updated to Satoshi + Inter (was Plus Jakarta Sans + Inter)
 - ✅ Dark mode reworked from warm-brown to ink-blue
 - ✅ Phase palette preserved unchanged for process diagrams
@@ -481,7 +488,8 @@ When adding a new page type with its own conventions (e.g., a writing/blog index
 | Reserve dark hero slab for dark mode only | Use it as a default light-mode hero |
 | Match radius across buttons + inputs (`--radius-md`) | Mix radii within a form |
 | Use sector colors (teal/sage/clay) for sector identity | Use phase palette for sector identity |
-| Use phase palette for sequential process steps | Use sector colors for process diagrams |
+| Use **brand spectrum** (teal-900 → clay-500) for engagement phase trackers | Use phase palette for engagement narrative |
+| Use **phase palette** (teal/amber/purple/pink) for process/methodology diagrams | Use sector colors for technical process diagrams |
 
 ---
 
