@@ -8,7 +8,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../style.css" />
 
   <style>
@@ -272,7 +274,7 @@
       padding: 20px;
       gap: 10px;
       flex-shrink: 0;
-      box-shadow: 0 0 0 10px var(--accent-glow), 0 0 0 20px rgba(0,122,204,0.05);
+      box-shadow: 0 0 0 10px var(--accent-glow), 0 0 0 20px rgba(0,149,159,0.05);
     }
     .asm-hub-center-title { font-size: 1rem; font-weight: 700; line-height: 1.3; }
     .asm-hub-center-sub { font-size: 0.68rem; opacity: 0.9; line-height: 1.4; }
@@ -542,42 +544,45 @@
   <main>
 
     <!-- Hero -->
-    <section class="cs-hero">
+    <section class="cs-hero-v3">
       <div class="container">
         <a href="../index.html#work" class="cs-back">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
           Back to Work
         </a>
 
-        <p class="cs-hero-eyebrow">Leading US Bank · Business Banking</p>
-        <h1 class="cs-hero-title">The Journey to a Customer-Centric Access Platform</h1>
-        <p class="cs-hero-desc">When customers can't confidently grant access to their own accounts, they either call support or over-privilege their employees. Both signal a broken experience. I led the UX strategy for ASM — a permissions platform serving 8.7M business customers — driving cross-functional alignment and validated concept design toward a simpler, clearer way to delegate access.</p>
-
-        <div class="project-tags">
-          <span class="tag">UX Research</span>
-          <span class="tag">Service Design</span>
-          <span class="tag">UX Strategy</span>
-          <span class="tag">Co-Creation</span>
-          <span class="tag">Fintech</span>
-          <span class="tag">Design Leadership</span>
+        <div class="cs-hero-v3__top">
+          <div class="cs-hero-v3__eyebrow">Case Study 001 · Fintech &amp; Banking</div>
+          <div class="cs-hero-v3__index">001 / 04</div>
         </div>
 
-        <div class="cs-meta">
-          <div class="cs-meta-item">
-            <span class="cs-meta-label">Client</span>
-            <span class="cs-meta-value">Leading US Bank</span>
+        <h1 class="cs-hero-v3__title">The Journey to a<br><strong>Customer-Centric</strong><br>Access Platform.</h1>
+
+        <div class="cs-hero-v3__main">
+          <p class="cs-hero-v3__lede">When customers can't confidently grant access to their own accounts, they either call support or over-privilege their employees. Both signal a broken experience. I led the UX strategy for ASM — a permissions platform serving 8.7M business customers — driving cross-functional alignment and validated concept design toward a simpler, clearer way to delegate access.</p>
+          <div class="cs-hero-v3__panel">
+            <div class="cs-hero-v3__panel-label">Platform Scale</div>
+            <div class="cs-hero-v3__panel-stat"><strong>8.7M</strong>+</div>
+            <div class="cs-hero-v3__panel-caption">Business, Commercial &amp; Private Banking customers on the ASM entitlement platform.</div>
           </div>
-          <div class="cs-meta-item">
-            <span class="cs-meta-label">Role</span>
-            <span class="cs-meta-value">UX Design Lead</span>
+        </div>
+
+        <div class="cs-hero-v3__meta">
+          <div>
+            <div class="cs-hero-v3__meta-label">Client</div>
+            <div class="cs-hero-v3__meta-value">Leading US Bank</div>
           </div>
-          <div class="cs-meta-item">
-            <span class="cs-meta-label">Timeline</span>
-            <span class="cs-meta-value">2023–2025</span>
+          <div>
+            <div class="cs-hero-v3__meta-label">Role</div>
+            <div class="cs-hero-v3__meta-value">VP UX Design Lead</div>
           </div>
-          <div class="cs-meta-item">
-            <span class="cs-meta-label">Status</span>
-            <span class="cs-meta-value">MVP Delivery · Q4 2025</span>
+          <div>
+            <div class="cs-hero-v3__meta-label">Timeline</div>
+            <div class="cs-hero-v3__meta-value">2023 – 2025</div>
+          </div>
+          <div>
+            <div class="cs-hero-v3__meta-label">Status</div>
+            <div class="cs-hero-v3__meta-value">MVP Delivery · Q4 2025</div>
           </div>
         </div>
       </div>
