@@ -336,9 +336,24 @@ Hairline-bordered grid. Numbers in Satoshi 300 at 56px, color `--teal-500`. Labe
 
 Two-column: left is gradient portrait (teal for one persona, sage for another, clay for a third if used), right is body. Italic Satoshi pull quote inside, clay rule on the left of quote, attribution disciplined and quiet.
 
-### Pull Quote (`.pullquote`)
+### Pull Quote (`.cs-pullquote`)
 
-Clay rule on the left, Satoshi 300 italic at 32px, clay eyebrow above ("From the research"), attribution underneath in `--ink-600`.
+```
+3px clay-500 left border · Satoshi 300 italic · 30px · letter-spacing -0.02em
+Mark = Satoshi 700 · 11px · clay-500 · 0.2em tracking · uppercase · non-italic
+```
+
+- **Border:** `border-left: 3px solid var(--clay-500)`, `padding-left: 32px`
+- **Eyebrow** (`.cs-pullquote__eyebrow`): Satoshi 700, 11px, `--clay-500`, 0.2em tracking, uppercase — e.g. "From the research"
+- **Quote** (`.cs-pullquote__quote`): Satoshi 300 italic, 30px (`1.875rem`), `letter-spacing: -0.02em`, `--ink-900`
+- **Mark** (`.cs-pullquote__mark`): One keyword inside the quote — same size, italic, and color as the quote body, but `font-weight: 700`. Pure weight contrast only. **One word only.**
+- **Attribution** (`.cs-pullquote__attr`): Inter, 0.875rem, `--ink-600`
+
+**Example:**
+> *"The interface didn't need to be friendlier — it needed to be* <mark>honest</mark>*. Once we stopped hiding the complexity and started narrating it, trust followed."*
+> Michelle DaSilva · VP UX Design · JPMorgan Chase
+
+Use 1–2 times per case study. The mark lands on one word — the word a reader would underline if they had a pen.
 
 ### Hero Color Panel (`.hero__panel`)
 
