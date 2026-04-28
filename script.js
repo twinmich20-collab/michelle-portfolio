@@ -206,13 +206,25 @@
         } else {
           submitBtn.textContent = 'Send Message';
           submitBtn.disabled = false;
-          alert('Something went wrong. Please try again or email me directly.');
+          if (success) {
+            success.textContent = 'Something went wrong. Please try again or email me directly.';
+            success.style.background = 'var(--error-glow)';
+            success.style.borderColor = 'var(--error)';
+            success.style.color = 'var(--error)';
+            success.removeAttribute('hidden');
+          }
         }
       })
       .catch(function () {
         submitBtn.textContent = 'Send Message';
         submitBtn.disabled = false;
-        alert('Something went wrong. Please try again or email me directly.');
+        if (success) {
+          success.textContent = 'Something went wrong. Please try again or email me directly.';
+          success.style.background = 'var(--error-glow)';
+          success.style.borderColor = 'var(--error)';
+          success.style.color = 'var(--error)';
+          success.removeAttribute('hidden');
+        }
       });
   });
 })();
