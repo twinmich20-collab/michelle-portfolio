@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Novartis — PSS Leap Patient Support Services | Michelle DaSilva</title>
-  <meta name="description" content="Led CX/UX strategy for Novartis PSS Leap — redesigning patient support services that enrolled 24.5k patients, achieved 93% call quality scores, and earned two of the top 10 best pharma patient support website recognitions." />
+  <meta name="description" content="Led CX/UX strategy for Novartis PSS Leap — redesigning patient support services, internal CRM workflows, and operational tools across patient, agent, and field experiences." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,17 +17,16 @@
   <style>
     /* ── PSS Leap cover accent ── */
     .cs-cover--pss { background: linear-gradient(135deg, #021512 0%, #063326 50%, #0d5840 100%); }
-    .cs-cover--pss .cs-cover-grid span {
-      border-color: rgba(255,255,255,0.06);
-    }
+    .cs-cover--pss .cs-cover-grid span { border-color: rgba(255,255,255,0.06); }
 
-    /* Problem stat rings */
+    /* Stat rings */
     .pss-rings {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
       margin-top: 40px;
     }
+    .pss-rings--4up { grid-template-columns: repeat(4, 1fr); }
     .pss-ring-item {
       display: flex;
       flex-direction: column;
@@ -43,9 +42,14 @@
       align-items: center;
       justify-content: center;
     }
-    .pss-ring--35 { background: conic-gradient(var(--accent) 0% 35%, var(--surface-2) 35% 100%); }
-    .pss-ring--70 { background: conic-gradient(var(--phase-orange) 0% 70%, var(--surface-2) 70% 100%); }
-    .pss-ring--86 { background: conic-gradient(var(--error) 0% 86%, var(--surface-2) 86% 100%); }
+    .pss-ring--35    { background: conic-gradient(var(--accent) 0% 35%, var(--surface-2) 35% 100%); }
+    .pss-ring--70    { background: conic-gradient(var(--accent-2) 0% 70%, var(--surface-2) 70% 100%); }
+    .pss-ring--86    { background: conic-gradient(var(--error) 0% 86%, var(--surface-2) 86% 100%); }
+    .pss-ring--23    { background: conic-gradient(var(--accent-2) 0% 23%, var(--surface-2) 23% 100%); }
+    .pss-ring--93    { background: conic-gradient(var(--teal-500) 0% 93%, var(--surface-2) 93% 100%); }
+    .pss-ring--solid { background: var(--teal-900); box-shadow: 0 0 0 3px var(--accent-border); }
+    .pss-ring--solid .pss-ring-inner { background: var(--teal-900); }
+    .pss-ring--solid .pss-ring-value { color: #fff; }
     .pss-ring-inner {
       width: 88px;
       height: 88px;
@@ -68,86 +72,8 @@
       padding: 28px 32px;
       margin-top: 28px;
     }
-    .pss-goal-text {
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--text);
-      line-height: 1.65;
-      margin-bottom: 14px;
-    }
-    .pss-goal-tagline {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.04em;
-    }
-
-    /* Hub / spoke diagram */
-    /* Hub layout: left nodes | center | right nodes */
-    .pss-hub-wrap {
-      margin-top: 40px;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      gap: 20px;
-      align-items: center;
-    }
-    .pss-hub-col {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .pss-hub-node {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 14px 14px;
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-    }
-    /* Left column nodes get colored left border, right column get right border */
-    .pss-hub-col--left .pss-hub-node:nth-child(1) { border-left: 2px solid var(--accent); }
-    .pss-hub-col--left .pss-hub-node:nth-child(2) { border-left: 2px solid var(--phase-amber); }
-    .pss-hub-col--left .pss-hub-node:nth-child(3) { border-left: 2px solid var(--phase-purple); }
-    .pss-hub-col--right .pss-hub-node:nth-child(1) { border-right: 2px solid var(--phase-teal); }
-    .pss-hub-col--right .pss-hub-node:nth-child(2) { border-right: 2px solid var(--phase-pink); }
-    .pss-hub-col--right .pss-hub-node:nth-child(3) { border-right: 2px solid var(--phase-cyan); }
-    .pss-hub-node-icon {
-      width: 30px;
-      height: 30px;
-      border-radius: var(--radius-sm);
-      background: var(--surface-2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-    .pss-hub-col--left .pss-hub-node:nth-child(2) .pss-hub-node-icon { color: var(--phase-amber); }
-    .pss-hub-col--left .pss-hub-node:nth-child(3) .pss-hub-node-icon { color: var(--phase-purple); }
-    .pss-hub-col--right .pss-hub-node:nth-child(1) .pss-hub-node-icon { color: var(--phase-teal); }
-    .pss-hub-col--right .pss-hub-node:nth-child(2) .pss-hub-node-icon { color: var(--phase-pink); }
-    .pss-hub-col--right .pss-hub-node:nth-child(3) .pss-hub-node-icon { color: var(--phase-cyan); }
-    .pss-hub-node-label { font-size: 0.78rem; font-weight: 600; color: var(--text); margin-bottom: 3px; }
-    .pss-hub-node-desc  { font-size: 0.72rem; color: var(--text-muted); line-height: 1.5; }
-    .pss-hub-center-block {
-      width: 180px;
-      height: 180px;
-      background: var(--accent);
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      padding: 20px;
-      gap: 10px;
-      flex-shrink: 0;
-      box-shadow: 0 0 0 10px rgba(59,130,246,0.12), 0 0 0 20px rgba(59,130,246,0.06);
-    }
-    .pss-hub-center-title { font-size: 1rem; font-weight: 700; line-height: 1.3; }
-    .pss-hub-center-sub { font-size: 0.68rem; opacity: 0.9; line-height: 1.4; }
+    .pss-goal-text    { font-size: 1.1rem; font-weight: 500; color: var(--text); line-height: 1.65; margin-bottom: 14px; }
+    .pss-goal-tagline { font-size: 1rem; font-weight: 700; color: var(--accent); letter-spacing: 0.04em; }
 
     /* Lifecycle steps */
     .pss-lifecycle {
@@ -159,11 +85,7 @@
       border-radius: var(--radius-md);
       overflow: hidden;
     }
-    .pss-lifecycle-step {
-      padding: 24px 20px;
-      border-right: 1px solid var(--border);
-      position: relative;
-    }
+    .pss-lifecycle-step { padding: 24px 20px; border-right: 1px solid var(--border); }
     .pss-lifecycle-step:last-child { border-right: none; }
     .pss-lifecycle-num {
       width: 32px;
@@ -178,28 +100,13 @@
       margin-bottom: 12px;
     }
     .pss-lifecycle-step:nth-child(1) .pss-lifecycle-num { background: var(--accent); }
-    .pss-lifecycle-step:nth-child(2) .pss-lifecycle-num { background: var(--phase-teal); }
-    .pss-lifecycle-step:nth-child(3) .pss-lifecycle-num { background: var(--phase-amber); }
-    .pss-lifecycle-step:nth-child(4) .pss-lifecycle-num { background: var(--phase-purple); }
+    .pss-lifecycle-step:nth-child(2) .pss-lifecycle-num { background: var(--accent-2); }
+    .pss-lifecycle-step:nth-child(3) .pss-lifecycle-num { background: var(--sage-700); }
+    .pss-lifecycle-step:nth-child(4) .pss-lifecycle-num { background: var(--teal-500); }
     .pss-lifecycle-title { font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 8px; }
     .pss-lifecycle-desc  { font-size: 0.78rem; color: var(--text-muted); line-height: 1.55; }
-    .pss-lifecycle-list  { list-style: none; padding: 0; margin: 10px 0 0; }
-    .pss-lifecycle-list li {
-      font-size: 0.74rem;
-      color: var(--text-muted);
-      padding: 3px 0 3px 12px;
-      position: relative;
-      line-height: 1.5;
-    }
-    .pss-lifecycle-list li::before {
-      content: '·';
-      position: absolute;
-      left: 3px;
-      color: var(--accent);
-      font-weight: 700;
-    }
 
-    /* Persona cards */
+    /* Persona cards — patient */
     .pss-persona-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -212,14 +119,9 @@
       border-radius: var(--radius-md);
       padding: 24px;
     }
-    .pss-persona-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 16px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border);
-    }
+    .pss-persona-card:nth-child(1) { border-top: 2px solid var(--accent); }
+    .pss-persona-card:nth-child(2) { border-top: 2px solid var(--accent-2); }
+    .pss-persona-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
     .pss-persona-avatar {
       width: 48px;
       height: 48px;
@@ -234,34 +136,11 @@
       color: var(--accent);
       flex-shrink: 0;
     }
-    .pss-persona-name { font-size: 0.95rem; font-weight: 700; color: var(--text); }
-    .pss-persona-meta { font-size: 0.74rem; color: var(--text-muted); margin-top: 3px; }
-    .pss-persona-quote {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      font-style: italic;
-      line-height: 1.6;
-      margin-bottom: 14px;
-    }
-    .pss-persona-pains { list-style: none; padding: 0; margin: 0; }
-    .pss-persona-pains li {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      padding: 4px 0 4px 14px;
-      position: relative;
-      line-height: 1.5;
-      border-bottom: 1px solid var(--border);
-    }
-    .pss-persona-pains li:last-child { border-bottom: none; }
-    .pss-persona-pains li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 0.7rem;
-    }
+    .pss-persona-name  { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+    .pss-persona-meta  { font-size: 0.74rem; color: var(--text-muted); margin-top: 3px; }
+    .pss-persona-quote { font-size: 0.82rem; color: var(--text-muted); font-style: italic; line-height: 1.6; margin-bottom: 0; }
 
-    /* Support persona cards */
+    /* Persona cards — support */
     .pss-support-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -272,67 +151,16 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      padding: 20px;
+      padding: 24px;
     }
     .pss-support-card:nth-child(1) { border-top: 2px solid var(--accent); }
-    .pss-support-card:nth-child(2) { border-top: 2px solid var(--phase-teal); }
-    .pss-support-card:nth-child(3) { border-top: 2px solid var(--phase-amber); }
-    .pss-support-role { font-size: 0.68rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
-    .pss-support-card:nth-child(2) .pss-support-role { color: var(--phase-teal); }
-    .pss-support-card:nth-child(3) .pss-support-role { color: var(--phase-amber); }
+    .pss-support-card:nth-child(2) { border-top: 2px solid var(--teal-500); }
+    .pss-support-card:nth-child(3) { border-top: 2px solid var(--accent-2); }
+    .pss-support-role  { font-size: 0.68rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+    .pss-support-card:nth-child(2) .pss-support-role { color: var(--teal-500); }
+    .pss-support-card:nth-child(3) .pss-support-role { color: var(--accent-2); }
     .pss-support-title { font-size: 0.875rem; font-weight: 700; color: var(--text); margin-bottom: 10px; }
-    .pss-support-quote {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      font-style: italic;
-      line-height: 1.55;
-      margin-bottom: 12px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
-    }
-    .pss-support-list { list-style: none; padding: 0; margin: 0; }
-    .pss-support-list li {
-      font-size: 0.74rem;
-      color: var(--text-muted);
-      padding: 3px 0 3px 12px;
-      position: relative;
-      line-height: 1.5;
-    }
-    .pss-support-list li::before {
-      content: '·';
-      position: absolute;
-      left: 3px;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    /* Outcomes grid */
-    .pss-outcomes {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 36px;
-    }
-
-    /* LEAP lift breakdown */
-    .pss-leap-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 24px;
-    }
-    .pss-leap-stat {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 18px 20px;
-      text-align: center;
-    }
-    .pss-leap-stat:nth-child(1) { border-top: 2px solid var(--accent); }
-    .pss-leap-stat:nth-child(2) { border-top: 2px solid var(--phase-teal); }
-    .pss-leap-stat:nth-child(3) { border-top: 2px solid var(--phase-amber); }
-    .pss-leap-value { font-size: 1.4rem; font-weight: 700; color: var(--text); letter-spacing: -0.03em; }
-    .pss-leap-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; line-height: 1.4; }
+    .pss-support-quote { font-size: 0.78rem; color: var(--text-muted); font-style: italic; line-height: 1.55; margin-bottom: 0; }
 
     /* Recognition */
     .pss-recognition {
@@ -359,21 +187,59 @@
     .pss-recognition-text h4 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
     .pss-recognition-text p  { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; margin: 0; }
 
+    /* Lightbox */
+    .pss-img-btn { background: none; border: none; padding: 0; cursor: zoom-in; width: 100%; display: block; }
+    .pss-img-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: var(--radius-md); }
+    #pss-lightbox {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.92); align-items: center; justify-content: center; padding: 24px;
+    }
+    #pss-lightbox.open { display: flex; }
+    #pss-lightbox img { max-width: 92vw; max-height: 92vh; border-radius: 10px; box-shadow: 0 32px 80px rgba(0,0,0,0.6); display: block; }
+    #pss-lightbox-close {
+      position: absolute; top: 20px; right: 20px;
+      background: rgba(255,255,255,0.15); border: none; color: #fff;
+      font-size: 1.5rem; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+    #pss-lightbox-close:hover { background: rgba(255,255,255,0.25); }
+    .pss-zoom-hint { display: block; font-size: 0.72rem; color: var(--text-muted); text-align: center; margin-top: 6px; }
+
+    /* Journey step strip */
+    .pss-journey-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 14px 0 20px;
+    }
+    .pss-journey-step {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 12px 4px 6px;
+    }
+    .pss-journey-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 16px;
+      text-align: center;
+    }
+
     @media (max-width: 768px) {
-      .pss-rings          { grid-template-columns: 1fr; }
-      .pss-hub-wrap       { grid-template-columns: 1fr; }
-      .pss-hub-center-block { width: 140px; height: 140px; margin: 0 auto; order: -1; }
-      .pss-hub-col--right .pss-hub-node { border-right-width: 1px; border-left: 2px solid; }
-      .pss-hub-col--right .pss-hub-node:nth-child(1) { border-left-color: var(--phase-teal); }
-      .pss-hub-col--right .pss-hub-node:nth-child(2) { border-left-color: var(--phase-pink); }
-      .pss-hub-col--right .pss-hub-node:nth-child(3) { border-left-color: var(--phase-cyan); }
-      .pss-lifecycle      { grid-template-columns: 1fr; }
+      .pss-rings        { grid-template-columns: 1fr; }
+      .pss-rings--4up   { grid-template-columns: repeat(2, 1fr); }
+      .pss-lifecycle    { grid-template-columns: 1fr; }
       .pss-lifecycle-step { border-right: none; border-bottom: 1px solid var(--border); }
       .pss-lifecycle-step:last-child { border-bottom: none; }
-      .pss-persona-grid   { grid-template-columns: 1fr; }
-      .pss-support-grid   { grid-template-columns: 1fr; }
-      .pss-outcomes       { grid-template-columns: repeat(2, 1fr); }
-      .pss-leap-stats     { grid-template-columns: 1fr; }
+      .pss-persona-grid { grid-template-columns: 1fr; }
+      .pss-support-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -381,8 +247,10 @@
 
   <!-- Navigation -->
   <header class="nav-header">
-    <nav class="nav-container" aria-label="Main navigation">
-      <a href="../index.html" class="nav-logo">Michelle DaSilva</a>
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">
+        <span class="nav-brand-dot"></span>Michelle DaSilva
+      </a>
 
       <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
         <span class="hamburger-line"></span>
@@ -395,18 +263,20 @@
         <li><a href="../index.html#work" class="nav-link">Work</a></li>
         <li><a href="../index.html#skills" class="nav-link">Experience</a></li>
         <li><a href="../index.html#resume" class="nav-link">Resume</a></li>
-        <li><a href="../index.html#contact" class="nav-link nav-link--cta">Contact</a></li>
       </ul>
 
-      <button class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
-        <svg class="theme-icon theme-icon--light" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" fill="currentColor"/>
-        </svg>
-        <svg class="theme-icon theme-icon--dark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" fill="currentColor"/>
-        </svg>
-      </button>
-    </nav>
+      <div class="nav-right">
+        <button class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+          <span class="ds-theme-toggle__btn ds-theme-toggle__btn--sun" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          </span>
+          <span class="ds-theme-toggle__btn ds-theme-toggle__btn--moon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+        </button>
+        <a href="../index.html#contact" class="nav-cta">Get in Touch</a>
+      </div>
+    </div>
   </header>
 
   <main>
@@ -427,7 +297,7 @@
         <h1 class="cs-hero-v3__title">PSS Leap: Reimagining<br><strong>Patient Support</strong><br>Services.</h1>
 
         <div class="cs-hero-v3__main">
-          <p class="cs-hero-v3__lede">Led CX/UX strategy for Novartis's PSS Leap initiative — a ground-up reimagining of how patients start and stay on therapy. Delivered a unified ecosystem spanning patient web enrollment, omni-channel touchpoints, and data-driven insights.</p>
+          <p class="cs-hero-v3__lede">Led CX/UX strategy for Novartis's PSS Leap initiative — a ground-up reimagining of how patients start and stay on therapy. Delivered a unified ecosystem spanning patient web enrollment, internal CRM workflows, omni-channel touchpoints, field support roles, and operational efficiency across patient support teams.</p>
           <div class="cs-hero-v3__panel" style="background: linear-gradient(135deg, var(--sage-900) 0%, var(--sage-700) 50%, var(--sage-500) 100%);">
             <div class="cs-hero-v3__panel-label">Patients Enrolled</div>
             <div class="cs-hero-v3__panel-stat"><strong>24.5K</strong></div>
@@ -469,28 +339,25 @@
     <!-- Overview -->
     <section class="cs-section">
       <div class="container">
-        <div class="cs-two-col cs-two-col--wide">
-          <div class="fade-in">
-            <p class="cs-section-label">Overview</p>
-            <h2 class="cs-section-title">A System-Level Reimagining of Patient Support</h2>
-            <p class="cs-text">PSS Leap was Novartis's bold bet to own patient support in-house — replacing a fragmented network of third-party vendors with a unified, technology-backed ecosystem built around the patient. The program spanned web enrollment portals, a state-of-the-art Customer Engagement Center (CEC), real-time analytics dashboards, and omni-channel patient journeys across multiple therapeutic brands including Entresto and Cosentyx.</p>
-            <p class="cs-text">My role was to lead the CX/UX design strategy end-to-end: from patient and provider research through persona workshops, service blueprinting, and iterative design — to delivering validated, accessible, brand-configurable digital products at scale.</p>
-          </div>
-          <div class="fade-in">
-            <div class="cs-outcome">
-              <div class="cs-outcome-value">24.5k</div>
-              <div class="cs-outcome-label">Patients Enrolled</div>
-              <div class="cs-outcome-desc">Entresto patients enrolled since program launch in November 2021.</div>
+        <div class="fade-in">
+          <p class="cs-section-label">Overview</p>
+          <h2 class="cs-section-title">A System-Level Reimagining of Patient Support</h2>
+          <div class="cs-two-col cs-two-col--wide" style="margin-top:20px;align-items:flex-start;">
+            <div>
+              <p class="cs-text" style="margin-top:0;">PSS Leap was Novartis's strategic initiative to bring patient support fully in-house — replacing a fragmented network of third-party vendors with a unified, technology-backed ecosystem built around the patient. The program spanned web enrollment portals, a <strong>Salesforce-powered Customer Engagement Center (CEC)</strong>, real-time analytics dashboards, and omni-channel patient journeys across multiple therapeutic brands including Entresto and Cosentyx. Beyond the patient-facing experience, the work connected <strong>service design, CRM workflows, agent tooling, and operational reporting</strong> into one scalable support model — reducing administrative burden for CEC agents and field teams alike.</p>
+              <p class="cs-text">My role was to lead the CX/UX design strategy end-to-end: from patient and provider research through persona workshops, service blueprinting, and iterative design — to delivering validated, accessible, brand-configurable digital products at scale.</p>
             </div>
-            <div class="cs-outcome">
-              <div class="cs-outcome-value">93%</div>
-              <div class="cs-outcome-label">Call Quality Score</div>
-              <div class="cs-outcome-desc">Post-launch call quality exceeded the 85% limited launch target.</div>
-            </div>
-            <div class="cs-outcome">
-              <div class="cs-outcome-value">4.5</div>
-              <div class="cs-outcome-label">Customer Experience Rating</div>
-              <div class="cs-outcome-desc">Positive CX rating against a benchmark range of 3.75–4.0.</div>
+            <div>
+              <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:24px 22px;">
+                <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--accent-2);margin-bottom:16px;">Program Scope</p>
+                <div style="display:flex;flex-direction:column;gap:10px;">
+                  <span style="font-size:0.82rem;color:var(--text);display:flex;align-items:center;gap:10px;"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;"></span>Patient Web Enrollment</span>
+                  <span style="font-size:0.82rem;color:var(--text);display:flex;align-items:center;gap:10px;"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;"></span>Salesforce CRM &amp; Agent Console</span>
+                  <span style="font-size:0.82rem;color:var(--text);display:flex;align-items:center;gap:10px;"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;"></span>Omni-channel Patient Journeys</span>
+                  <span style="font-size:0.82rem;color:var(--text);display:flex;align-items:center;gap:10px;"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;"></span>Field Reimbursement Workflows</span>
+                  <span style="font-size:0.82rem;color:var(--text);display:flex;align-items:center;gap:10px;"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;"></span>Analytics &amp; Dashboards</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -573,44 +440,31 @@
             <div class="pss-lifecycle-num">01</div>
             <div class="pss-lifecycle-title">Research</div>
             <div class="pss-lifecycle-desc">Understand core problems of customers through continuous discovery.</div>
-            <ul class="pss-lifecycle-list">
-              <li>Whom are we solving for?</li>
-              <li>What is the problem?</li>
-              <li>How big of a problem is it?</li>
-            </ul>
           </div>
           <div class="pss-lifecycle-step">
             <div class="pss-lifecycle-num">02</div>
             <div class="pss-lifecycle-title">CX / UX Design</div>
             <div class="pss-lifecycle-desc">Apply research to design experiences validated before building.</div>
-            <ul class="pss-lifecycle-list">
-              <li>Apply research to design</li>
-              <li>Design experiences</li>
-              <li>Test / validate before building</li>
-            </ul>
           </div>
           <div class="pss-lifecycle-step">
             <div class="pss-lifecycle-num">03</div>
             <div class="pss-lifecycle-title">Build &amp; Deploy</div>
             <div class="pss-lifecycle-desc">Apply research &amp; CX/UX to build and deliver product.</div>
-            <ul class="pss-lifecycle-list">
-              <li>Patient &amp; Caregiver</li>
-              <li>Enterprise / LEC</li>
-              <li>Foundation &amp; Integrations</li>
-              <li>Data &amp; Analytics</li>
-            </ul>
           </div>
           <div class="pss-lifecycle-step">
             <div class="pss-lifecycle-num">04</div>
             <div class="pss-lifecycle-title">Go-to-Market &amp; Learn</div>
             <div class="pss-lifecycle-desc">Learn and iterate through research and the next product cycle.</div>
-            <ul class="pss-lifecycle-list">
-              <li>Launch &amp; monitor</li>
-              <li>Measure against KPIs</li>
-              <li>Feed learnings back to research</li>
-            </ul>
           </div>
         </div>
+
+        <figure class="fade-in" style="margin-top:36px;">
+          <button class="pss-img-btn" aria-label="View iterative process diagram enlarged">
+            <img src="../assets/images/novartis/pss/iterative%20process.png" alt="PSS Leap iterative product lifecycle — Research, CX/UX Design, Build &amp; Deploy, and Go-to-Market Learn phases forming a continuous improvement cycle with customers and PSS Franchise at the core" loading="lazy" style="width:100%;display:block;border-radius:var(--radius-md);" />
+            <span class="pss-zoom-hint">Click to enlarge</span>
+          </button>
+          <figcaption style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:8px;font-style:italic;">The iterative product lifecycle — a continuous loop connecting Research, CX/UX Design, Build &amp; Deploy, and Go-to-Market learning across all customer types.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -623,78 +477,14 @@
           <p class="cs-text">The PSS Leap ecosystem was built on six interconnected pillars — each designed to serve patients and providers at every touchpoint along the medication journey. The model brought service delivery in-house, replacing third-party fragmentation with a cohesive, technology-backed support system.</p>
         </div>
 
-        <div class="pss-hub-wrap fade-in">
+        <figure class="fade-in" style="margin-top:28px;">
+          <button class="pss-img-btn" aria-label="View human-centric ecosystem diagram enlarged">
+            <img src="../assets/images/novartis/pss/human%20centric%20visual.png" alt="Human-centric and tech-based experience at scale — six-pillar ecosystem diagram with Patient &amp; HCP at center, connected to Omni-channel, Patient Portal, Technology Backbone, In-house CEC, Feedback &amp; Measurement, and Design Standards" loading="lazy" style="width:100%;display:block;border-radius:var(--radius-md);" />
+            <span class="pss-zoom-hint">Click to enlarge</span>
+          </button>
+          <figcaption style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:8px;font-style:italic;">Human-centric &amp; tech-based experience at scale — the six-pillar PSS Leap ecosystem built around patients and HCPs.</figcaption>
+        </figure>
 
-          <!-- Left: 3 nodes -->
-          <div class="pss-hub-col pss-hub-col--left">
-            <div class="pss-hub-node">
-              <div class="pss-hub-node-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              </div>
-              <div>
-                <div class="pss-hub-node-label">Omni-Channel</div>
-                <div class="pss-hub-node-desc">Patients engage via their preferred channel — chatbot, text, email — at any point in their journey.</div>
-              </div>
-            </div>
-            <div class="pss-hub-node">
-              <div class="pss-hub-node-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-              </div>
-              <div>
-                <div class="pss-hub-node-label">Patient Portal</div>
-                <div class="pss-hub-node-desc">Easy-to-use enrollment portal (Amazon login) providing a simple way to enroll into support services at any time.</div>
-              </div>
-            </div>
-            <div class="pss-hub-node">
-              <div class="pss-hub-node-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg>
-              </div>
-              <div>
-                <div class="pss-hub-node-label">Technology Backbone</div>
-                <div class="pss-hub-node-desc">AWS-powered infrastructure enabling real-time insights, modular plug-and-play adaptability, and rapid integration.</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Center: Patient & HCP -->
-          <div class="pss-hub-center-block">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            <div class="pss-hub-center-title">Patient &amp; HCP</div>
-            <div class="pss-hub-center-sub">At the center of every decision, touchpoint, and design</div>
-          </div>
-
-          <!-- Right: 3 nodes -->
-          <div class="pss-hub-col pss-hub-col--right">
-            <div class="pss-hub-node">
-              <div class="pss-hub-node-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.99 3.4 2 2 0 0 1 3.97 2H7a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </div>
-              <div>
-                <div class="pss-hub-node-label">In-House CEC</div>
-                <div class="pss-hub-node-desc">Industry-leading Customer Engagement Center with Salesforce-powered agents providing expert support.</div>
-              </div>
-            </div>
-            <div class="pss-hub-node">
-              <div class="pss-hub-node-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              </div>
-              <div>
-                <div class="pss-hub-node-label">Feedback &amp; Measurement</div>
-                <div class="pss-hub-node-desc">User feedback, analytics, testing, and research drive continuous refinement of user-centered experiences.</div>
-              </div>
-            </div>
-            <div class="pss-hub-node">
-              <div class="pss-hub-node-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-              </div>
-              <div>
-                <div class="pss-hub-node-label">Best-in-Class Design Standards</div>
-                <div class="pss-hub-node-desc">Integrated design standards across all programs to enable operational excellence and consistent patient experience.</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
       </div>
     </section>
 
@@ -705,30 +495,15 @@
           <p class="cs-section-label">Research &amp; Discovery</p>
           <h2 class="cs-section-title">Our Patient Journey</h2>
           <p class="cs-text">By combining empathy with a deep understanding of user habits, behaviors, frustrations, and goals, we addressed real problems with practical solutions. The full patient journey spans 15 distinct stages — from first awareness of a diagnosis through long-term therapy adherence. Analytics, testing, ongoing research, and competitive analysis allowed us to continuously refine and develop user-centered products while measuring success.</p>
-          <div class="cs-methods" style="margin-top: 20px;">
-            <span class="tag">Awareness &amp; Diagnosis</span>
-            <span class="tag">Reset, Seek &amp; Research</span>
-            <span class="tag">Accept &amp; Adopt</span>
-            <span class="tag">Patient Intake</span>
-            <span class="tag">Welcome Call</span>
-            <span class="tag">Benefits Investigation</span>
-            <span class="tag">Prior Authorization</span>
-            <span class="tag">Get Started Call</span>
-            <span class="tag">CoPay &amp; Rx Transfer</span>
-            <span class="tag">Adherence</span>
-          </div>
         </div>
 
-        <div class="cs-visual-slot fade-in" style="margin-top: 28px;">
-          <div class="cs-visual-slot-body">
-            <div class="cs-visual-slot-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </div>
-            <div class="cs-visual-slot-label">Full 15-Stage Patient Journey Map</div>
-            <div class="cs-visual-slot-hint">Insert the full patient journey map image from your slides — the wide horizontal swimlane showing all 15 stages from Awareness & Diagnosis through Adherence, with touchpoints, pain points, and opportunity areas.</div>
-          </div>
-          <div class="cs-visual-slot-caption"><p>The PSS Leap patient journey map — 15 stages spanning diagnosis through long-term therapy adherence, mapping patient actions, HCP interactions, and program touchpoints across the full medication experience.</p></div>
-        </div>
+        <figure class="fade-in" style="margin-top:28px;">
+          <button class="pss-img-btn" aria-label="View full patient journey map enlarged">
+            <img src="../assets/images/novartis/pss/Patient%20journey.png" alt="PSS Leap patient journey map — 15 stages spanning Awareness &amp; Diagnosis through Adherence, mapping patient actions, HCP interactions, touchpoints, and opportunity areas" loading="lazy" style="width:100%;display:block;border-radius:var(--radius-md);" />
+            <span class="pss-zoom-hint">Click to enlarge</span>
+          </button>
+          <figcaption style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:8px;font-style:italic;">PSS Leap patient journey map — 15 stages spanning diagnosis through long-term therapy adherence, mapping patient actions, HCP interactions, and program touchpoints.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -751,53 +526,35 @@
               </div>
             </div>
             <p class="pss-persona-quote">"I have a family history of psoriasis, and I've dealt with it for years. Recently I've noticed severe aching &amp; swelling in my hands &amp; feet. I want to be proactive with treatment."</p>
-            <ul class="pss-persona-pains">
-              <li>PsA can be difficult to diagnose, resulting in multiple specialist visits</li>
-              <li>Prior Authorization process can be time-consuming and requires multiple overseers</li>
-              <li>Lack of transparency about the entire insurance process</li>
-              <li>Condition can worsen with long delays from insurance</li>
-            </ul>
           </div>
           <div class="pss-persona-card">
             <div class="pss-persona-header">
-              <div class="pss-persona-avatar" style="background: var(--phase-orange-bg); border-color: var(--phase-orange-dim); color: var(--phase-orange);">SS</div>
+              <div class="pss-persona-avatar" style="background: var(--accent-2-glow); border-color: var(--clay-300); color: var(--accent-2);">SS</div>
               <div>
                 <div class="pss-persona-name">Steven Smith</div>
                 <div class="pss-persona-meta">Heart Failure Patient · Age 52 · Atlanta, GA</div>
               </div>
             </div>
             <p class="pss-persona-quote">"I have a family history of heart failure and I would like to do everything in my power to avoid it, however I find it challenging to navigate the trek to therapy and beyond."</p>
-            <ul class="pss-persona-pains">
-              <li>Lack of sign-up awareness and clear path to financial pathway</li>
-              <li>Many patients have significant financial need with high NPAF utilization</li>
-              <li>Often taking multiple drugs simultaneously — complex interaction concerns</li>
-              <li>Some patients lack smartphones or WiFi, limiting digital access</li>
-            </ul>
           </div>
         </div>
 
-        <!-- Patient visual slot -->
-        <div class="cs-visual-2up fade-in" style="margin-top: 28px;">
-          <div class="cs-visual-slot">
-            <div class="cs-visual-slot-body">
-              <div class="cs-visual-slot-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-              </div>
-              <div class="cs-visual-slot-label">John Smith — Full Persona Card</div>
-              <div class="cs-visual-slot-hint">Full persona document for John Smith (psoriatic arthritis) showing objectives, devices, technology aptitude scale, pain points, and interaction map from your slides.</div>
-            </div>
-            <div class="cs-visual-slot-caption"><p>John Smith persona — psoriatic arthritis patient navigating diagnosis, prior authorization, and specialty pharmacy access.</p></div>
-          </div>
-          <div class="cs-visual-slot">
-            <div class="cs-visual-slot-body">
-              <div class="cs-visual-slot-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-              </div>
-              <div class="cs-visual-slot-label">Steven Smith — Full Persona Card</div>
-              <div class="cs-visual-slot-hint">Full persona document for Steven Smith (heart failure) showing objectives, behavioral considerations, devices, pain points, opportunities, and interaction map from your slides.</div>
-            </div>
-            <div class="cs-visual-slot-caption"><p>Steven Smith persona — heart failure patient managing complex medication access and adherence barriers.</p></div>
-          </div>
+        <!-- Patient persona images -->
+        <div class="cs-visual-2up fade-in" style="margin-top:28px;">
+          <figure>
+            <button class="pss-img-btn" aria-label="View John Smith persona card enlarged">
+              <img src="../assets/images/novartis/pss/Patient%20persona%201.png" alt="John Smith persona — psoriatic arthritis patient, age 52, New York. Shows objectives, devices, technology aptitude, pain points, and interaction map." loading="lazy" style="width:100%;display:block;border-radius:var(--radius-md);border:1px solid var(--border);" />
+              <span class="pss-zoom-hint">Click to enlarge</span>
+            </button>
+            <figcaption style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:8px;font-style:italic;">John Smith — psoriatic arthritis patient navigating diagnosis, prior authorization, and specialty pharmacy access.</figcaption>
+          </figure>
+          <figure>
+            <button class="pss-img-btn" aria-label="View Steven Smith persona card enlarged">
+              <img src="../assets/images/novartis/pss/Patient%20persona%202.png" alt="Steven Smith persona — heart failure patient, age 52, Atlanta. Shows objectives, behavioral considerations, devices, pain points, opportunities, and interaction map." loading="lazy" style="width:100%;display:block;border-radius:var(--radius-md);border:1px solid var(--border);" />
+              <span class="pss-zoom-hint">Click to enlarge</span>
+            </button>
+            <figcaption style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:8px;font-style:italic;">Steven Smith — heart failure patient managing complex medication access and adherence barriers.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -808,7 +565,7 @@
         <div class="fade-in">
           <p class="cs-section-label">Patient Support Personas</p>
           <h2 class="cs-section-title">20+ Workshops to Define the Support Team</h2>
-          <p class="cs-text">We facilitated over 20 workshops to define our PSS Brand, CEC Agent, and Field personas — uncovering their goals, objectives, and pain points. These sessions provided the critical insights needed to craft informed customer journeys, guide design decisions, and foster empathy while maintaining objectivity.</p>
+          <p class="cs-text">We facilitated over 20 workshops to define our PSS Brand, CEC Agent, and Field personas — uncovering their goals, objectives, and pain points. These sessions provided the critical insights needed to craft informed customer journeys, guide design decisions, and foster empathy while maintaining objectivity. These roles closely mirror CRM users responsible for managing complex case workflows, coordinating across systems, and supporting real-time decision-making.</p>
         </div>
 
         <div class="pss-support-grid fade-in">
@@ -816,47 +573,41 @@
             <div class="pss-support-role">Support Persona 01</div>
             <div class="pss-support-title">CEC Agent</div>
             <p class="pss-support-quote">"Every call is my top priority to give a personalized and quality experience."</p>
-            <ul class="pss-support-list">
-              <li>Strive to complete all calls within 10 minutes or less</li>
-              <li>Assist callers with co-pay enrollment, adherence, and program inquiries</li>
-              <li>Drive results by exceeding KPIs on daily, weekly, and monthly basis</li>
-              <li>Work towards increasing CSAT scores</li>
-              <li>Empathize and connect emotionally with patients and callers</li>
-            </ul>
           </div>
           <div class="pss-support-card">
             <div class="pss-support-role">Support Persona 02</div>
             <div class="pss-support-title">CEC Director of Case Management</div>
             <p class="pss-support-quote">"My goal is to focus delivering a personalized experience to the customers that meets their needs and equipping our team with the most up-to-date knowledge articles and tools."</p>
-            <ul class="pss-support-list">
-              <li>Maximize team performance through scorecards and diving deeper into areas of improvement</li>
-              <li>Visibility into overall evaluation of the process — CEC can leverage to optimize their day-to-day processing</li>
-              <li>Ensure CEC budgets are in line with the leadership's visions and goals</li>
-              <li>Participate in quality management calibrations</li>
-            </ul>
           </div>
           <div class="pss-support-card">
             <div class="pss-support-role">Support Persona 03</div>
             <div class="pss-support-title">Field Reimbursement Manager (FRM)</div>
             <p class="pss-support-quote">"We want to make the office as efficient as possible."</p>
-            <ul class="pss-support-list">
-              <li>Get patients started on their therapy</li>
-              <li>Ensure completion of SRF TumPlatent and HCP</li>
-              <li>Provide access to providers, including office staff, on Novartis processes and programs</li>
-              <li>Collaborate with Sales and ADRA on updates and issues</li>
-            </ul>
           </div>
         </div>
 
-        <div class="cs-visual-slot fade-in" style="margin-top: 28px;">
-          <div class="cs-visual-slot-body">
-            <div class="cs-visual-slot-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <div class="cs-visual-slot-label">Patient Support Personas — Full Cards</div>
-            <div class="cs-visual-slot-hint">Insert the full persona cards for CEC Agent, CEC Director of Case Management, and Field Reimbursement Manager from your slides, showing background, motivations, goals, pain points, digital solutions, devices, and interaction maps.</div>
-          </div>
-          <div class="cs-visual-slot-caption"><p>The three patient support personas — defining the goals, pain points, and digital needs of the team delivering PSS Leap to patients and providers.</p></div>
+        <div class="fade-in" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px;">
+          <figure>
+            <button class="pss-img-btn" aria-label="View CEC Agent persona enlarged">
+              <img src="../assets/images/novartis/pss/Agent%20Persona.png" alt="CEC Agent persona — goals, pain points, digital solutions, devices, and interaction map for the Novartis Customer Engagement Center agent role" loading="lazy" style="width:100%;display:block;border-radius:var(--radius-md);border:1px solid var(--border);" />
+              <span class="pss-zoom-hint">Click to enlarge</span>
+            </button>
+            <figcaption style="font-size:0.78rem;color:var(--text-muted);text-align:center;margin-top:8px;font-style:italic;">CEC Agent</figcaption>
+          </figure>
+          <figure>
+            <button class="pss-img-btn" aria-label="View CEC Director of Case Management persona enlarged">
+              <img src="../assets/images/novartis/pss/CEC%20persona.png" alt="CEC Director of Case Management persona — goals, pain points, tools, and interaction map" loading="lazy" style="width:100%;display:block;border-radius:var(--radius-md);border:1px solid var(--border);" />
+              <span class="pss-zoom-hint">Click to enlarge</span>
+            </button>
+            <figcaption style="font-size:0.78rem;color:var(--text-muted);text-align:center;margin-top:8px;font-style:italic;">CEC Director of Case Management</figcaption>
+          </figure>
+          <figure>
+            <button class="pss-img-btn" aria-label="View Field Reimbursement Manager persona enlarged">
+              <img src="../assets/images/novartis/pss/FRM%20persona.png" alt="Field Reimbursement Manager persona — goals, pain points, tools, and interaction map" loading="lazy" style="width:100%;display:block;border-radius:var(--radius-md);border:1px solid var(--border);" />
+              <span class="pss-zoom-hint">Click to enlarge</span>
+            </button>
+            <figcaption style="font-size:0.78rem;color:var(--text-muted);text-align:center;margin-top:8px;font-style:italic;">Field Reimbursement Manager</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -868,18 +619,26 @@
           <p class="cs-section-label">Service Design</p>
           <h2 class="cs-section-title">PSS Leap Specialty Service Blueprint</h2>
           <p class="cs-text">The service blueprint mapped every stakeholder, touchpoint, interaction, and system dependency across the full PSS Leap ecosystem. It served as the single source of truth for aligning product, technology, operations, and clinical teams — and became the foundational artifact for every subsequent design and build decision.</p>
+
+          <div style="margin-top:14px;">
+            <p style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);margin-bottom:8px;">What it maps</p>
+            <div class="pss-journey-steps" style="margin:0;">
+              <span class="pss-journey-step" style="gap:0;padding:4px 12px;">Patient &amp; HCP interactions</span>
+              <span class="pss-journey-step" style="gap:0;padding:4px 12px;">Navigator &amp; support operations</span>
+              <span class="pss-journey-step" style="gap:0;padding:4px 12px;">Physical &amp; digital touchpoints</span>
+              <span class="pss-journey-step" style="gap:0;padding:4px 12px;">Front &amp; back stage systems</span>
+              <span class="pss-journey-step" style="gap:0;padding:4px 12px;">15 stages end-to-end</span>
+            </div>
+          </div>
         </div>
 
-        <div class="cs-visual-slot fade-in">
-          <div class="cs-visual-slot-body">
-            <div class="cs-visual-slot-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
-            </div>
-            <div class="cs-visual-slot-label">PSS Leap Specialty Service Blueprint</div>
-            <div class="cs-visual-slot-hint">Insert the full service blueprint image from your slides — the large multi-swimlane diagram showing Patient journey, Patient Pain Points, HCP/Nurse interactions, Core Navigator (CEC), Physical Touchpoints, Front Stage (CEC Agent, Reimbursement Specialist), and Back Stage (PSC, PMU, IQVIA, Kasimpba) across all stages from Awareness through Adherence.</div>
-          </div>
-          <div class="cs-visual-slot-caption"><p>PSS Leap Specialty Service Blueprint — the complete map of every interaction, system, and actor across the 15-stage patient support journey.</p></div>
-        </div>
+        <figure class="fade-in" style="margin-top:28px;">
+          <button class="pss-img-btn" aria-label="View full service blueprint enlarged">
+            <img src="../assets/images/novartis/pss/Blueprint%20PSS.png" alt="PSS Leap Specialty Service Blueprint — multi-swimlane diagram mapping Patient, HCP, Core Navigator, Physical Touchpoints, Front Stage, and Back Stage interactions across all 15 stages from Awareness through Adherence" loading="lazy" style="width:100%;display:block;border-radius:var(--radius-md);border:1px solid var(--border);" />
+            <span class="pss-zoom-hint">Click to enlarge</span>
+          </button>
+          <figcaption style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:8px;font-style:italic;">PSS Leap Specialty Service Blueprint — the complete map of every interaction, system, and actor across the 15-stage patient support journey.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -898,63 +657,59 @@
           <h3 class="cs-section-title" style="font-size: 1.2rem; margin-bottom: 12px;">Patient Web Enrollment Journey</h3>
           <p class="cs-text">The web enrollment journey was redesigned end-to-end — from awareness through post-enrollment follow-up. The 8-stage flow reduced patient confusion, improved data accuracy, and dramatically sped up enrollment and service times. It was built to be brand-configurable, so the same underlying platform could serve multiple Novartis drug brands while adapting to each brand's visual identity.</p>
 
-          <div class="cs-methods" style="margin: 16px 0 20px;">
-            <span class="tag">Awareness</span>
-            <span class="tag">Research &amp; Learn</span>
-            <span class="tag">Initiate Enrollment</span>
-            <span class="tag">Program Selection &amp; Qualifications</span>
-            <span class="tag">Personal Information</span>
-            <span class="tag">Review &amp; Submit</span>
-            <span class="tag">Confirmation</span>
-            <span class="tag">Post Enrollment</span>
+          <div class="pss-journey-steps">
+            <span class="pss-journey-step"><span class="pss-journey-num">01</span>Awareness</span>
+            <span class="pss-journey-step"><span class="pss-journey-num">02</span>Research &amp; Learn</span>
+            <span class="pss-journey-step"><span class="pss-journey-num">03</span>Initiate Enrollment</span>
+            <span class="pss-journey-step"><span class="pss-journey-num">04</span>Program Selection &amp; Qualifications</span>
+            <span class="pss-journey-step"><span class="pss-journey-num">05</span>Personal Information</span>
+            <span class="pss-journey-step"><span class="pss-journey-num">06</span>Review &amp; Submit</span>
+            <span class="pss-journey-step"><span class="pss-journey-num">07</span>Confirmation</span>
+            <span class="pss-journey-step"><span class="pss-journey-num">08</span>Post Enrollment</span>
           </div>
 
-          <div class="cs-visual-slot fade-in">
-            <div class="cs-visual-slot-body">
-              <div class="cs-visual-slot-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
-              <div class="cs-visual-slot-label">Patient Web Enrollment Journey Map</div>
-              <div class="cs-visual-slot-hint">Insert the Patient Web Enrollment Journey map from your slides — the swimlane showing Doing, Touch Points, Thinking & Feeling (emotion curve), Pain Points, and Opportunities across all 8 stages for the Steven Smith persona.</div>
-            </div>
-            <div class="cs-visual-slot-caption"><p>Patient Web Enrollment Journey — 8-stage map spanning awareness through post-enrollment, with the emotion curve, key touch points, and identified opportunities at each stage.</p></div>
-          </div>
+          <figure class="fade-in" style="margin-top:20px;">
+            <button class="pss-img-btn" aria-label="View patient web enrollment journey map enlarged">
+              <img src="../assets/images/novartis/pss/pss%20journey%20map.png" alt="Patient web enrollment journey map — 8-stage swimlane (Awareness through Post Enrollment) showing Doing, Touch Points, Thinking &amp; Feeling emotion curve, Pain Points, and Opportunities for the Steven Smith persona" loading="lazy" style="width:100%;display:block;border-radius:var(--radius-md);border:1px solid var(--border);" />
+              <span class="pss-zoom-hint">Click to enlarge</span>
+            </button>
+            <figcaption style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:8px;font-style:italic;">Patient Web Enrollment Journey — 8-stage map spanning awareness through post-enrollment, with the emotion curve, touchpoints, and identified opportunities at each stage.</figcaption>
+          </figure>
         </div>
 
         <!-- CEC Agent Journey -->
         <div style="margin-top: 48px;">
           <p class="cs-section-label" style="margin-bottom: 8px;">Deliverable 02</p>
           <h3 class="cs-section-title" style="font-size: 1.2rem; margin-bottom: 12px;">Customer Engagement Center (CEC) Agent Journey</h3>
-          <p class="cs-text">Beyond the patient-facing experience, we designed the end-to-end journey for CEC agents — the Novartis employees who connect directly with patients and providers to provide expert enrollment support. The CEC agent journey spans 5 stages, from the start of the working day through post-call wrap-up, and informed the design of the Salesforce-based agent console that agents use on every call.</p>
+          <p class="cs-text">Beyond the patient-facing experience, we designed the end-to-end journey for CEC agents — the Novartis employees who connect directly with patients and providers to provide expert enrollment support. The CEC agent journey spans 5 stages, from the start of the working day through post-call wrap-up, and informed the design of the Salesforce-based agent console that agents use on every call. Designed within Salesforce CRM, this experience streamlined case management workflows, reduced context switching, and improved agent productivity in high-volume environments.</p>
 
-          <div class="cs-visual-slot fade-in">
-            <div class="cs-visual-slot-body">
-              <div class="cs-visual-slot-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.99 3.4 2 2 0 0 1 3.97 2H7a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </div>
-              <div class="cs-visual-slot-label">CEC Agent Journey Map</div>
-              <div class="cs-visual-slot-hint">Insert the CEC Agent Journey map from your slides — the 5-stage swimlane (Start of Day → Inbound Call → Call → End Call → Post Call) showing Doing, Touch Points (Genesys, Salesforce Health Cloud, IQVIA, Cecelia Health), Thinking & Feeling, Pain Points, and Opportunities.</div>
-            </div>
-            <div class="cs-visual-slot-caption"><p>CEC Agent Journey — 5-stage map from start of day through post-call, defining the agent experience and identifying opportunities to reduce friction and improve call quality.</p></div>
+          <div class="pss-journey-steps">
+            <span class="pss-journey-step"><span class="pss-journey-num">01</span>Start of Day</span>
+            <span class="pss-journey-step"><span class="pss-journey-num">02</span>Inbound Call</span>
+            <span class="pss-journey-step"><span class="pss-journey-num">03</span>Call</span>
+            <span class="pss-journey-step"><span class="pss-journey-num">04</span>End Call</span>
+            <span class="pss-journey-step"><span class="pss-journey-num">05</span>Post Call</span>
           </div>
+
+          <figure class="fade-in" style="margin-top:20px;">
+            <button class="pss-img-btn" aria-label="View CEC agent journey map enlarged">
+              <img src="../assets/images/novartis/pss/Agent%20journey.png" alt="CEC Agent Journey map — 5-stage swimlane (Start of Day, Inbound Call, Call, End Call, Post Call) showing Doing, Touch Points (Genesys, Salesforce Health Cloud, IQVIA, Cecelia Health), Thinking &amp; Feeling, Pain Points, and Opportunities" loading="lazy" style="width:100%;display:block;border-radius:var(--radius-md);border:1px solid var(--border);" />
+              <span class="pss-zoom-hint">Click to enlarge</span>
+            </button>
+            <figcaption style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:8px;font-style:italic;">CEC Agent Journey — 5-stage map from start of day through post-call, identifying opportunities to reduce friction and improve call quality.</figcaption>
+          </figure>
         </div>
 
         <!-- CEC Technology -->
         <div style="margin-top: 48px;">
           <p class="cs-section-label" style="margin-bottom: 8px;">Deliverable 03</p>
           <h3 class="cs-section-title" style="font-size: 1.2rem; margin-bottom: 12px;">State-of-the-Art Call Center Technology</h3>
-          <p class="cs-text">Novartis employees connected directly with patients and HCPs to respond faster and provide expert guidance — powered by modern technology that enhanced service quality and scalability. The Salesforce-based CEC agent console gave agents a unified view of patient information, case history, call guides, and suggested knowledge articles — enabling first-call resolution and a personalized experience for every caller.</p>
+          <p class="cs-text">Novartis employees connected directly with patients and HCPs to respond faster and provide expert guidance — powered by modern technology that enhanced service quality and scalability. The Salesforce CRM-based CEC agent console gave agents a unified patient record with full case management capabilities, structured call guides, and suggested knowledge articles — eliminating context switching across systems and enabling first-call resolution at scale.</p>
 
-          <div class="cs-visual-slot fade-in">
-            <div class="cs-visual-slot-body">
-              <div class="cs-visual-slot-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-              </div>
-              <div class="cs-visual-slot-label">CEC Agent Console — Salesforce Screenshot</div>
-              <div class="cs-visual-slot-hint">Insert the Salesforce CEC agent console screenshot from your slides — showing the case management interface with patient account info, call guide checklist, suggested articles, and Genesys softphone overlay for case #10011001.</div>
-            </div>
-            <div class="cs-visual-slot-caption"><p>Salesforce-powered CEC agent console — unified patient record, call guide, and AI-assisted knowledge support in a single workflow.</p></div>
-          </div>
+          <figure class="fade-in" style="margin-top:20px;">
+            <img src="../assets/images/novartis/pss/call%20center%20screen.png" alt="Salesforce-powered CEC agent console — unified patient record with case management interface, call guide checklist, suggested knowledge articles, and Genesys softphone overlay for case #10011001" loading="lazy" style="width:100%;display:block;border-radius:var(--radius-md);border:1px solid var(--border);" />
+            <figcaption style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:8px;font-style:italic;">Salesforce-powered CEC agent console — unified patient record, call guide, and knowledge support in a single workflow.</figcaption>
+          </figure>
         </div>
 
         <!-- Dashboards -->
@@ -963,46 +718,34 @@
           <h3 class="cs-section-title" style="font-size: 1.2rem; margin-bottom: 12px;">Actionable Insights &amp; Analytics Dashboards</h3>
           <p class="cs-text">We developed customizable dashboards tailored to each user type — offering insights into Customer Engagement Center performance, brand program health, and customer satisfaction across services and processes. These dashboards were designed to drive actions that enhance the customer experience, not just report on it.</p>
 
-          <div class="cs-visual-2up fade-in">
-            <div class="cs-visual-slot">
-              <div class="cs-visual-slot-body">
-                <div class="cs-visual-slot-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                </div>
-                <div class="cs-visual-slot-label">CEC Operations Dashboard</div>
-                <div class="cs-visual-slot-hint">Insert the CEC operations dashboard screenshot — showing inbound/outbound call volumes, average speed to answer, handle time, abandon rate, call metrics tree, total calls by state map, and call volume chart.</div>
-              </div>
-              <div class="cs-visual-slot-caption"><p>CEC operations dashboard — real-time visibility into call center performance, volume trends, and quality metrics.</p></div>
-            </div>
-            <div class="cs-visual-slot">
-              <div class="cs-visual-slot-body">
-                <div class="cs-visual-slot-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-                </div>
-                <div class="cs-visual-slot-label">CEC Agent Performance Dashboard</div>
-                <div class="cs-visual-slot-hint">Insert the CEC agent performance dashboard ("My Case Performance") — showing completed enrollments, average survey score, first-call completion rate, daily enrollments bar chart, interactions handled, enrollment cases closed, non-enrollment cases, task completion rate, and escalation metrics.</div>
-              </div>
-              <div class="cs-visual-slot-caption"><p>Agent performance dashboard — individual-level KPIs enabling agents and supervisors to track quality, throughput, and areas for improvement.</p></div>
-            </div>
+          <div class="cs-visual-2up fade-in" style="margin-top:20px;align-items:stretch;">
+            <figure style="display:flex;flex-direction:column;">
+              <button class="pss-img-btn" aria-label="View CEC operations dashboard enlarged" style="flex:1;">
+                <img src="../assets/images/novartis/pss/case%20management%20dashboard.png" alt="CEC operations dashboard — real-time call center KPIs including inbound/outbound volumes, average speed to answer, abandon rate, handle time, call metrics tree, and total calls by state map" loading="lazy" style="width:100%;height:300px;object-fit:cover;display:block;border-radius:var(--radius-md);border:1px solid var(--border);" />
+                <span class="pss-zoom-hint">Click to enlarge</span>
+              </button>
+              <figcaption style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:8px;font-style:italic;">CEC operations dashboard — real-time visibility into call center performance, volume trends, and quality metrics.</figcaption>
+            </figure>
+            <figure style="display:flex;flex-direction:column;">
+              <button class="pss-img-btn" aria-label="View CEC agent performance dashboard enlarged" style="flex:1;">
+                <img src="../assets/images/novartis/pss/CEC_UX_AgentDashboard_210803.png" alt="CEC agent performance dashboard (My Case Performance) — individual KPIs including completed enrollments, survey score, call completion rate, daily enrollment chart, interactions handled, and escalation metrics" loading="lazy" style="width:100%;height:300px;object-fit:cover;display:block;border-radius:var(--radius-md);border:1px solid var(--border);" />
+                <span class="pss-zoom-hint">Click to enlarge</span>
+              </button>
+              <figcaption style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:8px;font-style:italic;">Agent performance dashboard — individual-level KPIs enabling agents and supervisors to track quality, throughput, and areas for improvement.</figcaption>
+            </figure>
           </div>
         </div>
 
         <!-- Platform -->
         <div style="margin-top: 48px;">
           <p class="cs-section-label" style="margin-bottom: 8px;">Deliverable 05</p>
-          <h3 class="cs-section-title" style="font-size: 1.2rem; margin-bottom: 12px;">User-Validated, Accessible &amp; Responsive Patient Platform</h3>
-          <p class="cs-text">Through extensive user research and design testing, we developed a brand-configurable, web-based platform that informs, sets expectations, and ensures accessibility. The platform was deployed across multiple Novartis therapeutic brands — including Entresto (heart failure) and Cosentyx (psoriasis/arthritis) — and reduced customer confusion, improved data accuracy, and sped up enrollment and service times.</p>
+          <h3 class="cs-section-title" style="font-size: 1.2rem; margin-bottom: 12px;">Patient Web Platform</h3>
+          <p class="cs-text">The PSS Leap ecosystem culminated in an accessible, brand-configurable patient web portal — deployed across Entresto and Cosentyx — that informed patients, set clear expectations, and simplified access to support. The journey research, patient personas, and enrollment experience design that grounded this work flowed directly into the final platform, connecting every touchpoint into a coherent end-to-end experience.</p>
 
-          <div class="cs-visual-slot fade-in">
-            <div class="cs-visual-slot-body">
-              <div class="cs-visual-slot-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-              </div>
-              <div class="cs-visual-slot-label">Entresto &amp; Cosentyx — Patient Enrollment Platform</div>
-              <div class="cs-visual-slot-hint">Insert the platform screenshots from your slides — showing the Entresto enrollment flow (landing page with $10 co-pay offer and 30-day free trial, questionnaire steps, insurance information, personal info, double-check review) and the Cosentyx personalized questionnaire on mobile. Ideally shown as a grid of screens or side-by-side brands.</div>
-            </div>
-            <div class="cs-visual-slot-caption"><p>Brand-configurable patient enrollment platform — deployed for Entresto and Cosentyx, validated with users, WCAG accessible, and responsive across web and mobile.</p></div>
-          </div>
+          <figure class="fade-in" style="margin-top:20px;">
+              <img src="../assets/images/novartis/pss/Entresto%20homepage.png" alt="Entresto enrollment homepage — Let us help you with savings &amp; support, featuring the Enspire program, $10 co-pay offer, and 30-day free trial offer with clear CTAs" loading="lazy" style="width:100%;display:block;border-radius:var(--radius-md);border:1px solid var(--border);" />
+              <figcaption style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:8px;font-style:italic;">Entresto enrollment homepage — one of two Novartis brands recognized among the 10 Best Pharma Patient Support Websites.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -1013,50 +756,45 @@
         <div class="fade-in">
           <p class="cs-section-label">Outcomes</p>
           <h2 class="cs-section-title">Innovation That Improved Enrollment Into Support Services</h2>
-          <p class="cs-text">The PSS Leap LEAP model vs. the previous outsourced model delivered measurable improvements across every dimension — enrollment rates, web adoption, call quality, and customer experience. The results validated both the hypothesis and the approach.</p>
+          <p class="cs-text">The PSS Leap model vs. the previous outsourced model delivered measurable improvements across every dimension — enrollment rates, web adoption, call quality, and customer experience. Enrollment into support services improved with +9% adherence enrollment, +11% co-pay enrollment, and +24% co-pay enrollment on web vs. the outsourced model. These results were driven not only by improved patient experiences, but by more efficient internal workflows and reduced administrative burden for support teams. This enabled teams to focus more on patient support and less on manual coordination across systems.</p>
         </div>
 
-        <div class="pss-outcomes fade-in">
-          <div class="cs-outcome">
-            <div class="cs-outcome-value">24.5k</div>
-            <div class="cs-outcome-label">Patients Enrolled</div>
-            <div class="cs-outcome-desc">Entresto patients enrolled since program launch in November 2021.</div>
-          </div>
-          <div class="cs-outcome">
-            <div class="cs-outcome-value">+23%</div>
-            <div class="cs-outcome-label">Web Adoption Increase</div>
-            <div class="cs-outcome-desc">Resulting in 82% of users choosing the self-enroll option.</div>
-          </div>
-          <div class="cs-outcome">
-            <div class="cs-outcome-value">93%</div>
-            <div class="cs-outcome-label">Call Quality Score</div>
-            <div class="cs-outcome-desc">Post-launch, exceeding the limited launch target of 85%.</div>
-          </div>
-          <div class="cs-outcome">
-            <div class="cs-outcome-value">4.5</div>
-            <div class="cs-outcome-label">CX Rating</div>
-            <div class="cs-outcome-desc">Against an industry benchmark range of 3.75–4.0.</div>
-          </div>
-        </div>
-
-        <div class="fade-in">
-          <p class="cs-text" style="margin-top: 36px; margin-bottom: 8px;"><strong>LEAP vs. Outsourced Model Lift</strong></p>
-          <div class="cs-outcomes fade-in">
-            <div class="cs-outcome">
-              <div class="cs-outcome-value">+9%</div>
-              <div class="cs-outcome-label">Adherence Enrollment</div>
-              <div class="cs-outcome-desc">Improvement vs. outsourced model.</div>
+        <div class="pss-rings pss-rings--4up fade-in" style="margin-top:40px;">
+          <div class="pss-ring-item">
+            <div class="pss-ring pss-ring--solid">
+              <div class="pss-ring-inner">
+                <span class="pss-ring-value">24.5k</span>
+              </div>
             </div>
-            <div class="cs-outcome">
-              <div class="cs-outcome-value">+11%</div>
-              <div class="cs-outcome-label">Co-Pay Enrollment</div>
-              <div class="cs-outcome-desc">Improvement vs. outsourced model.</div>
+            <div class="pss-ring-label">Patients Enrolled</div>
+            <div class="pss-ring-desc">Entresto patients enrolled since program launch in November 2021.</div>
+          </div>
+          <div class="pss-ring-item">
+            <div class="pss-ring pss-ring--23">
+              <div class="pss-ring-inner">
+                <span class="pss-ring-value">+23%</span>
+              </div>
             </div>
-            <div class="cs-outcome">
-              <div class="cs-outcome-value">+24%</div>
-              <div class="cs-outcome-label">Co-Pay Enrollment on Web</div>
-              <div class="cs-outcome-desc">Improvement vs. outsourced model.</div>
+            <div class="pss-ring-label">Web Adoption Increase</div>
+            <div class="pss-ring-desc">Resulting in 82% of users choosing the self-enroll option.</div>
+          </div>
+          <div class="pss-ring-item">
+            <div class="pss-ring pss-ring--93">
+              <div class="pss-ring-inner">
+                <span class="pss-ring-value">93%</span>
+              </div>
             </div>
+            <div class="pss-ring-label">Call Quality Score</div>
+            <div class="pss-ring-desc">Post-launch, exceeding the limited launch target of 85%.</div>
+          </div>
+          <div class="pss-ring-item">
+            <div class="pss-ring pss-ring--solid">
+              <div class="pss-ring-inner">
+                <span class="pss-ring-value">4.5</span>
+              </div>
+            </div>
+            <div class="pss-ring-label">CX Rating</div>
+            <div class="pss-ring-desc">Against an industry benchmark range of 3.75–4.0.</div>
           </div>
         </div>
 
@@ -1066,8 +804,19 @@
           </div>
           <div class="pss-recognition-text">
             <h4>Recognized Among the 10 Best Pharma Patient Support Websites</h4>
-            <p>Thrilled to have been recognized for having two of the ten Best Patient Support Websites — representing Entresto and Cosentyx. This achievement is a true reflection of teamwork, dedication, and patient-focused innovation. A direct outcome of the PSS Leap program's commitment to human-centered design at scale.</p>
+            <p>Entresto and Cosentyx — two of the ten recognized programs — earned this distinction through the same patient-centered research, journey design, and iterative validation that grounded the PSS Leap program from the start.</p>
           </div>
+        </div>
+
+        <div class="cs-visual-2up fade-in" style="margin-top:28px;">
+          <figure>
+            <img src="../assets/images/novartis/pss/Best_pharma_patient_support_websites_02.png" alt="Entresto — recognized as one of the 10 Best Pharma Patient Support Websites, showing the Enspire program enrollment landing page" loading="lazy" style="width:100%;display:block;border-radius:var(--radius-md);border:1px solid var(--border);" />
+            <figcaption style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:8px;font-style:italic;">Entresto — recognized as one of the 10 Best Pharma Patient Support Websites.</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/images/novartis/pss/Best_pharma_patient_support_websites_02-1.png" alt="Cosentyx — recognized as one of the 10 Best Pharma Patient Support Websites, showing the Cosentyx Connect support program enrollment page" loading="lazy" style="width:100%;display:block;border-radius:var(--radius-md);border:1px solid var(--border);" />
+            <figcaption style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:8px;font-style:italic;">Cosentyx — recognized as one of the 10 Best Pharma Patient Support Websites.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -1107,5 +856,31 @@
   </footer>
 
   <script src="../script.js"></script>
+
+  <!-- PSS Lightbox -->
+  <div id="pss-lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image">
+    <button id="pss-lightbox-close" aria-label="Close">&times;</button>
+    <img id="pss-lightbox-img" src="" alt="" />
+  </div>
+  <script>
+    (function() {
+      var lb      = document.getElementById('pss-lightbox');
+      var lbImg   = document.getElementById('pss-lightbox-img');
+      var lbClose = document.getElementById('pss-lightbox-close');
+      if (!lb) return;
+      document.querySelectorAll('.pss-img-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var img = btn.querySelector('img');
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lb.classList.add('open');
+          lbClose.focus();
+        });
+      });
+      lbClose.addEventListener('click', function() { lb.classList.remove('open'); });
+      lb.addEventListener('click', function(e) { if (e.target === lb) lb.classList.remove('open'); });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') lb.classList.remove('open'); });
+    })();
+  </script>
 </body>
 </html>
