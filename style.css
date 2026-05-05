@@ -1693,8 +1693,7 @@ ul, ol {
   }
 
   .nav-link {
-    font-size: 1.1rem;
-    padding: 14px 16px;
+    padding: 16px 16px;
     border-radius: var(--radius-md);
   }
 
@@ -3688,6 +3687,11 @@ ul, ol {
 .cs-pullquote__attr {
   font-family: var(--font-body);
   font-size: 0.875rem; color: var(--ink-600);
+}
+
+/* ── Mobile nav link size (must follow v3 .nav-link override at 13px) ── */
+@media (max-width: 640px) {
+  .nav-menu .nav-link { font-size: 1.65rem; }
 }
 
 /* ── XS screens (≤480px) ────────────────────────────────────
