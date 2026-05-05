@@ -1672,15 +1672,20 @@ ul, ol {
 
   .nav-menu {
     position: fixed;
-    inset: var(--nav-height) 0 0 0;
-    background-color: var(--bg);
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    height: calc(100svh - var(--nav-height));
+    background-color: var(--paper-0);
     flex-direction: column;
     align-items: stretch;
     padding: 24px;
     gap: 4px;
+    overflow-y: auto;
     border-top: 1px solid var(--border);
     transform: translateX(100%);
     transition: transform var(--transition-slow);
+    z-index: 99;
   }
 
   .nav-menu.open {
@@ -1775,8 +1780,11 @@ ul, ol {
 
   /* Resume */
   .resume-block {
+    grid-template-columns: 1fr;
     padding: 28px 20px;
   }
+  .resume-action { width: 100%; }
+  .resume-action .btn { width: 100%; justify-content: center; }
 }
 
 /* ============================================
@@ -3440,12 +3448,6 @@ ul, ol {
   }
   .ds-card:nth-child(even) { grid-template-areas: "image" "content"; }
   .ds-card__preview { min-height: 220px; }
-  .ds-card__preview::after,
-  .ds-card:nth-child(even) .ds-card__preview::after {
-    top: auto; left: 0; right: 0; bottom: 0;
-    width: auto; height: 56px;
-    background: linear-gradient(to bottom, transparent, var(--paper-0, var(--surface)));
-  }
   .ds-card__body { padding: 28px 28px 20px; }
   .ds-card__footer { padding: 16px 28px; }
   .industry-row { grid-template-columns: 1fr; gap: 6px; }
@@ -3621,7 +3623,7 @@ ul, ol {
 }
 
 @media (max-width: 900px) {
-  .resume-block { flex-direction: column; padding: 40px; align-items: flex-start; }
+  .resume-block { grid-template-columns: 1fr; padding: 40px; align-items: flex-start; }
   .contact-grid { grid-template-columns: 1fr; gap: 48px; }
 }
 
@@ -3686,4 +3688,29 @@ ul, ol {
 .cs-pullquote__attr {
   font-family: var(--font-body);
   font-size: 0.875rem; color: var(--ink-600);
+}
+
+/* ── XS screens (≤480px) ────────────────────────────────────
+   Targets 375px (iPhone SE / 14) and 320px edge cases.
+─────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  /* Tighter edge gutters */
+  .container { padding: 0 16px; }
+  .nav-inner  { padding: 0 16px; }
+
+  /* Hero stats: scale values down so they don't overflow 3-col at 320px */
+  .hero-stat-value,
+  .hero-centered .hero-stat-value { font-size: 24px; }
+  .hero-stat { padding: 0 8px; }
+
+  /* Work cards: reduce body/footer padding so content breathes at narrow widths */
+  .ds-card__body   { padding: 20px 20px 12px; }
+  .ds-card__footer { padding: 0 20px 20px; }
+
+  /* Case study hero top bar: let eyebrow + index wrap instead of crunching */
+  .cs-hero-v3__top { flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+
+  /* Prev / Next navigation: stack vertically on XS */
+  .cs-nav-links { flex-direction: column; gap: 12px; }
+  .cs-nav-link--next { text-align: left; }
 }

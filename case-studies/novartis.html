@@ -368,7 +368,9 @@
       .nds-mvp-stat-strip { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 480px) {
-      .nds-phases          { grid-template-columns: 1fr; }
+      .nds-phases            { grid-template-columns: 1fr; }
+      .nds-mvp-stat-strip    { grid-template-columns: 1fr; }
+      .nds-component-cols    { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -468,7 +470,7 @@
     <!-- Overview -->
     <section class="cs-section cs-section--alt">
       <div class="container">
-        <div class="cs-two-col fade-in" style="align-items: flex-end; grid-template-columns: 1fr 1.5fr;">
+        <div class="cs-two-col cs-two-col--wide fade-in" style="align-items: flex-end;">
           <div>
             <p class="cs-section-label">Overview</p>
             <h2 class="cs-section-title">What is the US Pharma Design System?</h2>

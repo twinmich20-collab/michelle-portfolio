@@ -280,6 +280,10 @@
       display: grid; grid-template-columns: repeat(4, 1fr);
       gap: 0; padding: 0;
     }
+    @media (max-width: 720px) { .asm-problem-breakdown { grid-template-columns: 1fr 1fr; gap: 20px; } }
+    @media (max-width: 420px) { .asm-problem-breakdown { grid-template-columns: 1fr; gap: 16px; } }
+    @media (max-width: 720px) { .asm-problem-bd-item { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid var(--ink-100); padding-bottom: 16px; margin-bottom: 0; } }
+    @media (max-width: 720px) { .asm-problem-bd-item:last-child { border-bottom: none; padding-bottom: 0; } }
     .asm-problem-bd-item {
       padding-right: 28px;
       border-right: 1px solid var(--ink-100);
@@ -377,6 +381,7 @@
       .asm-cx-card__meta { grid-template-columns: 1fr 1fr; }
       .asm-cx-card__body { grid-template-columns: 1fr; }
       .asm-cx-card__col--border { border-left: none; border-top: 1px solid var(--ink-100); }
+      .asm-gap-type-grid { grid-template-columns: 1fr; }
     }
 
     /* ── Gap type cards (Service Blueprint) ── */
@@ -394,6 +399,8 @@
     .asm-img-placeholder__label { font-family: var(--font-display); font-size: 0.875rem; font-weight: 600; color: var(--ink-500); margin: 0; }
     .asm-img-placeholder__sub { font-size: 0.75rem; color: var(--ink-400); margin: 0; }
 
+    .asm-rice-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; margin-top: 28px; }
+    @media (max-width: 720px) { .asm-rice-layout { grid-template-columns: 1fr; } }
     .asm-rice-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; }
     .asm-rice-item { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--ink-100); }
     .asm-rice-item:last-child { border-bottom: none; }
@@ -406,6 +413,9 @@
 
     /* ── Concept cards ── */
     .asm-concept-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 28px; }
+    .asm-concepts-tested { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; align-items: start; }
+    .asm-concept-col { display: flex; flex-direction: column; gap: 10px; }
+    @media (max-width: 640px) { .asm-concepts-tested { grid-template-columns: 1fr; } }
     .asm-concept-card { background: var(--paper-0); border: 1px solid var(--ink-100); border-radius: var(--radius-md); padding: 24px; overflow: hidden; }
     .asm-concept-img { background: #fff; height: 260px; display: flex; align-items: center; justify-content: center; padding: 16px; }
     .asm-concept-img img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
@@ -1208,7 +1218,7 @@
           <p class="cs-text"><strong>Goal:</strong> To identify the "actors of influence" that SBOs work and consult with in their businesses. (Sept. 2023)</p>
         </div>
 
-        <div class="asm-findings-grid fade-in" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="asm-findings-grid fade-in">
           <div class="asm-finding-card">
             <div class="asm-finding-title">Top Personas</div>
             <div class="asm-finding-desc">
@@ -1358,7 +1368,7 @@
           <p class="cs-text">After identifying over 100 gaps, I collaborated with our quad partner to prioritize them using the RICE methodology, focusing on <strong>desirability</strong> and <strong>feasibility</strong>. Five gap themes surfaced as the highest-priority opportunities.</p>
         </div>
 
-        <div class="fade-in" style="margin-top:28px; display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start;">
+        <div class="asm-rice-layout fade-in">
           <figure style="margin:0; border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--ink-100);">
             <img src="../assets/images/jpmorgan/asm/themed gaps.png" alt="CX gap theme synthesis — five prioritized gap themes surfaced from 100+ identified gaps across the ASM experience" loading="lazy" style="width:100%; display:block;" />
           </figure>
@@ -1459,13 +1469,17 @@
           <p class="cs-text">We kicked off the design of the blue sky concepts with two distinct prototypes based on ideas pulled from research, gap discovery work, heuristic evaluations, and collaboration from the entire product team.</p>
         </div>
 
-        <div class="fade-in" style="display:grid; grid-template-columns:1fr 1fr; gap:0 14px; margin-top:28px; align-items:start;">
-          <p class="cs-section-label" style="margin-bottom:6px;">Prototype A — User-Focused Concept</p>
-          <p class="cs-section-label" style="margin-bottom:6px;">Prototype B — Company-Focused Concept</p>
-          <p class="asm-concept-desc" style="margin-bottom:12px;">Dashboard-first view — at-a-glance summary of user actions, pending transactions, and admin profile.</p>
-          <p class="asm-concept-desc" style="margin-bottom:12px;">Consolidated user list with quick-action shortcuts and a proactive Insights panel for security alerts.</p>
-          <img src="../assets/images/jpmorgan/asm/North Star 2.png" alt="Prototype A — user-focused Access & Security Manager dashboard" style="width:100%; display:block; border-radius:var(--radius-md);" />
-          <img src="../assets/images/jpmorgan/asm/North Star 1.png" alt="Prototype B — company-focused Access Manager with insights panel" style="width:100%; display:block; border-radius:var(--radius-md);" />
+        <div class="asm-concepts-tested fade-in">
+          <div class="asm-concept-col">
+            <p class="cs-section-label" style="margin-bottom:2px;">Prototype A — User-Focused Concept</p>
+            <p class="asm-concept-desc">Dashboard-first view — at-a-glance summary of user actions, pending transactions, and admin profile.</p>
+            <img src="../assets/images/jpmorgan/asm/North Star 2.png" alt="Prototype A — user-focused Access & Security Manager dashboard" style="width:100%; display:block; border-radius:var(--radius-md);" />
+          </div>
+          <div class="asm-concept-col">
+            <p class="cs-section-label" style="margin-bottom:2px;">Prototype B — Company-Focused Concept</p>
+            <p class="asm-concept-desc">Consolidated user list with quick-action shortcuts and a proactive Insights panel for security alerts.</p>
+            <img src="../assets/images/jpmorgan/asm/North Star 1.png" alt="Prototype B — company-focused Access Manager with insights panel" style="width:100%; display:block; border-radius:var(--radius-md);" />
+          </div>
         </div>
 
         <div class="asm-subsection fade-in">
@@ -1473,7 +1487,7 @@
           <h2 class="cs-section-title">What the Prototypes Revealed</h2>
         </div>
 
-        <div class="asm-findings-grid fade-in" style="grid-template-columns: repeat(5, 1fr);">
+        <div class="asm-findings-grid fade-in">
           <div class="asm-finding-card">
             <div class="asm-finding-title">Company Categorization</div>
             <div class="asm-finding-desc">Useful for those with many users and companies — added noise for those that didn't.</div>
@@ -1768,7 +1782,7 @@
           <p class="cs-text">Testing three distinct entitlement models surfaced a consistent signal. These learnings directly shaped the design refinement work in Phase 4.</p>
         </div>
 
-        <div class="asm-findings-grid fade-in" style="grid-template-columns: repeat(3, 1fr); margin-top: 24px;">
+        <div class="asm-findings-grid fade-in" style="margin-top: 24px;">
           <div class="asm-finding-card">
             <div style="font-size:1.5rem; font-weight:700; color:var(--ink-600); line-height:1; margin-bottom:10px;">01</div>
             <div class="asm-finding-title">Account-First Navigation</div>
