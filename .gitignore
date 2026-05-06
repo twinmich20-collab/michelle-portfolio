@@ -7,3 +7,7 @@ auth.js
 # OS files
 .DS_Store
 Thumbs.db
+
+# Local preview files
+jpmorgan-asm-preview.html
+preview_2.html
