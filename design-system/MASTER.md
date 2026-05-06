@@ -1,7 +1,7 @@
 # Design System — Michelle DaSilva Portfolio
-**Version:** v0.7 · **Last Updated:** 2026-04-25
+**Version:** v0.8 · **Last Updated:** 2026-05-05
 **Framework:** ui-ux-pro-max · **Stack:** HTML/CSS (Vanilla)
-**Migration Status:** ✅ All Stages Complete (Tokens · Docs · Components)
+**Migration Status:** ✅ v0.8 Complete — Blue/White System
 
 ---
 
@@ -12,19 +12,19 @@
 | Product Type | Executive Portfolio |
 | Pattern | Credibility-first, content-dense, professional showcase |
 | Target Audience | Enterprise hiring managers, C-suite executives, collaborators |
-| Style | Minimal · Premium · Executive · Editorial luxury fintech |
+| Style | Minimal · Premium · Executive · Clean modern fintech |
 | Tone | Authoritative, refined, trustworthy |
-| Reference | Goldman Marcus, Revolut Private — restrained typography, big quiet type, single saturated accent moments |
-| Anti-patterns | Playful elements, heavy gradients, emoji icons, skeuomorphism, consumer-app friendliness |
+| Reference | Stripe, Linear, Vercel — restrained typography, single saturated accent, generous white space |
+| Anti-patterns | Warm earth tones, clay/terracotta accents, playful elements, heavy gradients, emoji icons, skeuomorphism, consumer-app friendliness |
 
 ---
 
 ## Core Design Principles
 
-1. **Warm, not soft.** Humanity lives in the details — paper background, clay accent — but never sacrifices rigor.
+1. **White space is the layout.** The system breathes through emptiness. Resist the urge to fill every surface.
 2. **Precision earns trust.** In fintech and pharma, every pixel reads as a claim. Disciplined type, honest hierarchy, no decorative noise.
 3. **Story over showcase.** Portfolio pages are arguments, not galleries. The system serves the narrative.
-4. **Restraint with one risk.** Every screen holds back in nine places and takes one real swing — that's where personality lives.
+4. **One accent, used with intent.** Blue is the only color that carries brand meaning. When it appears, it earns attention.
 
 ---
 
@@ -32,123 +32,96 @@
 
 ### Foundation Tokens
 
-#### Paper — warm near-white surfaces
+#### White & Near-White — primary surfaces
 | Token | Value | Usage |
 |-------|-------|-------|
-| `--paper-0` | `#FAFAF7` | Primary page background |
-| `--paper-50` | `#F4F4EF` | Elevated panels, alt sections |
-| `--paper-100` | `#EAEAE3` | Subtle dividers, borders |
+| `--white` | `#FFFFFF` | Card bodies, form inputs |
+| `--gray-50` | `#F8F9FB` | Primary page background |
+| `--gray-100` | `#F1F3F6` | Elevated panels, alt sections |
+| `--gray-200` | `#E4E7EC` | Borders, dividers |
+| `--gray-300` | `#D0D5DD` | Strong borders, tag outlines |
 
-#### Ink — text and neutrals (cool near-blacks)
+#### Neutral — text and UI chrome
 | Token | Value | Usage |
 |-------|-------|-------|
-| `--ink-900` | `#0B1418` | Headlines, primary text |
-| `--ink-800` | `#162329` | Body text |
-| `--ink-600` | `#3A4A52` | Secondary text |
-| `--ink-400` | `#6E7F87` | Tertiary text, captions |
-| `--ink-300` | `#9AA8AF` | Disabled |
-| `--ink-200` | `#C7D0D4` | Inputs, strong borders |
-| `--ink-100` | `#E4E8EA` | Hairlines |
+| `--gray-900` | `#0D1117` | Headlines, primary text |
+| `--gray-700` | `#344054` | Body text emphasis |
+| `--gray-600` | `#475467` | Secondary body text |
+| `--gray-500` | `#667085` | Muted text, captions |
+| `--gray-400` | `#98A2B3` | Placeholder, disabled |
 
-#### Teal — primary brand
+#### Blue — primary brand (only accent color)
 | Token | Value | Usage |
 |-------|-------|-------|
-| `--teal-900` | `#0A2A33` | Hover states, dark mode CTAs |
-| `--teal-700` | `#124651` | **Primary CTAs, headline emphasis, brand mark** |
-| `--teal-500` | `#1D6B77` | Stat values, secondary brand moments |
-| `--teal-400` | `#3E8B97` | Dark mode accent |
-| `--teal-200` | `#A8CDD3` | Dark mode hover |
-| `--teal-100` | `#DCECEF` | Focus rings, tinted bg |
+| `--blue-900` | `#03233D` | Hover states, darkest CTAs |
+| `--blue-800` | `#052F55` | Deep backgrounds (photo fallback) |
+| `--blue-700` | `#0D5EA0` | **Primary CTAs, eyebrows, active states** |
+| `--blue-600` | `#1A8FE3` | **Stat values, pull quote rule, timeline dot, skill dots** |
+| `--blue-500` | `#3AABF5` | Dark mode accent, node network secondary nodes |
+| `--blue-400` | `#7ECBFB` | Nav link, hero eyebrow text (on dark bg) |
+| `--blue-200` | `#C8E8FC` | Card image panel — light variant |
+| `--blue-100` | `#E6F4FD` | Card image panel — lightest, form focus ring bg |
 
-#### Sage — secondary (pharma & healthcare)
+> **Rule for blue:** Blue earns its place by appearing in fewer locations. Eyebrows, CTAs, active states, stat values, and focus rings. Never as a decorative fill on large surfaces.
+
+#### Hero Dark — node network hero only
 | Token | Value | Usage |
 |-------|-------|-------|
-| `--sage-900` | `#2F4A3D` | Pharma sector strip start |
-| `--sage-700` | `#4A7060` | Pharma persona portrait |
-| `--sage-500` | `#6FA088` | Pharma sector strip end, eyebrow |
-| `--sage-300` | `#B3C4BA` | Soft accents |
-| `--sage-100` | `#E2EAE5` | Pharma tag bg, icon tile bg |
+| `--hero-bg` | `#08111c` | Hero section background, nav, footer |
+| `#0d2640` | — | Card image panel — deep blue variant |
 
-#### Clay — accent (used sparingly, ≤5% per surface)
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--clay-700` | `#B8562E` | Banking sector strip start, eyebrow text |
-| `--clay-500` | `#D47548` | **Brand signature — nav dot, eyebrows, pull-quote rules, banking strip end** |
-| `--clay-300` | `#E8B295` | Soft accents in dark mode |
-| `--clay-100` | `#F7E4D7` | Banking tag bg, icon tile bg |
+### Semantic Aliases
 
-> **Rule for clay:** Never more than ONE clay accent per visible surface. The eyebrow OR the rule, not both. The brand mark OR a button background, not both.
-
-### Semantic Aliases (backward compatibility)
-
-These keep existing component classes working. Update components by editing aliases here, not by find-replacing through the codebase.
-
-| Alias | Maps to | Old equivalent |
-|-------|---------|----------------|
-| `--bg` | `var(--paper-0)` | was `#f8f6f3` |
-| `--surface` | `var(--paper-50)` | was `#ffffff` |
-| `--surface-2` | `var(--paper-100)` | was `#f0ece7` |
-| `--border` | `var(--ink-100)` | was `#e4ddd6` |
-| `--text` | `var(--ink-900)` | was `#1a1612` |
-| `--text-muted` | `var(--ink-600)` | was `#6b6560` |
-| `--accent` | `var(--teal-700)` | was `#00959f` (cyan-blue) |
-| `--accent-hover` | `var(--teal-900)` | was `#007a84` |
-| `--accent-2` | `var(--clay-500)` | was `#64ffda` (was secondary teal) |
-| `--font` | `var(--font-body)` | was `'Inter', system` |
-| `--font-headline` | `var(--font-display)` | was `'Plus Jakarta Sans'` |
-
-### Phase Palette (process diagrams only)
-
-**Preserved unchanged.** Multi-color sequential differentiation for process diagrams (methodology, workflow, decision flows) — a different functional job from brand surface or engagement narrative.
-
-| Token | Value | Use |
-|-------|-------|-----|
-| `--phase-teal` | `#14b8a6` | Step 2 / discovery |
-| `--phase-amber` | `#f59e0b` | Step 3 / synthesis |
-| `--phase-purple` | `#8b5cf6` | Step 4 / definition |
-| `--phase-pink` | `#ec4899` | Accent variation |
-| `--phase-cyan` | `#06b6d4` | Data callouts |
-| `--phase-orange` | `#f97316` | Warning / highlight |
-| `--phase-green` | `#22c55e` | Success / positive metric |
-
-> **Critical distinction (v0.7):** The phase palette is for **process diagrams** — granular methodology illustration. **Engagement phase trackers** (the high-level "here are the 5 phases of this project" component) use the **brand spectrum** (`teal-900 → teal-700 → sage-700 → clay-700 → clay-500`) instead. See [`pages/case-study.md`](pages/case-study.md#engagement-phase-tracker-cs-phase-track).
-
-### Semantic States
-
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--success` | `#3E7057` | Form success, positive deltas |
-| `--warning` | `#C89B3C` | Form warnings |
-| `--error` | `#A84A3C` | Form errors |
-| `--info` | `var(--teal-500)` | Informational states |
+| Alias | Maps to | Usage |
+|-------|---------|-------|
+| `--bg` | `var(--gray-50)` | Page background |
+| `--surface` | `var(--gray-100)` | Alt section, panel background |
+| `--border` | `var(--gray-200)` | Default borders |
+| `--text` | `var(--gray-900)` | Primary text |
+| `--text-muted` | `var(--gray-500)` | Secondary and body text |
+| `--accent` | `var(--blue-700)` | Primary interactive color |
+| `--accent-h` | `var(--blue-900)` | Hover state for accent |
 
 ### Dark Mode (`[data-theme="dark"]`)
 
-Ink-based (cool blue-dark), not warm brown. The accent shifts to teal-400 for stronger contrast on dark surfaces.
-
 | Token | Light Value | Dark Value |
-|-------|-------------|-----------|
-| `--paper-0` | `#FAFAF7` | `#0B1418` |
-| `--paper-50` | `#F4F4EF` | `#162329` |
-| `--ink-900` | `#0B1418` | `#FAFAF7` |
-| `--accent` | `#124651` | `#3E8B97` |
-| `--accent-2` | `#D47548` | `#E8B295` |
+|-------|-------------|------------|
+| `--bg` | `#F8F9FB` | `#0D1117` |
+| `--surface` | `#F1F3F6` | `#161B22` |
+| `--border` | `#E4E7EC` | `#21262D` |
+| `--text` | `#0D1117` | `#F0F6FC` |
+| `--text-muted` | `#667085` | `#8B949E` |
+| `--accent` | `#0D5EA0` | `#3AABF5` |
+| `--accent-h` | `#03233D` | `#7ECBFB` |
+
+### Deprecated Tokens (v0.7 → v0.8)
+
+The following token families are **fully deprecated** as of v0.8. Remove from any component that still references them.
+
+| Deprecated | Replacement |
+|------------|-------------|
+| `--paper-0`, `--paper-50`, `--paper-100` | `--gray-50`, `--gray-100`, `--gray-200` |
+| `--ink-900`, `--ink-800`, `--ink-600` etc. | `--gray-900`, `--gray-600`, `--gray-500` etc. |
+| `--teal-700`, `--teal-500`, `--teal-400` etc. | `--blue-700`, `--blue-600`, `--blue-500` etc. |
+| `--sage-900` through `--sage-100` | Removed entirely — no replacement |
+| `--clay-700`, `--clay-500`, `--clay-300`, `--clay-100` | Removed entirely — no replacement |
+| `--accent-2` (clay) | Removed — blue is the only accent |
+| `--contribution-bg` | `var(--hero-bg)` |
 
 ### Contrast Compliance (WCAG AA — 4.5:1 minimum)
 
 | Pairing | Ratio | Status |
 |---------|-------|--------|
-| `#0B1418` on `#FAFAF7` | ~17.4:1 | ✅ AAA |
-| `#162329` on `#FAFAF7` | ~14.8:1 | ✅ AAA |
-| `#3A4A52` on `#FAFAF7` | ~7.9:1 | ✅ AAA |
-| `#6E7F87` on `#FAFAF7` | ~3.9:1 | ⚠️ AA Large only — use `--ink-600` for body |
-| `#124651` on `#FAFAF7` | ~9.4:1 | ✅ AAA |
-| `#1D6B77` on `#FAFAF7` | ~5.8:1 | ✅ AA |
-| `#FAFAF7` on `#0B1418` | ~17.4:1 | ✅ AAA |
-| `#3E8B97` on `#0B1418` | ~6.8:1 | ✅ AA |
+| `#0D1117` on `#F8F9FB` | ~18.5:1 | ✅ AAA |
+| `#475467` on `#F8F9FB` | ~7.2:1 | ✅ AAA |
+| `#667085` on `#F8F9FB` | ~4.7:1 | ✅ AA |
+| `#0D5EA0` on `#F8F9FB` | ~7.1:1 | ✅ AAA |
+| `#1A8FE3` on `#F8F9FB` | ~4.6:1 | ✅ AA |
+| `#F0F6FC` on `#0D1117` | ~18.1:1 | ✅ AAA |
+| `#3AABF5` on `#0D1117` | ~7.8:1 | ✅ AA |
 
 > **Rule:** Never apply `opacity` to muted text — it fails contrast. Use a darker token instead.
-> **Rule:** Use `--ink-600` (#3A4A52) for body-weight muted text. Reserve `--ink-400` for tertiary captions only.
+> **Rule:** `--gray-500` (`#667085`) just passes at 4.7:1 — use only for muted captions, never for body copy.
 
 ---
 
@@ -158,57 +131,75 @@ Ink-based (cool blue-dark), not warm brown. The accent shifts to teal-400 for st
 
 | Role | Family | Weights | Usage |
 |------|--------|---------|-------|
-| Display / Headline | **Satoshi** | 300, 400, 500, 700 | `h1`, `h2`, `.cs-hero-title`, eyebrows, labels, stat values |
-| Body / UI | **Inter** | 300, 400, 500, 600, 700 | All body, ledes, captions, form input text |
+| Display / Headline | **Satoshi** | 300, 400, 500, 700 | `h1`, `h2`, eyebrows, card titles, stat values, labels |
+| Body / UI | **Inter** | 300, 400, 500, 600, 700 | All body copy, ledes, form inputs, captions |
 | Mono | JetBrains Mono | 400, 500 | Code, tokens, technical metadata |
 | System fallback | -apple-system, BlinkMacSystemFont, sans-serif | — | Always declared after primary |
 
-> **Why Satoshi + Inter (changed from Plus Jakarta Sans):** Satoshi reads more "luxury fintech" — Goldman Marcus / Revolut Private posture — with a wider weight range (300 ultralight → 700 bold) that supports the system's light-meets-bold contrast move. Plus Jakarta Sans was warmer but lacked the weight range to do dramatic typographic contrast convincingly.
+**Import:**
+```html
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet"/>
+```
+
+```css
+--font-display: 'Satoshi', -apple-system, sans-serif;
+--font-body:    'Inter', -apple-system, sans-serif;
+```
 
 ### Type Scale
 
 | Name | Size | Weight | Line Height | Usage |
 |------|------|--------|-------------|-------|
-| Hero Headline | `clamp(2.5rem, 7vw, 4.5rem)` | 300/700 mix | 1.0–1.05 | `h1.hero-headline` |
-| Section Title | `clamp(2rem, 4vw, 2.75rem)` | 300/700 mix | 1.05–1.15 | `h2.section-title` |
+| Hero Headline | `clamp(2.5rem, 6vw, 4.25rem)` | 300/700 mix | 1.04 | `h1.hero-headline` |
+| Section Title | `clamp(1.875rem, 4vw, 2.625rem)` | 300/700 mix | 1.1 | `h2.section-title` |
 | CS Hero Title | `clamp(2rem, 5vw, 3.25rem)` | 300/700 mix | 1.0–1.15 | `h1.cs-hero-title` |
-| CS Section Title | `clamp(1.4rem, 3vw, 1.9rem)` | 500 | 1.15 | `h2.cs-section-title` |
-| Card Title | `1.5rem` | 700 | 1.15 | `h3.project-title`, `.card__title` |
-| Body Lede | `1.0625rem` | 400 | 1.65 | `.hero-sub`, `.cs-lede` |
-| Body | `1rem` | 400 | 1.5–1.6 | `p` in content |
-| Caption | `0.8125rem` | 400 | 1.5 | Captions, hints |
-| Label / Eyebrow | `0.75rem` | 700 | — | Eyebrow labels (uppercase, tracking 0.2em) |
-| Micro | `0.6875rem` | 600–700 | — | Timeline years, col labels |
+| Card Title | `clamp(1.5rem, 2.8vw, 2rem)` | 700 | 1.15 | `.cs-card__title` |
+| About Headline | `clamp(1.75rem, 3.5vw, 2.5rem)` | 300/700 mix | 1.1 | `.about-headline-v3` |
+| Body Lede | `clamp(.9375rem, 1.8vw, 1.0625rem)` | 400 | 1.7 | `.hero-sub` |
+| Body | `1rem` | 400 | 1.65–1.75 | `p` in content |
+| Card Desc | `clamp(.9rem, 1.4vw, 1.0625rem)` | 400 | 1.7 | `.cs-card__desc` |
+| Caption / Meta | `0.8125rem` | 400–500 | 1.5 | Timeline roles, edu school |
+| Label / Eyebrow | `0.6875rem` | 700 | — | Uppercase, `letter-spacing: .18em` |
+| Micro | `0.75rem` | 500 | — | Timeline years, nav links |
 
 ### The Light-Meets-Bold Move
 
-The system's signature typographic gesture: **Satoshi 300 ultralight crashed against Satoshi 700 bold within the same headline**, with the bold portion in `--teal-700` for emphasis.
+The system's signature typographic gesture: **Satoshi 300 ultralight paired with Satoshi 700 bold within the same headline**, with the bold portion in `--blue-600` or `--blue-400` (on dark backgrounds) for emphasis.
 
 ```html
 <h1 class="hero-headline">
-  Designed for <strong>trust</strong>.<br>
-  Built for <strong>scale</strong>.
+  Designing for <strong>Scale.</strong><br/>
+  Leading with <strong>Purpose.</strong>
 </h1>
 ```
 
-Use this in: hero headlines, case study openers, section titles where one word carries weight. Never mix with all-bold headlines on the same page.
+```css
+.hero-headline { font-weight: 300; color: #fff; }
+.hero-headline strong { font-weight: 700; color: var(--blue-400); }
+
+.section-title { font-weight: 300; color: var(--text); }
+.section-title strong { font-weight: 700; color: var(--accent); }
+```
+
+Use in: hero headlines, section titles, about headline, case study openers. Never mix all-bold headlines on the same page.
 
 ### Typography Rules
 
-- `letter-spacing: -0.05em` on hero scale (Satoshi reads tight at large sizes)
-- `letter-spacing: -0.035em` on display titles
-- `letter-spacing: -0.02em` on h2/h3
-- `letter-spacing: 0.2em` on eyebrow labels (uppercase, very wide tracking)
+- `letter-spacing: -0.03em` on hero and section headline scale
+- `letter-spacing: -0.02em` on card titles and h3
+- `letter-spacing: .18em` on eyebrow labels (uppercase, very wide tracking)
+- `letter-spacing: .12em` on tags and chips
 - Minimum body text: **16px** (avoids iOS auto-zoom)
 - Minimum rendered text: **11px** — only for non-essential micro labels
-- Use `clamp()` for fluid headlines — never fixed px for h1/h2
+- Use `clamp()` for fluid headlines — never fixed `px` for `h1`/`h2`
 - Line length: 65–75 chars for body (`max-width: 70ch`); 52–62ch for hero sub copy
 
 ---
 
 ## Spacing System
 
-Based on **4pt grid** — supports tighter editorial rhythm than the previous 8pt.
+Based on **4pt grid**.
 
 | Token | Value | Usage |
 |-------|-------|-------|
@@ -216,46 +207,40 @@ Based on **4pt grid** — supports tighter editorial rhythm than the previous 8p
 | 1 | `4px` | Icon gaps, micro spacing |
 | 2 | `8px` | Tag gap, dot offsets |
 | 3 | `12px` | Inline gaps |
-| 4 | `16px` | Card padding subtask |
-| 5 | `20px` | — |
+| 4 | `16px` | Small component padding |
 | 6 | `24px` | Container padding, card gap |
 | 8 | `32px` | Card body padding, form gaps |
 | 10 | `40px` | Section sub-spacing |
-| 12 | `48px` | Section sub-spacing |
 | 16 | `64px` | Section separation |
-| 20 | `80px` | Hero padding |
 | 24 | `96px` | Section vertical padding |
-| 32 | `128px` | Major section separation |
+
+Section padding: `clamp(4rem, 8vw, 6rem)` top and bottom.
 
 ---
 
 ## Border Radius
 
-**Updated for Satoshi pairing.** Slightly softer than v0.6 to feel current without going consumer-app.
-
 | Token | Value | Usage |
 |-------|-------|-------|
-| `--radius-sm` | `6px` | Tags, dots, small chips |
-| `--radius-md` | `10px` | **Buttons, form inputs** (was 4px in v0.6) |
-| `--radius-lg` | `14px` | Icon tiles, panels |
-| `--radius-xl` | `20px` | **Cards, hero containers** |
-| `100px` | pill | Tags (`.tag`), cover labels |
-| `50%` | circle | Photo frames, timeline markers, brand dot |
+| `--radius-sm` | `2px` | Minimal — nav link hover bg |
+| `--radius-md` | `6px` | Form inputs, small panels |
+| `--radius-lg` | `10px` | Photo frames, resume block |
+| `--radius-xl` | `16px` | **Case study cards** |
+| `50px` | pill | Buttons, tags, nav CTA |
+| `50%` | circle | Photo frames, timeline markers |
 
 ---
 
 ## Elevation / Shadow
 
-Ink-tinted (never pure black) for warmth and depth that feels like paper rather than plastic.
-
 | Token | Value | Usage |
 |-------|-------|-------|
-| `--shadow-xs` | `0 1px 2px rgba(11, 20, 24, 0.04)` | Subtle separation |
-| `--shadow-sm` | `0 2px 6px rgba(11, 20, 24, 0.05), 0 1px 2px rgba(11, 20, 24, 0.03)` | Cards, inputs |
-| `--shadow-md` | `0 8px 24px rgba(11, 20, 24, 0.08), 0 2px 6px rgba(11, 20, 24, 0.04)` | Hover lifts, popovers |
-| `--shadow-lg` | `0 20px 48px rgba(11, 20, 24, 0.12), 0 4px 12px rgba(11, 20, 24, 0.06)` | Modals, hero panels |
+| `--shadow-xs` | `0 1px 3px rgba(0,0,0,.06)` | Default card resting state |
+| `--shadow-sm` | `0 2px 8px rgba(0,0,0,.07), 0 1px 2px rgba(0,0,0,.04)` | Inputs, small panels |
+| `--shadow-md` | `0 8px 24px rgba(0,0,0,.09), 0 2px 6px rgba(0,0,0,.05)` | Hover lifts, popovers |
+| `--shadow-lg` | `0 20px 48px rgba(0,0,0,.12), 0 4px 12px rgba(0,0,0,.06)` | Card hover state |
 
-> **Rule:** Use `transform: translateY()` for hover lift — never change `margin` or `top`.
+> **Rule:** Use `transform: translateY(-4px)` for card hover lift — never change `margin` or `top`.
 
 ---
 
@@ -265,121 +250,160 @@ Ink-tinted (never pure black) for warmth and depth that feels like paper rather 
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| `--transition` | `150ms ease` | Micro-interactions (color, bg) |
-| `--transition-slow` | `300ms ease` | Card hover, mobile menu |
-| `--ease-out` | `cubic-bezier(0.16, 1, 0.3, 1)` | Confident decel — primary motion curve |
-| `--ease-in-out` | `cubic-bezier(0.65, 0, 0.35, 1)` | Two-state transitions |
-| `--ease-spring` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Playful overshoot — toggle thumbs, icon scales |
-| Fade-in scroll | `0.6s ease` | `.fade-in` IntersectionObserver reveal |
+| `--tr` | `150ms ease` | Micro-interactions (color, bg, border) |
+| `--trs` | `300ms ease` | Card hover, theme toggle, mobile menu |
+| `--ease-out` | `cubic-bezier(0.16, 1, 0.3, 1)` | Primary motion curve |
+| Fade-in scroll | `0.6s var(--ease-out)` | `.fade-in` IntersectionObserver reveal |
 
 ### Rules
 
-- Use `transform` and `opacity` only — never animate `width`, `height`, `top`, `left`, `letter-spacing`
-- Hover lifts: `translateY(-1px)` for buttons, `translateY(-3px)` for cards (was -6px — softened for editorial restraint)
-- Card icon hover: `transform: scale(1.05) rotate(-2deg)` — subtle playful moment
-- Arrow indicators: `translateX(3-4px)` on hover for "read more" cues
+- Use `transform` and `opacity` only — never animate `width`, `height`, `top`, `left`
+- Card hover lift: `translateY(-4px)`
+- Button hover lift: `translateY(-1px)`
+- Arrow indicators: `translateX(3px)` on hover
+- CTA in cards: `translateX(3px)` on hover (horizontal directional cue)
 - All animations: respect `prefers-reduced-motion`
 
 ---
 
 ## Component Inventory
 
-> **Status:** All components below exist as live classes in `style.css` as of v0.7.
+### Navigation
+
+- Fixed top bar: `64px` height, `rgba(8,17,28,.95)` bg (always dark, regardless of page theme)
+- `backdrop-filter: blur(14px)` for frosted glass effect
+- Brand: **wordmark only** — `Michelle DaSilva` in Satoshi 700, letter-spacing `.12em`, uppercase. No dot or icon mark.
+- Desktop: horizontal nav links, uppercase, `.75rem`, color `rgba(255,255,255,.5)` → `.9` on hover/active
+- Mobile (`<768px`): hamburger → slide-down overlay menu, same dark bg
+- Theme toggle: 34×34px circle button, `rgba(255,255,255,.18)` border, sun/moon SVG icons
+- Nav CTA: `Get in Touch` — pill border button in `--blue-400`, transitions to solid `--blue-700` on hover
+- Skip link: visually hidden, visible on `:focus`
 
 ### Buttons
 
-| Variant | Class | Style |
-|---------|-------|-------|
-| Primary | `.btn--primary` | `--teal-700` bg, `--paper-0` text, hover deepens to teal-900 with shadow |
-| Secondary | `.btn--secondary` | Transparent bg, `--ink-900` border, inverts on hover |
-| Ghost | `.btn--ghost` | Transparent bg, `--ink-200` border, subtle hover |
-| Accent | `.btn--accent` | `--clay-500` bg — for "Get in Touch" hero CTAs only |
-| Sizes | `.btn--sm`, `.btn--lg` | Default 12/22 padding |
-| Full-width | `.btn--full` | `width: 100%`, centered |
-| Min-height | All | `44px` (touch target compliance) |
+| Variant | Class | Style | Context |
+|---------|-------|-------|---------|
+| Primary (hero) | `.btn--primary` | White bg, `#08111c` text | Inside hero section only |
+| Primary (page) | `.btn--primary` | `--blue-700` bg, white text | All in-page sections |
+| Secondary (hero) | `.btn--secondary` | Transparent, `rgba(255,255,255,.25)` border | Inside hero section only |
+| Secondary (page) | `.btn--secondary` | Transparent, `--gray-300` border, `--text` color | All in-page sections |
+| Accent | `.btn--accent` | `--blue-700` bg, white text | Download, LinkedIn, submit |
+| Full-width | `.btn--full` | `width: 100%`, centered | Contact form submit |
 
-> **Primary uses teal/700, NOT ink/900.** Black primaries read too institutional/cold; teal carries the brand into every CTA.
+All buttons: `border-radius: 50px` (pill), `font-size: .75rem`, `font-weight: 600`, `letter-spacing: .08em`, `text-transform: uppercase`, min-height `44px`.
 
-### Navigation
+### Eyebrow Label (`.eyebrow`)
 
-- Fixed top bar: `64px` height, `--paper-0` bg, `backdrop-filter: blur(16px)`
-- Brand: text + clay dot signature mark
-- Desktop: horizontal links with active state (clay underline, not background fill)
-- Mobile (`<640px`): hamburger → full-screen overlay menu
-- Theme toggle (v0.7): editorial pill with sun/moon icons, sun on left / moon on right, active icon sits in filled `--ink-900` circle
-- CTA: teal/700 small button, right-aligned
-- Skip link: visually hidden, visible on focus
-
-### Case Study Cards (`.card`)
-
-The portfolio's primary unit. Composed of:
-
-- 6px gradient sector strip across the top (`--accent--teal` for fintech, `--accent--sage` for pharma, `--accent--clay` for banking)
-- Top-right floating icon mark (44×44 tile, sector-tinted bg)
-- Sector eyebrow in matching color
-- Bold Satoshi headline
-- Inter body description
-- Hairline footer with read-more arrow in teal/700
-
-Border-radius: `--radius-xl` (20px). Hover: `translateY(-3px)` + shadow + border darkens. Icon tile gets subtle `scale(1.05) rotate(-2deg)`.
-
-**Sector icons:**
-- Fintech: shield-check (security/protection)
-- Pharma: leaf (life sciences/wellbeing)
-- Banking: building (institution)
-
-### Stats (`.stats`, `.stat`)
-
-Hairline-bordered grid. Numbers in Satoshi 300 at 56px, color `--teal-500`. Labels in Satoshi 700 caps, `--ink-400`.
-
-### Persona Block (`.persona`)
-
-Two-column: left is gradient portrait (teal for one persona, sage for another, clay for a third if used), right is body. Italic Satoshi pull quote inside, clay rule on the left of quote, attribution disciplined and quiet.
-
-### Pull Quote (`.cs-pullquote`)
-
-```
-3px clay-500 left border · Satoshi 300 italic · 30px · letter-spacing -0.02em
-Mark = Satoshi 700 · 11px · clay-500 · 0.2em tracking · uppercase · non-italic
+```css
+font-family: var(--font-display);
+font-size: .6875rem;
+font-weight: 700;
+letter-spacing: .18em;
+text-transform: uppercase;
+color: var(--blue-700);   /* light mode */
+color: var(--blue-500);   /* dark mode */
 ```
 
-- **Border:** `border-left: 3px solid var(--clay-500)`, `padding-left: 32px`
-- **Eyebrow** (`.cs-pullquote__eyebrow`): Satoshi 700, 11px, `--clay-500`, 0.2em tracking, uppercase — e.g. "From the research"
-- **Quote** (`.cs-pullquote__quote`): Satoshi 300 italic, 30px (`1.875rem`), `letter-spacing: -0.02em`, `--ink-900`
-- **Mark** (`.cs-pullquote__mark`): One keyword inside the quote — same size, italic, and color as the quote body, but `font-weight: 700`. Pure weight contrast only. **One word only.**
-- **Attribution** (`.cs-pullquote__attr`): Inter, 0.875rem, `--ink-600`
+Used above section titles and card headers to orient the reader. One eyebrow per section.
 
-**Example:**
-> *"The interface didn't need to be friendlier — it needed to be* <mark>honest</mark>*. Once we stopped hiding the complexity and started narrating it, trust followed."*
-> Michelle DaSilva · VP UX Design · JPMorgan Chase
+### Hero Node Network
 
-Use 1–2 times per case study. The mark lands on one word — the word a reader would underline if they had a pen.
+The homepage hero uses a full-bleed SVG node-and-connection-graph pattern on `#08111c` background. Key specs:
 
-### Hero Color Panel (`.hero__panel`)
+- **Background:** `#08111c` — deep blue-black, not pure black
+- **Overlay:** `linear-gradient(135deg, rgba(8,17,28,.88) 0%, rgba(8,17,28,.35) 55%, rgba(8,17,28,.78) 100%)` — ensures text legibility while preserving pattern depth
+- **Node colors:** Primary nodes `#1A8FE3` (`--blue-600`), secondary nodes `#3AABF5` (`--blue-500`)
+- **Connection lines:** `#1A8FE3` at `stroke-opacity: 0.2`, secondary cross-lines `#3AABF5` at `opacity: 0.07`
+- **Ambient glow:** Two `radialGradient` ellipses — blue at `60%/28%` and lighter blue at `18%/72%`
+- **Glow rings:** Two concentric rings on the primary anchor node at `opacity: 0.28` and `0.1`
+- **White dots:** Small `opacity: 0.18` — endpoint nodes only
+- **viewBox:** `0 0 1400 700`, `preserveAspectRatio="xMidYMid slice"`
 
-For light-mode case study heroes. A gradient panel (teal-700 → teal-500 → sage-500) holding the headline outcome stat. Persona-portrait gradient family — ties the system together. Used only on the case study hero, once per page. **See [pages/case-study.md](pages/case-study.md) for full hero composition rules.**
+### Case Study Cards (`.cs-card`) — Horizontal Split
 
-### Engagement Phase Tracker (`.cs-phase-track`)
+The portfolio's primary unit. Replaces the previous vertical card grid.
 
-Compact horizontal-row tracker for showing a multi-phase engagement (e.g., Alignment → Discovery → Synthesis → Definition → Delivery). Each phase card has a full-height saturated color slab on the left holding the phase number; content sits beside it. Color uses brand spectrum (`teal-900 → teal-700 → sage-700 → clay-700 → clay-500`) — the journey through the brand. Two variants: default with one supporting metric per phase, minimal variant with title only. **See [pages/case-study.md](pages/case-study.md#engagement-phase-tracker-cs-phase-track) for full specs.**
+**Layout:** Two-column grid, `grid-template-columns: 1fr 1fr`. Image fills one half, content fills the other. Alternating direction via `.cs-card--flip` (sets `direction: rtl` on the card, `direction: ltr` on children).
+
+**Specs:**
+- `border-radius: var(--radius-xl)` (16px)
+- `border: 1px solid var(--border)`
+- `min-height: 400px` desktop
+- Hover: `translateY(-4px)` + `--shadow-lg`
+- Background: `--white` / dark mode `--surface`
+
+**Image panel background variants** (four blue shades, no other hues):
+
+| Class | Value | Card |
+|-------|-------|------|
+| `.cs-card__image--blue-1` | `var(--blue-100)` `#E6F4FD` | Card 1 — lightest |
+| `.cs-card__image--blue-2` | `var(--blue-200)` `#C8E8FC` | Card 3 — soft mid |
+| `.cs-card__image--blue-3` | `#0d2640` | Card 2 — deep blue |
+| `.cs-card__image--blue-4` | `var(--blue-900)` `#03233D` | Card 4 — darkest |
+
+**Content anatomy:**
+```
+.cs-card__eyebrow   — Satoshi 700, .6875rem, --blue-700, letter-spacing .18em, uppercase
+.cs-card__title     — Satoshi 700, clamp(1.5rem, 2.8vw, 2rem), --text, letter-spacing -.03em
+.cs-card__desc      — Inter 400, clamp(.9rem, 1.4vw, 1.0625rem), --text-muted, line-height 1.7
+.cs-card__tags      — Outlined pills, --gray-300 border, --gray-600 text
+.cs-card__cta       — Inter 600, .875rem, white text, --blue-700 bg, 50px radius, hover darkens + translateX(3px)
+```
+
+**Tag style (`.cs-tag`):**
+```css
+border: 1px solid var(--gray-300);
+color: var(--gray-600);
+background: transparent;
+border-radius: 50px;
+font-family: var(--font-display);
+font-size: .6875rem;
+font-weight: 700;
+letter-spacing: .12em;
+text-transform: uppercase;
+```
+
+**Image fallback:** When project images don't load, shows italic Satoshi initials in `rgba(26,143,227,.3)` on the panel bg.
+
+**Responsive:** Below `900px`, stacks to single column. `.cs-card--flip` reverts to normal direction. Image panel: `min-height: 240px`.
+
+### Stats
+
+| Context | Style |
+|---------|-------|
+| Hero stats | Satoshi 300, `clamp(1.5rem, 3vw, 1.875rem)`, white. `strong` inside = Satoshi 700, `--blue-400` |
+| About stats | Satoshi 300, `1.75rem`, `--text`. `strong` inside = Satoshi 700, `--accent` |
+| Section stats | Satoshi 300, large, `--blue-600`. Labels Satoshi 700 caps, `--text-muted` |
+
+### Pull Quote (`.pullquote`)
+
+```
+.pullquote-mark   — Satoshi 700, .6875rem, --blue-600, letter-spacing .2em, uppercase
+.pullquote-body   — Satoshi 300 italic, clamp(1.25rem, 2.5vw, 1.625rem), --text, letter-spacing -.025em
+.pullquote-attr   — Inter 400, .8125rem, --text-muted. Name in Inter 600, --text
+```
+
+Centered, `max-width: 760px`. No border rule (v0.8 removes the clay left border).
+
+### Timeline (`.timeline`)
+
+- Left border `1px solid var(--border)` — vertical track
+- Dot: `9px` circle, `--border` fill by default, `--blue-600` fill for current role
+- Current company name color: `--accent` (`--blue-700`)
+- Years: Inter 500, `.75rem`, uppercase, `--text-muted`
 
 ### Form
 
-- Labels: visible, above input, Satoshi 700 caps with 0.14em tracking
-- Required: asterisk `*` in `--clay-500`
+- Labels: Satoshi 700, `.6875rem`, letter-spacing `.14em`, uppercase
+- Required `*`: `--blue-600`
 - Input height: `min-height: 44px`
-- Input radius: `--radius-md` (10px) — matches buttons
-- Focus: `box-shadow: 0 0 0 3px var(--teal-100)`, teal-500 border
-- Error: `--error` border, error message below field
-- Submit: disables + shows "Sending…" during async fetch
+- Input radius: `var(--radius-md)` (6px)
+- Focus: `border-color: var(--blue-600)`, `box-shadow: 0 0 0 3px var(--blue-100)`
+- Error: `#A84A3C` border + message below field
 
-### Tags / Chips (`.tag`)
+### Footer
 
-Pill-shaped (`100px` radius). Variants: `--neutral`, `--teal`, `--sage`, `--clay`, `--success`, `--warning`, `--danger`. Satoshi 700 caps with 0.12em tracking.
-
-### Theme Toggle (`.theme-toggle`)
-
-Editorial pill housing two 28×28 icon buttons (sun + moon). Active icon sits in a filled `--ink-900` circle; inactive is bare. Border `--ink-200`, sharpens to `--ink-900` on hover. Wired via `auth.js` or equivalent toggle script — sets `data-theme="dark"` on `<html>` and persists to `localStorage`.
+Always dark (`var(--hero-bg)` = `#08111c`), regardless of page theme. Brand mark: italic Satoshi `MD` in `rgba(58,171,245,.4)`. Social and back-to-top links in `rgba(255,255,255,.3)` → `--blue-500` on hover.
 
 ---
 
@@ -390,50 +414,35 @@ Editorial pill housing two 28×28 icon buttons (sun + moon). Active icon sits in
 | Label | Width | Behavior |
 |-------|-------|----------|
 | Desktop | `>1024px` | Full multi-column layouts |
-| Tablet | `≤1024px` | Stacked about/split layouts, 2-col skills |
-| Mobile | `≤768px` | Single column, hamburger nav, simplified card icons |
-| Small mobile | `≤560px` | Industry list stacks vertically |
-| Very small | `≤480px` | Persona/OKR grids collapse to 1-col |
+| Tablet | `≤1024px` | Stacked about/split layouts |
+| Card stack | `≤900px` | Horizontal cards stack to single column |
+| Mobile | `≤768px` | Single column, hamburger nav |
+| Small mobile | `≤480px` | Hero headline reduced, stats stack vertically |
 
 ### Grid Patterns
 
 | Context | Desktop | Tablet | Mobile |
 |---------|---------|--------|--------|
-| Projects | 2-col or 3-col | 2-col | 1-col |
-| About bio | auto + 1fr | 1-col | 1-col |
-| Background (career + skills) | 2-col | 1-col | 1-col |
-| Skills inside background | 2-col | 2-col | 1-col |
-| Contact | 1fr + 1.6fr | 1-col | 1-col |
-| Education | 3-col | 1-col | 1-col |
-| CS: two-col | 1fr + 1fr | 1-col | 1-col |
-| CS: persona grid | 2-col | 2-col | 1-col |
-| CS: outcomes | 4-col | 2-col | 1-col |
-| Hero stats | 3-col with dividers | 3-col | 1-col stacked |
+| About | `300px 1fr` | `240px 1fr` | `1-col` |
+| Case study cards | `1fr 1fr` (horizontal split) | `1fr 1fr` | `1-col` |
+| Experience | `1fr 1fr` | `1-col` | `1-col` |
+| Contact | `1fr 1.5fr` | `1-col` | `1-col` |
+| Education | `3-col` | `2-col` | `1-col` |
 
 ### Container
 
-- `max-width: 1100px`, `margin: 0 auto`, `padding: 0 24px`
-- For new wider layouts (case study heroes, showcase): `1320px` max with `40px` padding
-
-### Hero
-
-- `min-height: 100vh; min-height: 100dvh`
-- Centered layout with optional color panel anchor on the right (case study heroes — see [pages/case-study.md](pages/case-study.md))
+- `max-width: 1100px`, `margin: 0 auto`
+- `padding-inline: clamp(1.25rem, 4vw, 2.5rem)`
 
 ---
 
 ## Imagery & Icons
 
-- **Icon library:** Custom inline SVG (Lucide-style, 2px stroke)
-- **Icon sizes:** 14px (toggle), 18–22px (card icons), 16–20px (inline)
-- **Stroke weight:** 2px — consistent throughout
-- **Sector icons (case study cards):**
-  - Fintech: shield-check (security/protection)
-  - Pharma: leaf (life sciences/wellbeing)
-  - Banking: building (institution)
+- **Icon library:** Custom inline SVG (2px stroke, Lucide-style)
+- **Icon sizes:** 14px (nav toggle), 16px (form, education headers), 18px (footer social)
 - **No emoji** used as structural icons
-- **Photos:** `object-fit: cover` — warmth filter removed (paper background already provides warmth)
-- **Images:** Always `loading="lazy"` except above-fold hero content
+- **Card image panels:** Real project screenshots load via `<img>` with `object-fit: cover`. `onerror` fallback shows italic Satoshi initials.
+- **Hero photo:** `object-fit: cover`, warm filter removed
 
 ---
 
@@ -441,49 +450,51 @@ Editorial pill housing two 28×28 icon buttons (sun + moon). Active icon sits in
 
 | Rule | Requirement |
 |------|------------|
-| Color contrast | 4.5:1 AA for body text (≥18px or ≥14px bold: 3:1) |
-| Focus rings | `outline: 2px solid var(--teal-500); outline-offset: 3px` on `:focus-visible` |
+| Color contrast | 4.5:1 AA for body text |
+| Focus rings | `border-color: var(--blue-600)` + `box-shadow: 0 0 0 3px var(--blue-100)` on inputs; `outline: 2px solid var(--blue-600)` on buttons |
 | Skip link | Present, appears on keyboard focus |
-| ARIA | `aria-label` on icon-only buttons, `aria-expanded` on toggles, `aria-required` on form fields |
+| ARIA | `aria-label` on icon-only buttons, `aria-expanded` on nav toggle, `aria-required` on form fields |
 | Form errors | `role="alert"` on error spans, `aria-live="polite"` on success |
-| Reduced motion | `animation: none` for decorative; `0.01ms` duration for all others |
+| Reduced motion | `animation: none` / `0.01ms` for all transitions |
 | Keyboard nav | Tab order matches visual order; Escape closes mobile menu |
-| Screen reader | `aria-hidden="true"` on decorative SVGs, descriptive alt on meaningful images |
+| Screen reader | `aria-hidden="true"` on decorative SVGs, descriptive `alt` on meaningful images |
 
 ---
 
 ## Page-Specific Overrides
 
-Page-level patterns and component variants live in `design-system/pages/`:
-
-- **[pages/case-study.md](pages/case-study.md)** — Case study hero (light + dark), cover gradients, outcome cards, callouts, persona blocks, process steps, page composition pattern
-
-When adding a new page type with its own conventions (e.g., a writing/blog index, an about page with distinct components), create a new override file in `design-system/pages/` and link it here.
+- **[pages/case-study.md](pages/case-study.md)** — Case study hero, cover gradients, phase tracker, outcome cards, persona blocks, pull quote, process steps. **Note:** case-study.md references the v0.7 palette (teal/sage/clay). Update those color references to the v0.8 blue system before building new case study pages.
 
 ---
 
 ## Migration History
 
-### v0.7 — Current (2026-04-25)
-- ✅ **Stage 1 — Token foundation** replaced (paper/ink/teal/sage/clay)
-- ✅ **Stage 2 — MASTER.md** synced to v0.7 reality
-- ✅ **Stage 3 — Components shipped** in `style.css`:
-  - Sector strip case study cards with top-right icon
-  - Hero color panel (gradient anchor for case study heroes)
-  - Persona blocks (gradient portrait + italic quote)
-  - Pull quote with clay rule
-  - Theme toggle pill (sun/moon editorial style)
-  - Engagement phase tracker — horizontal chip layout, brand spectrum (teal-900 → clay-500), title + supporting metric per phase. **Replaces the old phase-palette-based phase tracker for engagement overviews.** See `pages/case-study.md`.
-- ✅ Typography updated to Satoshi + Inter (was Plus Jakarta Sans + Inter)
-- ✅ Dark mode reworked from warm-brown to ink-blue
-- ✅ Phase palette preserved unchanged for process diagrams
-- ✅ Semantic aliases preserve all pre-v0.7 component classes
+### v0.8 — Current (2026-05-05)
+- ✅ **Color system overhauled** — paper/ink/teal/sage/clay replaced with pure white/gray/blue
+  - `--paper-*` → `--gray-*`
+  - `--ink-*` → `--gray-*`
+  - `--teal-*` → `--blue-*`
+  - `--sage-*` **removed** — no replacement (no green in palette)
+  - `--clay-*` **removed** — no replacement (no warm accent in palette)
+- ✅ **Navigation** — clay dot brand mark removed; wordmark only
+- ✅ **Case study cards** — vertical grid replaced with horizontal split layout (`1fr 1fr` per card, alternating flip). Four blue-shade image panels replace teal/sage/clay sector strips.
+- ✅ **Eyebrow** — color updated from `--clay-500` to `--blue-700` (light) / `--blue-500` (dark)
+- ✅ **Pull quote** — clay left border removed; centered editorial layout only
+- ✅ **Timeline dot** — current role dot updated from `--clay-500` to `--blue-600`
+- ✅ **Skill dots** — updated from `--clay-500` to `--blue-600`
+- ✅ **Hero node network** — SVG palette updated to pure blue (`#1A8FE3`, `#3AABF5`)
+- ✅ **Dark mode** — updated from warm ink-blue to pure blue-on-black
+
+### v0.7 (2026-04-25)
+- Satoshi + Inter typography (replaced Plus Jakarta Sans)
+- Paper/ink/teal/sage/clay token system
+- Horizontal case study phase tracker introduced
+- Hero color panel pattern for case study heroes
 
 ### v0.6 and earlier
 - Plus Jakarta Sans + Inter typography
 - Cyan-blue accent (`#00959f`)
 - Warm brown dark mode
-- Original phase palette established
 
 ---
 
@@ -491,20 +502,18 @@ When adding a new page type with its own conventions (e.g., a writing/blog index
 
 | Do | Don't |
 |----|-------|
-| Use semantic color tokens (`var(--accent)`, `var(--text)`) | Hardcode raw hex values in components |
-| Use Satoshi 300 + 700 contrast for hero headlines | Use a single weight throughout — kills the move |
-| Limit clay to ONE accent per surface | Stack clay eyebrow + clay rule + clay button on the same screen |
-| Use SVG icons from consistent stroke-width family | Use emoji as structural icons |
+| Use `--blue-700` as the primary CTA and eyebrow color | Use any other hue as an accent (no clay, teal, sage, green, orange, red) |
+| Use Satoshi 300 + 700 contrast for hero and section headlines | Use a single weight throughout — kills the move |
+| Keep `--blue-600` for stats, timeline dots, skill dots, focus rings | Overuse blue on large surface fills |
+| Use `--gray-50` as the primary background | Use pure white `#fff` as the page background (too stark) |
+| Use `--white` (`#fff`) only for card bodies and form inputs | Use paper/ink/clay/teal/sage token names — they are deprecated |
 | Use `transform` for all motion | Animate `letter-spacing`, `width`, `height` |
-| Keep `opacity` off muted text | Stack `opacity` on already-borderline contrast |
-| Use `aria-label` on all icon-only interactive elements | Leave SVG-only buttons unlabeled |
+| Keep `aria-label` on all icon-only interactive elements | Leave SVG-only buttons unlabeled |
 | Use `dvh` with `vh` fallback | Use `vh` alone (breaks on mobile Safari) |
 | Validate on blur; show errors inline | Show browser `alert()` for form errors |
-| Reserve dark hero slab for dark mode only | Use it as a default light-mode hero |
-| Match radius across buttons + inputs (`--radius-md`) | Mix radii within a form |
-| Use sector colors (teal/sage/clay) for sector identity | Use phase palette for sector identity |
-| Use **brand spectrum** (teal-900 → clay-500) for engagement phase trackers | Use phase palette for engagement narrative |
-| Use **phase palette** (teal/amber/purple/pink) for process/methodology diagrams | Use sector colors for technical process diagrams |
+| Keep the hero and footer always dark (`#08111c`) | Apply theme switching to the hero or footer |
+| Use four blue shades for card image panels | Mix in any non-blue color for sector differentiation |
+| Keep the nav always dark regardless of page theme | Switch the nav bg with the page theme toggle |
 
 ---
 

@@ -1,16 +1,24 @@
 # Page Override — Case Study Pages
-**Version:** v0.7 · **Last Updated:** 2026-04-25
+**Version:** v0.8 · **Last Updated:** 2026-05-05
 **Inherits from:** [../MASTER.md](../MASTER.md) · Rules here take precedence over Master.
+
+---
+
+## What Changed in v0.8
+
+The entire color system has been migrated from teal/sage/clay to a **pure blue spectrum**. All deprecated tokens (`--teal-*`, `--sage-*`, `--clay-*`, `--paper-*`, `--ink-*`) have been replaced. See the token mapping table at the end of this document.
 
 ---
 
 ## Layout Overrides
 
-- Hero padding: `calc(var(--nav-height) + 64px) 0 80px` (taller offset for full-nav clearance)
-- Body sections: `72px 0` vertical padding (vs Master's `96px`) — shorter for denser reading
-- Cover strip: `400px` desktop / `240px` mobile
-- Section dividers: `border-bottom: 1px solid var(--ink-100)`
-- Alt sections: `background-color: var(--paper-50)`
+- Hero padding: `calc(var(--nav-height) + 4rem) 0 4rem` (taller offset for full-nav clearance)
+- Body sections: `clamp(3.5rem, 6vw, 5rem)` vertical padding (vs Master's `clamp(4rem, 8vw, 6rem)`) — slightly tighter for denser long-form reading
+- Cover strip: `320px` desktop / `200px` mobile — image loads via `<img>` with `mix-blend-mode: luminosity` + `opacity: .45` over gradient bg
+- Section dividers: `border-bottom: 1px solid var(--border)`
+- Alt sections: `background: var(--surface)` (`--gray-100`)
+- Subsection spacing: `.cs-subsection` → `margin-top: 3.5rem; padding-top: 2.75rem; border-top: 1px solid var(--border)`
+- Subsection small: `.cs-subsection--sm` → `margin-top: 2.25rem; padding-top: 2rem; border-top: 1px solid var(--border)`
 
 ---
 
@@ -18,248 +26,473 @@
 
 | Element | Size | Notes |
 |---------|------|-------|
-| CS Hero Title | `clamp(2rem, 5vw, 3.25rem)` | Satoshi 300/700 mix — light-meets-bold move applies |
-| CS Section Title | `clamp(1.4rem, 3vw, 1.9rem)` | Satoshi 500, section sub-headers |
-| CS Body Text | `1rem / 1.65` line-height | Inter, slightly looser than homepage for long-form readability |
-| CS Lede | `1.0625rem / 1.4` | Satoshi 300 italic — opens the case study, sits below hero |
-| CS Outcome Value | `2.5rem 700` Satoshi | Large stat callout — uses `--teal-500` |
-| CS Pull Quote | `2rem 300 italic` Satoshi | The structural breathing device |
+| CS Hero Title | `clamp(2.25rem, 5.5vw, 3.75rem)` | Satoshi 300/700 mix — light-meets-bold move applies |
+| CS Section Title | `clamp(1.5rem, 3vw, 2rem)` | Satoshi 300/700 mix, line-height 1.15 |
+| CS Body Text | `1rem / 1.75` line-height | Inter 400, max-width 68ch |
+| CS Lede | `clamp(1rem, 1.8vw, 1.125rem) / 1.72` | Inter 400 — hero sub-copy |
+| CS Outcome Value | Satoshi 300 at `2.5rem` | Color cycles through blue shades — `--blue-700 → --blue-600 → --blue-500` |
+| CS Pull Quote | Satoshi 300 italic, `clamp(1.25rem, 2.5vw, 1.625rem)` | `--text`, letter-spacing `-0.025em` |
+| Phase card title | Satoshi 700, `.9375rem` | Color `--text`, letter-spacing `-0.02em` |
+| Eyebrow / label | Satoshi 700, `.6875rem`, tracking `.18em`, uppercase | Color `--blue-700` light / `--blue-500` dark |
 
-> **CS hero applies the light-meets-bold move.** One word in the headline goes 700 weight in `--teal-700`; rest stays 300. Reserved for the hero — section titles use a single weight.
+> **CS hero applies the light-meets-bold move.** One word or phrase in the headline goes Satoshi 700 in `--blue-400` (on dark bg); the rest stays 300. Reserved for the hero — section titles use Satoshi 300 with a 700-weight `<strong>` in `--accent`.
 
 ---
 
 ## Component Overrides
 
-### CS Hero — Light Mode (default)
+### CS Hero (`.cs-hero`)
 
-The case study hero combines the editorial title with a color anchor panel.
+Dark slab hero — always `background: var(--hero-bg)` (`#08111c`) regardless of page theme.
 
-- **Layout:** `grid-template-columns: 1fr 320px` — title/lede on left, gradient panel on right
-- **Title:** Satoshi 300/700 mix at `clamp(40px, 7vw, 96px)`, letter-spacing `-0.05em`
-- **Lede:** Satoshi 300 italic at 22px in `--ink-600`
-- **Panel:** Gradient `linear-gradient(135deg, var(--teal-700) 0%, var(--teal-500) 50%, var(--sage-500) 100%)`, holds the headline outcome stat
-- **Panel stat:** Satoshi 300 at 56px on `--paper-0`, with optional 700-weight emphasis
-- **Panel CTA:** Inline, top-bordered, with arrow indicator
-- **Mobile:** Panel stacks below lede
+```css
+.cs-hero {
+  background: var(--hero-bg);
+  padding-top: calc(var(--nav-height) + 4rem);
+  padding-bottom: 4rem;
+}
+```
 
-> The hero panel is a one-per-page moment. Don't repeat the gradient elsewhere in the case study — its job is to anchor the opening, not to decorate.
+**Layout:** Full-width dark, two-column `cs-hero__main` grid: `1fr 280px` — lede on left, stat panel on right.
 
-### CS Hero — Dark Mode
+**Anatomy:**
+```
+.cs-hero__top         — eyebrow + case index (e.g. "001 / 04")
+.cs-hero__eyebrow     — Satoshi 700, .6875rem, --blue-400, tracking .18em, uppercase
+.cs-hero__index       — Inter 500, .6875rem, rgba(255,255,255,.3)
+.cs-hero__title       — Satoshi 300, clamp(2.25rem,5.5vw,3.75rem), #fff. <strong> = Satoshi 700, --blue-400
+.cs-hero__lede        — Inter 400, clamp(1rem,1.8vw,1.125rem), rgba(255,255,255,.6), max-width 54ch
+.cs-hero__panel       — rgba(255,255,255,.05) bg, rgba(255,255,255,.1) border, radius var(--radius-lg)
+  .cs-hero__panel-label  — Satoshi 700, .6875rem, --blue-400, tracking .18em, uppercase
+  .cs-hero__panel-stat   — Satoshi 300, 3.25rem, #fff. <strong> = Satoshi 700, --blue-400
+  .cs-hero__panel-caption — Inter 400, .8125rem, rgba(255,255,255,.45)
+.cs-hero__meta        — 4-column flex row, border-top: 1px solid rgba(255,255,255,.1)
+  .cs-hero__meta-label   — Satoshi 700, .6875rem, rgba(255,255,255,.35), tracking .14em, uppercase
+  .cs-hero__meta-value   — Satoshi 600, .9375rem, rgba(255,255,255,.85)
+```
 
-When user has flipped to dark mode, the hero becomes the dark slab variant:
+**Meta row fields:** Client · Role · Timeline · Status
 
-- Background: `--ink-900`
-- Title: `--paper-0` with `--teal-200` for emphasized words
-- Faint `--clay-500` radial glow in top-right corner (opacity 0.18)
-- No color panel (the dark slab is itself the visual anchor)
+**Dark mode:** Hero is always dark — no dark mode override needed.
+
+**Mobile:** `cs-hero__main` stacks to single column. `cs-hero__meta` wraps with `gap: 1.5rem`.
+
+> The stat panel is a one-per-page moment. Keep it to one key metric. Its job is to anchor the opening.
+
+---
+
+### CS Back Link (`.cs-back`)
+
+```css
+.cs-back {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: rgba(255,255,255,.5); text-decoration: none;
+  margin-bottom: 2rem; transition: color 150ms;
+}
+.cs-back:hover { color: rgba(255,255,255,.9); }
+```
+
+Arrow icon: 14×14px, `stroke-width: 2`, `chevron-left` style (`M19 12H5M12 5l-7 7 7 7`).
+
+---
+
+### Cover Strip (`.cs-cover`)
+
+Full-bleed gradient bar below the hero. Provides visual transition from dark hero to light body.
+
+```css
+.cs-cover {
+  height: 320px; /* mobile: 200px */
+  background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 50%, var(--blue-600) 100%);
+  position: relative; overflow: hidden;
+}
+```
+
+**Grid overlay:** `24-cell` CSS grid inside `.cs-cover-grid`, spans are white at `opacity: .08` — provides subtle texture.
+
+**Image:** `<img class="cs-cover-image">` sits on top with `mix-blend-mode: luminosity; opacity: .45`. When an image loads it creates a washed blueprint effect over the gradient. If no image, the gradient + grid stands alone.
+
+```css
+.cs-cover-image { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; mix-blend-mode: luminosity; opacity: .45; }
+```
+
+> One cover per case study. Never repeat the gradient in body sections.
+
+---
 
 ### Engagement Phase Tracker (`.cs-phase-track`)
 
-The signature pattern for showing a multi-phase engagement (research → delivery, alignment → launch). Replaces the old phase tracker that used the bright phase palette (teal/amber/purple/pink) — which read as utility/dashboard and fought the editorial system.
+The signature pattern for showing a multi-phase engagement. Horizontal row of clickable phase cards, each linking to the corresponding phase section below.
 
-**Layout:** Horizontal row of phase cards. Each card is a 2-column grid: a full-height saturated color slab on the left holding the phase number, and content sitting beside it. Color slab runs edge-to-edge top-to-bottom.
+**Layout:** `grid-template-columns: repeat(5, 1fr)` — collapses to `1fr 1fr` at ≤768px, `1fr` at ≤560px.
 
-**Color spectrum (5-phase journey):**
+**Color spectrum — v0.8 blue system (5-phase journey):**
 
-| Phase | Color slab | Logic |
-|-------|------------|-------|
-| Phase 01 | `--teal-900` | Foundation — institutional weight |
-| Phase 02 | `--teal-700` | Brand primary — the work begins |
-| Phase 03 | `--sage-700` | Pivot — synthesis/research midpoint |
-| Phase 04 | `--clay-700` | Heat — the work crystallizes |
-| Phase 05 | `--clay-500` | Delivery — closing energy |
+| Phase | Chip color | Token | Logic |
+|-------|-----------|-------|-------|
+| Phase 01 | `var(--blue-900)` | `#03233D` | Foundation — deepest authority |
+| Phase 02 | `var(--blue-800)` | `#052F55` | The work begins |
+| Phase 03 | `var(--blue-700)` | `#0D5EA0` | Brand primary — synthesis midpoint |
+| Phase 04 | `var(--blue-600)` | `#1A8FE3` | The work crystallizes |
+| Phase 05 | `var(--blue-500)` | `#3AABF5` | Delivery — closing energy |
 
-The spectrum tells a story: **deep teal opens with authority → sage carries the research midpoint → clay closes with delivery energy.** Five phases is the maximum the brand spectrum comfortably supports; for engagements with more or fewer phases, redistribute across the same color stops or document a project-specific variant.
+The spectrum tells a story: **deep navy opens with authority → mid-blue carries the work → bright blue closes with delivery energy.**
 
-**Variants (choose based on case study needs):**
+**CSS classes:** `.cs-phase-card--p1` through `.cs-phase-card--p5` apply the chip background.
 
-#### Variant A — `.cs-phase-track` (default — recommended for most case studies)
-
-Each card shows: small "Phase" label + phase title + one supporting metric.
-
+**Card anatomy:**
 ```html
-<div class="cs-phase-track">
-  <div class="cs-phase-card cs-phase-card--p1">
-    <div class="cs-phase-card__chip">01</div>
-    <div class="cs-phase-card__body">
-      <div class="cs-phase-card__label">Phase</div>
-      <div class="cs-phase-card__title">Alignment</div>
-      <div class="cs-phase-card__metric"><strong>25+</strong> stakeholders</div>
-    </div>
+<a class="cs-phase-card cs-phase-card--p1" href="#phase-01">
+  <div class="cs-phase-card__chip">01</div>
+  <div class="cs-phase-card__body">
+    <div class="cs-phase-card__label">Phase</div>
+    <div class="cs-phase-card__title">Align</div>
+    <div class="cs-phase-card__metric"><strong>25+</strong> stakeholders</div>
   </div>
-  <!-- ... phases 02 through 05 ... -->
-</div>
+</a>
 ```
 
-- Card height: ~104px (compact)
-- Per-phase metric: short Satoshi line, the number in `--teal-700` weight 700
-- Use when each phase produced a concrete, quantifiable output
-- **Best fit for VP/Director-level case studies** — recruiters at that level skim for quantifiable evidence of senior scope
-
-#### Variant B — `.cs-phase-track--minimal` (optional)
-
-Same structure, metric line removed.
-
-- Card height: ~78px (most compact)
-- Use when per-phase metrics aren't meaningful or available
-- Reads as a pure visual table of contents — the surrounding section lede carries the explanation
-
-> **Don't include long descriptions inside phase cards.** The section's surrounding lede paragraph already contextualizes the journey. Body copy inside the cards duplicates the explanation and doubles the height.
-
 **Style specs:**
-
 ```css
 .cs-phase-card {
-  background: var(--paper-0);
-  border: 1px solid var(--ink-100);
-  border-radius: 10px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   display: grid;
-  grid-template-columns: 56px 1fr;
+  grid-template-columns: 52px 1fr;
   align-items: stretch;
   overflow: hidden;
-  transition: transform 220ms var(--ease-out),
-              box-shadow 220ms var(--ease-out),
-              border-color 220ms var(--ease-out);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-xs);
+  transition: transform 300ms var(--ease-out),
+              box-shadow 300ms var(--ease-out),
+              border-color 300ms;
 }
 .cs-phase-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  border-color: var(--ink-200);
+  border-color: var(--gray-300);
 }
 .cs-phase-card__chip {
-  /* Full-height color slab */
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-display);
-  font-size: 22px; font-weight: 700;
-  color: var(--paper-0);
-  letter-spacing: -0.02em;
+  font-size: 1.125rem; font-weight: 700;
+  letter-spacing: -0.02em; color: #fff;
 }
 .cs-phase-card__body {
-  padding: 18px 22px;
-  display: flex; flex-direction: column; justify-content: center;
-  gap: 8px;
+  padding: 14px 16px;
+  display: flex; flex-direction: column; justify-content: center; gap: 5px;
 }
 .cs-phase-card__label {
   font-family: var(--font-display);
-  font-size: 10px; font-weight: 700;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--ink-400);
+  font-size: .5625rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--gray-400);
 }
 .cs-phase-card__title {
   font-family: var(--font-display);
-  font-size: 17px; font-weight: 700;
-  color: var(--ink-900);
-  letter-spacing: -0.02em;
-  line-height: 1.25;
+  font-size: .9375rem; font-weight: 700;
+  color: var(--text); letter-spacing: -0.02em; line-height: 1.2;
 }
 .cs-phase-card__metric {
-  font-family: var(--font-display);
-  font-size: 12px; font-weight: 600;
-  color: var(--ink-600);
+  font-family: var(--font-body);
+  font-size: .6875rem; font-weight: 500; color: var(--text-muted);
 }
-.cs-phase-card__metric strong {
-  color: var(--teal-700); font-weight: 700;
-}
+.cs-phase-card__metric strong { color: var(--blue-700); font-weight: 700; }
+```
 
-/* Mobile: stack to 1 col */
-@media (max-width: 600px) {
-  .cs-phase-track { grid-template-columns: 1fr; }
+**Variant — minimal (no metric line):** Remove `.cs-phase-card__metric`. Use when per-phase metrics aren't meaningful. Card height ~78px vs ~104px default.
+
+> Don't include descriptions inside phase cards. The surrounding section lede carries the explanation. Cards are navigation + quantified evidence only.
+
+---
+
+### Phase Banner (`.cs-phase-banner`)
+
+Per-section opener. Appears at the top of each phase section, anchoring the reader before the prose begins.
+
+```css
+.cs-phase-banner {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  display: grid; grid-template-columns: 80px 1fr;
+  align-items: stretch; overflow: hidden; margin-bottom: 2.5rem;
+}
+.cs-phase-chip {
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: #fff;
 }
 ```
 
-**Migration note:** This pattern replaces the previous `.phase-step` / `.cs-process-step` pattern that used the phase palette (`--phase-teal`, `--phase-amber`, etc.) for **engagement-overview trackers**. The phase palette is preserved for **process diagrams** (a different functional job — see below).
+Modifier classes `.cs-phase-banner--p1` through `--p5` apply chip backgrounds (same blue spectrum as phase tracker).
 
-### Process Diagrams (`.cs-process-diagram`)
+**Body anatomy:**
+```
+.cs-phase-body-label    — Satoshi 700, .625rem, --blue-700, tracking .16em, uppercase
+.cs-phase-body-title    — Satoshi 700, 1.0625rem, --text, letter-spacing -.02em
+.cs-phase-body-question — Inter 400, .875rem, --text-muted, line-height 1.5
+```
 
-For the *Process* section deeper inside a case study — illustrating methodology, decision flows, or research workflow steps. Different functional job than the engagement phase tracker.
+---
 
-- **Phase palette preserved unchanged:** `--phase-teal → --phase-amber → --phase-purple → --phase-pink`
-- Multi-color sequential differentiation appropriate here because process diagrams are *more granular* and *more functional* than engagement trackers
-- Reserved for technical/methodology diagrams — never use for engagement narrative
+### Contribution Cards (`.cs-contribution`)
 
-> **The rule:** Engagement phase tracker uses brand spectrum (teal/sage/clay). Process diagrams use phase palette. Different jobs, different colors.
+Shows what the UX lead specifically owned. `4-column auto grid`, collapses to `2-col` at ≤1024px, `1-col` at ≤768px.
 
-### Outcome Cards (`.cs-outcome`)
+**Left accent — four blue shades:**
+```css
+.cs-contribution-item:nth-child(1) { border-left: 2px solid var(--blue-900); }
+.cs-contribution-item:nth-child(2) { border-left: 2px solid var(--blue-700); }
+.cs-contribution-item:nth-child(3) { border-left: 2px solid var(--blue-600); }
+.cs-contribution-item:nth-child(4) { border-left: 2px solid var(--blue-500); }
+```
 
-- `border-top: 3px solid` — color rotates by `nth-child`:
-  - `1n+1`: `--teal-700` (fintech / primary)
-  - `2n+2`: `--sage-700` (pharma / secondary)
-  - `3n+3`: `--clay-700` (banking / accent)
-- Padding: `28px 24px`
-- Value: Satoshi 300 at `2.5rem` in `--teal-500`
-- Label: Satoshi 700 caps, `--ink-400`, tracking 0.2em
+**Icon tile:** `32×32px`, `border-radius: 8px`, `background: var(--blue-100)`, `border: 1px solid var(--blue-200)`, `color: var(--blue-700)`.
 
-> **Color cycle changed in v0.7.** Was `accent → teal → purple`. Now uses sector palette (teal/sage/clay) so outcome cards reinforce sector identity rather than introducing phase-palette colors that belong to process diagrams.
+---
+
+### Scale / Stats Grid (`.cs-scale-grid`)
+
+For platform-scale metrics. Stacked grid: hero cell on top, sub-cells in a horizontal row below.
+
+```css
+.cs-scale-grid { border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+.cs-scale-hero { background: var(--blue-100); border-bottom: 1px solid var(--border); text-align: center; padding: 1.75rem 1.5rem; }
+.cs-scale-hero .cs-scale-value { font-size: 2.5rem; font-weight: 700; color: var(--blue-700); }
+.cs-scale-card { background: var(--white); flex: 1; text-align: center; padding: 1.25rem 1rem; border-right: 1px solid var(--border); }
+.cs-scale-card:last-child { border-right: none; }
+/* Sub-cell value color cycle */
+.cs-scale-card:nth-child(1) .cs-scale-value { color: var(--blue-700); }
+.cs-scale-card:nth-child(2) .cs-scale-value { color: var(--blue-600); }
+.cs-scale-card:nth-child(3) .cs-scale-value { color: var(--blue-500); }
+```
+
+---
+
+### Problem Shortfall Cards (`.cs-shortfall-grid`)
+
+3-column problem cards with top border accent.
+
+```css
+.cs-shortfall-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; margin-top: 2rem; }
+.cs-shortfall-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid; border-radius: var(--radius-md); padding: 1.5rem; }
+.cs-shortfall-card:nth-child(1) { border-top-color: var(--blue-700); }
+.cs-shortfall-card:nth-child(2) { border-top-color: var(--blue-600); }
+.cs-shortfall-card:nth-child(3) { border-top-color: var(--blue-500); }
+/* Label color mirrors border */
+.cs-shortfall-card:nth-child(1) .cs-shortfall-label { color: var(--blue-700); }
+.cs-shortfall-card:nth-child(2) .cs-shortfall-label { color: var(--blue-600); }
+.cs-shortfall-card:nth-child(3) .cs-shortfall-label { color: var(--blue-500); }
+```
+
+---
+
+### Finding Cards (`.cs-findings-grid`)
+
+2-column grid of research findings or approach cards. Left border cycles through blue shades.
+
+```css
+.cs-findings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.75rem; }
+.cs-finding-card { background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--blue-700); border-radius: var(--radius-md); padding: 1.25rem 1.5rem; }
+.cs-finding-card:nth-child(2) { border-left-color: var(--blue-600); }
+.cs-finding-card:nth-child(3) { border-left-color: var(--blue-500); }
+.cs-finding-card:nth-child(4) { border-left-color: var(--blue-400); }
+.cs-finding-title { font-family: var(--font-display); font-size: .875rem; font-weight: 700; color: var(--blue-700); margin-bottom: .375rem; }
+.cs-finding-card:nth-child(2) .cs-finding-title { color: var(--blue-600); }
+.cs-finding-card:nth-child(3) .cs-finding-title { color: var(--blue-500); }
+```
+
+---
+
+### Research Quote Card (`.cs-rq-card`)
+
+For customer/participant voices embedded in the research narrative.
+
+```css
+.cs-rq-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--blue-700);
+  border-radius: var(--radius-md);
+  padding: 1.375rem 1.5rem 1.125rem;
+}
+.cs-rq-card__eyebrow {
+  font-family: var(--font-display); font-size: .625rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--blue-700);
+  display: block; margin-bottom: .625rem;
+}
+.cs-rq-card__quote {
+  font-family: var(--font-display); font-size: 1rem; font-weight: 300;
+  font-style: italic; line-height: 1.65; color: var(--text); margin: 0 0 .75rem;
+}
+.cs-rq-card__attr {
+  font-family: var(--font-display); font-size: .6875rem; font-weight: 600; color: var(--text-muted);
+}
+```
+
+---
+
+### Outcome Cards (`.cs-outcomes`)
+
+3-column grid. Top border and value color cycle through blue shades.
+
+```css
+.cs-outcomes { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; }
+.cs-outcome { background: var(--white); border: 1px solid var(--border); border-top: 3px solid; border-radius: var(--radius-lg); padding: 1.75rem 1.5rem; }
+.cs-outcome:nth-child(1) { border-top-color: var(--blue-700); }
+.cs-outcome:nth-child(2) { border-top-color: var(--blue-600); }
+.cs-outcome:nth-child(3) { border-top-color: var(--blue-500); }
+.cs-outcome-value { font-family: var(--font-display); font-size: 2.5rem; font-weight: 300; letter-spacing: -0.04em; line-height: 1; margin-bottom: .5rem; }
+.cs-outcome:nth-child(1) .cs-outcome-value { color: var(--blue-700); }
+.cs-outcome:nth-child(2) .cs-outcome-value { color: var(--blue-600); }
+.cs-outcome:nth-child(3) .cs-outcome-value { color: var(--blue-500); }
+.cs-outcome-label { font-family: var(--font-display); font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text); margin-bottom: .5rem; }
+.cs-outcome-desc { font-size: .8125rem; color: var(--text-muted); line-height: 1.65; }
+```
+
+> Reserve outcome cards for 3–4 key metrics. More dilutes impact.
+
+---
 
 ### Callout Block (`.cs-callout`) — Editorial moment
 
-The signature callout — used 1–2 times per case study for emphasis.
+Used 1–2 times per case study for key insight moments.
 
-- Left border: `3px solid var(--clay-500)` (was `--accent` — now uses signature clay per the "Restraint with one risk" principle)
-- Background: `var(--paper-50)`
-- Text: Satoshi 300 italic at `1.125rem / 1.65`
-- Optional eyebrow above: `--clay-500`, Satoshi 700 caps, e.g., "Key insight"
+```css
+.cs-callout {
+  border-left: 3px solid var(--blue-700);
+  background: var(--surface);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+}
+.cs-callout__eyebrow {
+  font-family: var(--font-display); font-size: .625rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--blue-700);
+  display: block; margin-bottom: .625rem;
+}
+.cs-callout__body {
+  font-family: var(--font-display); font-size: 1.0625rem; font-weight: 300;
+  font-style: italic; line-height: 1.65; color: var(--text);
+}
+```
+
+---
 
 ### Pull Quote (`.cs-pullquote`)
 
-For interview-driven moments inside a case study. Inherits `.pullquote` from MASTER.md with case-study-specific spacing.
+For editorial reflection moments and interview-driven insights. No border rule in v0.8 — centered or left-aligned block, max-width `760px`.
 
-- Left border: `3px solid var(--clay-500)`
-- Padding-left: `32px`, max-width: `800px`, centered
-- Eyebrow above: `--clay-500`, Satoshi 700 caps, tracking 0.2em (e.g., "From the research")
-- Quote: Satoshi 300 italic at 32px, letter-spacing `-0.025em`, color `--ink-900`
-- Attribution: Satoshi 700 name + Inter role, `--ink-600`
+```css
+.cs-pullquote { margin-top: 3rem; max-width: 760px; }
+.cs-pullquote__eyebrow {
+  font-family: var(--font-display); font-size: .6875rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--blue-700); display: block; margin-bottom: 1rem;
+}
+.cs-pullquote__quote {
+  font-family: var(--font-display); font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+  font-weight: 300; font-style: italic; letter-spacing: -0.025em;
+  color: var(--text); line-height: 1.45; margin-bottom: .875rem;
+}
+.cs-pullquote__mark { font-weight: 700; font-style: inherit; color: var(--blue-700); }
+.cs-pullquote__attr { font-size: .8125rem; color: var(--text-muted); }
+```
+
+> v0.8 removes the clay left border. Pull quotes are typographic moments only — no decorative rule.
+
+---
 
 ### Persona Block (`.cs-persona`)
 
-For research-driven case studies (SecureAccess, Patient Onboarding, etc.). Inherits `.persona` from MASTER.md.
+For research-driven case studies. Two-column: portrait on left, body on right.
 
-- Two-column grid: `200px portrait | 1fr body`
-- Portrait: gradient block, `64px` Satoshi 300 initials in `--paper-0`
-  - Persona 1: `linear-gradient(135deg, var(--teal-700), var(--teal-500))`
-  - Persona 2: `linear-gradient(135deg, var(--sage-700), var(--sage-500))`
-  - Persona 3 (if used): `linear-gradient(135deg, var(--clay-700), var(--clay-500))`
-- Body: eyebrow (`--clay-500`) → Satoshi 700 name → Inter role → italic Satoshi quote with clay rule → tag attributes
-- Mobile: stacks to single column, portrait padding becomes `48px`
+```css
+.cs-persona { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; align-items: start; }
+.cs-persona__portrait {
+  border-radius: var(--radius-lg); overflow: hidden;
+  aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 4rem; font-weight: 300; font-style: italic;
+  color: rgba(255,255,255,.6); letter-spacing: -0.04em;
+}
+/* Portrait gradient — three blue variants */
+.cs-persona--1 .cs-persona__portrait { background: linear-gradient(135deg, var(--blue-900), var(--blue-700)); }
+.cs-persona--2 .cs-persona__portrait { background: linear-gradient(135deg, var(--blue-800), var(--blue-600)); }
+.cs-persona--3 .cs-persona__portrait { background: linear-gradient(135deg, var(--blue-700), var(--blue-500)); }
+```
+
+**Body anatomy:**
+```
+.cs-persona__eyebrow  — Satoshi 700, .6875rem, --blue-700, tracking .18em, uppercase
+.cs-persona__name     — Satoshi 700, 1.25rem, --text, letter-spacing -.02em
+.cs-persona__role     — Inter 500, .875rem, --text-muted
+.cs-persona__quote    — Satoshi 300 italic, 1rem, --text, border-left 2px solid --blue-600
+.cs-persona__tags     — Outlined pills, --gray-300 border
+```
 
 > Limit personas to 3 per case study. More than that turns research into inventory.
 
-### Cover Gradient Palette
+---
 
-**Aligned with sector colors.** Each gradient reinforces the case study's sector identity (matches the card sector strip and icon).
+### Status Badge (`.cs-badge`)
 
-| Sector | Class | Gradient |
-|--------|-------|----------|
-| Fintech | `cs-cover--fintech` | `--teal-900 → --teal-700 → --teal-500` |
-| Pharma | `cs-cover--pharma` | `--sage-900 → --sage-700 → --sage-500` |
-| Banking | `cs-cover--banking` | `--clay-700 → --clay-500 → --clay-300` |
-| Generic | `cs-cover--ink` | `--ink-900 → --ink-800 → --teal-700` (fallback / dark statement) |
+Inline tag for delivery status. Used near the top of outcome sections.
 
-Grid overlay: `opacity: 0.08` for texture (preserved from previous system).
+```css
+.cs-badge {
+  display: inline-flex; align-items: center; gap: .375rem;
+  background: var(--blue-100); border: 1px solid var(--blue-200); border-radius: 50px;
+  padding: .25rem .875rem; font-size: .6875rem; font-weight: 600; color: var(--blue-700);
+  margin-bottom: 1rem;
+}
+.cs-badge::before { content: ''; display: block; width: 7px; height: 7px; border-radius: 50%; background: var(--blue-700); }
+```
 
-> **Migration note:** Old class names `cs-cover--1` (navy), `cs-cover--2` (forest), `cs-cover--3` (indigo) are deprecated. Existing case studies should be updated to use sector-aligned classes.
+---
 
-### Stat Callouts (within case study body)
+### Process Diagrams
 
-For inline metrics in the middle of a case study (vs. the outcome grid at the end):
+For methodology / decision flow sections — more granular than the engagement phase tracker.
 
-- Use `.stats` component from Master (hairline-bordered grid)
-- Values: `--teal-500`, Satoshi 300 at `56px`
-- Labels: Satoshi 700 caps in `--ink-400`
-- Reserve for 3–4 key metrics — more dilutes impact
+In v0.8, process diagrams use **shades of blue only** — no separate phase palette. Use the blue spectrum (900 → 500) to differentiate steps sequentially, consistent with the phase tracker.
+
+> v0.7 preserved a separate `--phase-teal/amber/purple/pink` palette for process diagrams. This is **deprecated in v0.8**. All process steps now use the blue spectrum.
+
+---
+
+### Case Study Nav Footer (`.cs-nav-footer`)
+
+Prev / next navigation at the bottom of every case study.
+
+```css
+.cs-nav-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 2rem 0; border-top: 1px solid var(--border); margin-top: 1rem;
+}
+.cs-nav-footer a {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--text-muted); text-decoration: none; transition: color 150ms;
+}
+.cs-nav-footer a:hover { color: var(--accent); }
+```
 
 ---
 
 ## Navigation
 
-- Back link: `.cs-back` — Satoshi 500 in `--ink-600`, hover to `--teal-700`, chevron-left icon (16px, 2px stroke)
-- Case study nav footer: prev/next links with direction labels (`PREV CASE` / `NEXT CASE` in eyebrow style above the title)
-- Password gate: `auth.js` — gates content until correct password entered
+- Back link: `.cs-back` — positioned inside `.cs-hero` above the eyebrow, color `rgba(255,255,255,.5)` → `.9` on hover. Chevron-left icon 14×14px, stroke-width 2.
+- Nav footer: prev/next links with direction labels and arrow icons. Direction `left` for prev, `right` for next.
+
+---
 
 ## NDA Indicator
 
-All project cards (homepage and case study index) show a lock icon (16px, `--ink-400`) preceding the title to indicate confidential content. On the protected case study page itself, an NDA tag (`tag--neutral` with lock icon) appears in the hero meta row.
+All project cards (homepage) show a lock icon (16px, `--gray-400`) preceding the title to indicate confidential content. On the protected case study page itself, a `.cs-badge` with a lock icon appears in the hero meta row.
 
 ---
 
@@ -267,38 +500,85 @@ All project cards (homepage and case study index) show a lock icon (16px, `--ink
 
 Recommended section order for a complete case study:
 
-1. **Hero** — title + lede + color panel + meta row (role / sector / timeline / outcome)
-2. **Cover strip** — sector-aligned gradient with project name (optional, used for visual transition)
-3. **Engagement Phase Tracker** — five-phase journey overview (`.cs-phase-track`)
-4. **Context** — the problem space, prose body
-5. **Research** — persona blocks (1–3), pull quotes from interviews
-6. **Process Diagram** — methodology / decision flow (uses phase palette, not brand spectrum)
-7. **Solution** — screen showcases, design rationale
-8. **Outcome cards** — the "did it work?" moment, sector-cycled border colors
-9. **Callout** — one editorial moment near the end (clay rule)
-10. **Reflection** — Inter prose, lessons learned
-11. **Nav footer** — prev/next case studies
+1. **Hero** (`.cs-hero`) — dark slab, title + lede + stat panel + meta row (role / client / timeline / status)
+2. **Cover strip** (`.cs-cover`) — blue gradient with optional image overlay
+3. **Engagement Phase Tracker** (`.cs-phase-track`) — 5-phase journey overview
+4. **My Contribution** (`.cs-contribution`) — 4-card what-I-led grid
+5. **Overview** — what the product/platform is, scale stats (`.cs-scale-grid`)
+6. **Our Customer** — persona or customer ecosystem image
+7. **The Problem** — shortfall cards (`.cs-shortfall-grid`), original design image, research quote
+8. **Per-Phase Sections** — each with a phase banner (`.cs-phase-banner`) + findings grid + quotes
+9. **Outcomes** (`.cs-outcomes`) — 3-stat outcome grid + reflective pull quote
+10. **What's Next** — forward-looking 2-card grid linking to the next case study
+11. **Nav footer** (`.cs-nav-footer`) — prev/next case studies
 
-Not every case study needs every section. Pick the 6–7 that serve the narrative.
+Not every case study needs every section. Pick the 6–8 that serve the narrative.
+
+---
+
+## Token Migration — v0.7 → v0.8
+
+| v0.7 Token | v0.8 Replacement | Notes |
+|------------|-----------------|-------|
+| `--teal-900` | `--blue-900` | Phase 01 chip |
+| `--teal-700` | `--blue-700` | Phase 02 chip, primary accent, finding titles |
+| `--teal-500` | `--blue-600` | Phase 03 chip (was --teal-500 secondary) |
+| `--teal-400` | `--blue-500` | Phase 04 chip |
+| `--teal-200` | `--blue-200` | Tinted bg, tag borders |
+| `--teal-100` | `--blue-100` | Icon tile bg, scale hero bg |
+| `--sage-900` | `--blue-800` | Phase 02 chip (deeper blue) |
+| `--sage-700` | `--blue-600` | Removed — use blue spectrum |
+| `--sage-500` | `--blue-500` | Removed — use blue spectrum |
+| `--sage-*` | Removed | No sage/green in v0.8 |
+| `--clay-700` | `--blue-500` | Phase 05 (now lighter blue for delivery) |
+| `--clay-500` | `--blue-700` | Eyebrows, callout borders → now blue |
+| `--clay-*` | Removed | No clay/terracotta in v0.8 |
+| `--paper-0` | `--white` / `--gray-50` | Card bg → `--white`, page bg → `--gray-50` |
+| `--paper-50` | `--gray-100` | Alt section bg |
+| `--ink-900` | `--gray-900` / `--text` | Primary text |
+| `--ink-600` | `--gray-500` / `--text-muted` | Body / muted text |
+| `--ink-400` | `--gray-400` | Placeholder, disabled |
+| `--ink-200` | `--gray-300` | Strong borders |
+| `--ink-100` | `--gray-200` / `--border` | Default borders |
+| `--phase-teal/amber/purple/pink` | Blue spectrum | Process diagrams now use blue only |
 
 ---
 
 ## Migration History
 
-### v0.7 — Current (2026-04-25)
-- ✅ Hero color panel pattern documented (matches `style.css` Stage 3 implementation)
-- ✅ Cover gradients re-aligned to sector palette (teal/sage/clay) — old navy/forest/indigo deprecated
-- ✅ Outcome card color cycle updated to sector palette (was accent/teal/purple)
-- ✅ Callout block now uses `--clay-500` (was `--accent`) per the signature accent rule
-- ✅ Persona block and pull quote documented as case study patterns
-- ✅ **Engagement Phase Tracker added as canonical pattern** — horizontal chip layout, brand spectrum coloring (teal-900 → clay-500), title + supporting metric per phase
-- ✅ Page composition pattern added
+### v0.8 — Current (2026-05-05)
+- ✅ **Color system migrated** — teal/sage/clay replaced with pure blue spectrum throughout
+- ✅ **Phase tracker color scheme** updated — teal-900 → clay-500 spectrum replaced with blue-900 → blue-500
+- ✅ **Phase banners** updated — same blue spectrum as tracker chips
+- ✅ **Contribution cards** — left accent updated from brand spectrum (teal/sage/clay) to four blue shades
+- ✅ **Shortfall cards** — top border updated from teal/sage/clay cycle to blue spectrum
+- ✅ **Finding cards** — border-left cycle updated to blue shades
+- ✅ **Research quote card** — border-left updated from `--teal-700` to `--blue-700`
+- ✅ **Outcome cards** — top border and value color cycle updated to blue spectrum
+- ✅ **Callout block** — left border updated from `--clay-500` to `--blue-700`
+- ✅ **Pull quote** — clay left border removed; typographic only
+- ✅ **Persona portraits** — gradients updated from teal/sage/clay to three blue variants
+- ✅ **Status badge** — updated from teal to blue-100/blue-700
+- ✅ **CS hero** — panel and meta updated to blue palette on dark bg
+- ✅ **Cover strip** — gradient updated from fintech teal to blue-900 → blue-600
+- ✅ **Process diagrams** — deprecated phase palette (teal/amber/purple/pink); now use blue spectrum
+- ✅ **Nav footer** — hover color updated from `--teal-700` to `--accent` (blue-700)
+- ✅ **Back link** — updated to white on dark; no teal reference
+- ✅ **Scale grid** — hero cell updated from teal-100 to blue-100; value colors updated to blue spectrum
+- ✅ **Paper/ink tokens** — all replaced with gray/white equivalents
+
+### v0.7 (2026-04-25)
+- Hero color panel pattern documented
+- Cover gradients aligned to teal/sage/clay sector palette
+- Outcome card color cycle updated to teal/sage/clay
+- Callout block used `--clay-500` border
+- Phase tracker introduced with teal-900 → clay-500 spectrum
+- Persona block with teal/sage/clay portrait gradients
 
 ### v0.6 and earlier
-- Cover gradients used standalone palette (navy/forest/indigo)
+- Cover gradients used standalone navy/forest/indigo palette
 - Outcome cards cycled accent/teal/purple
-- Callout used `--accent` border + `--accent-glow` bg
-- Phase tracker used phase palette (teal/amber/purple/pink) for engagement overviews
+- Phase tracker used phase palette (teal/amber/purple/pink)
 
 ---
 
