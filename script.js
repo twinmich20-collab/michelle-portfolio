@@ -208,9 +208,7 @@
           submitBtn.disabled = false;
           if (success) {
             success.textContent = 'Something went wrong. Please try again or email me directly.';
-            success.style.background = 'var(--error-glow)';
-            success.style.borderColor = 'var(--error)';
-            success.style.color = 'var(--error)';
+            success.style.color = '#A84A3C';
             success.removeAttribute('hidden');
           }
         }
@@ -220,9 +218,7 @@
         submitBtn.disabled = false;
         if (success) {
           success.textContent = 'Something went wrong. Please try again or email me directly.';
-          success.style.background = 'var(--error-glow)';
-          success.style.borderColor = 'var(--error)';
-          success.style.color = 'var(--error)';
+          success.style.color = '#A84A3C';
           success.removeAttribute('hidden');
         }
       });
@@ -237,17 +233,21 @@
   if (!toggle) return;
 
   const html = document.documentElement;
+  const sun  = document.getElementById('icon-sun');
+  const moon = document.getElementById('icon-moon');
 
-  // Get saved theme or default to light
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  if (savedTheme === 'dark') {
-    html.setAttribute('data-theme', 'dark');
+  function applyTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    if (sun)  sun.style.display  = theme === 'dark' ? 'none' : '';
+    if (moon) moon.style.display = theme === 'dark' ? '' : 'none';
   }
 
+  const saved = localStorage.getItem('theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  applyTheme(saved);
+
   toggle.addEventListener('click', function () {
-    const currentTheme = html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+    applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
   });
 })();
