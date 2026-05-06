@@ -795,6 +795,54 @@
 
     <!-- Hero -->
     <section class="cs-hero">
+      <svg class="cs-hero-bg-canvas" viewBox="0 0 1400 520" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <radialGradient id="topo-glow" cx="78%" cy="18%" r="42%">
+            <stop offset="0%" stop-color="#1A8FE3" stop-opacity="0.13"/>
+            <stop offset="100%" stop-color="#08111c" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="1400" height="520" fill="#08111c"/>
+        <rect width="1400" height="520" fill="url(#topo-glow)"/>
+        <!-- Primary topo cluster: upper-right, tilted concentric ellipses -->
+        <g transform="translate(1100, 80)" stroke="#1A8FE3" fill="none" stroke-width="0.85">
+          <ellipse rx="42" ry="28" transform="rotate(-22)" stroke-opacity="0.34"/>
+          <ellipse rx="85" ry="57" transform="rotate(-22)" stroke-opacity="0.27"/>
+          <ellipse rx="133" ry="89" transform="rotate(-22)" stroke-opacity="0.22"/>
+          <ellipse rx="185" ry="124" transform="rotate(-22)" stroke-opacity="0.17"/>
+          <ellipse rx="242" ry="162" transform="rotate(-22)" stroke-opacity="0.13"/>
+          <ellipse rx="303" ry="203" transform="rotate(-22)" stroke-opacity="0.10"/>
+          <ellipse rx="369" ry="247" transform="rotate(-22)" stroke-opacity="0.08"/>
+          <ellipse rx="440" ry="295" transform="rotate(-22)" stroke-opacity="0.06"/>
+          <ellipse rx="515" ry="345" transform="rotate(-22)" stroke-opacity="0.045"/>
+          <ellipse rx="595" ry="399" transform="rotate(-22)" stroke-opacity="0.032"/>
+          <ellipse rx="680" ry="456" transform="rotate(-22)" stroke-opacity="0.022"/>
+          <ellipse rx="770" ry="517" transform="rotate(-22)" stroke-opacity="0.015"/>
+        </g>
+        <!-- Secondary smaller cluster: lower-left -->
+        <g transform="translate(210, 445)" stroke="#3AABF5" fill="none" stroke-width="0.65">
+          <ellipse rx="30" ry="22" transform="rotate(14)" stroke-opacity="0.20"/>
+          <ellipse rx="62" ry="46" transform="rotate(14)" stroke-opacity="0.14"/>
+          <ellipse rx="99" ry="73" transform="rotate(14)" stroke-opacity="0.10"/>
+          <ellipse rx="140" ry="103" transform="rotate(14)" stroke-opacity="0.07"/>
+          <ellipse rx="185" ry="136" transform="rotate(14)" stroke-opacity="0.048"/>
+        </g>
+        <!-- Journey route line: enters from south (bottom edge), traverses terrain to peak -->
+        <path d="M1000,520 C1025,492 1090,458 1135,430 C1180,402 1195,358 1155,318 C1115,278 1015,288 972,248 C935,212 968,162 1015,125 C1044,104 1080,88 1100,80"
+              fill="none" stroke="#3AABF5" stroke-width="1"
+              stroke-opacity="0.18" stroke-dasharray="4 8" stroke-linecap="round"/>
+        <!-- Waypoints on exact knot points: (1135,430) (972,248) (1015,125) -->
+        <circle cx="1135" cy="430" r="3.5" fill="none" stroke="#3AABF5" stroke-width="1" stroke-opacity="0.35"/>
+        <circle cx="1135" cy="430" r="1.5" fill="#3AABF5" opacity="0.35"/>
+        <circle cx="972" cy="248" r="3.5" fill="none" stroke="#3AABF5" stroke-width="1" stroke-opacity="0.35"/>
+        <circle cx="972" cy="248" r="1.5" fill="#3AABF5" opacity="0.35"/>
+        <circle cx="1015" cy="125" r="3.5" fill="none" stroke="#3AABF5" stroke-width="1" stroke-opacity="0.35"/>
+        <circle cx="1015" cy="125" r="1.5" fill="#3AABF5" opacity="0.35"/>
+        <!-- Peak markers -->
+        <circle cx="1100" cy="80" r="3" fill="#1A8FE3" opacity="0.65"/>
+        <circle cx="1100" cy="80" r="8" fill="none" stroke="#1A8FE3" stroke-width="0.75" stroke-opacity="0.22"/>
+        <circle cx="1100" cy="80" r="16" fill="none" stroke="#1A8FE3" stroke-width="0.5" stroke-opacity="0.10"/>
+      </svg>
       <div class="container">
         <a href="../index.html#work" class="cs-back">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
