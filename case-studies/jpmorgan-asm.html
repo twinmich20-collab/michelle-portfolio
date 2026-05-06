@@ -660,6 +660,106 @@
     @media (max-width: 768px) {
       .cs-benchmark { grid-template-columns: 1fr; }
     }
+
+    /* ── Screenshot gallery ── */
+    .asm-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 24px;
+    }
+    @media (max-width: 600px) { .asm-gallery { grid-template-columns: repeat(2, 1fr); } }
+    .asm-gallery-thumb {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--gray-200);
+      cursor: zoom-in;
+      background: var(--gray-50);
+    }
+    .asm-gallery-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+    .asm-gallery-thumb:hover img { transform: scale(1.04); }
+    .asm-gallery-thumb::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0);
+      transition: background 0.2s ease;
+    }
+    .asm-gallery-thumb:hover::after { background: rgba(0,0,0,.08); }
+    .asm-gallery-expand {
+      position: absolute; bottom: 7px; right: 7px;
+      width: 26px; height: 26px;
+      background: rgba(255,255,255,.9);
+      border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.2s ease;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .asm-gallery-thumb:hover .asm-gallery-expand { opacity: 1; }
+    .asm-gallery-expand svg { width: 13px; height: 13px; color: var(--gray-700); }
+    .asm-gallery-label {
+      font-size: 0.65rem; color: var(--gray-500);
+      text-align: center; margin-top: 5px;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Lightbox ── */
+    .asm-lightbox {
+      display: none;
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,.88);
+      align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .asm-lightbox.open { display: flex; }
+    .asm-lightbox-inner {
+      position: relative;
+      max-width: min(1100px, 94vw);
+      max-height: 90vh;
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
+    .asm-lightbox-img {
+      max-width: 100%; max-height: 80vh;
+      object-fit: contain;
+      border-radius: var(--radius-md);
+      box-shadow: 0 24px 64px rgba(0,0,0,.5);
+      display: block;
+    }
+    .asm-lightbox-caption {
+      font-size: 0.75rem; color: rgba(255,255,255,.55);
+      letter-spacing: 0.04em; text-align: center;
+    }
+    .asm-lightbox-counter {
+      font-size: 0.68rem; color: rgba(255,255,255,.35);
+      letter-spacing: 0.06em;
+    }
+    .asm-lightbox-close {
+      position: absolute; top: -14px; right: -14px;
+      width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(255,255,255,.12); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; transition: background 0.2s;
+    }
+    .asm-lightbox-close:hover { background: rgba(255,255,255,.22); }
+    .asm-lightbox-close svg { width: 16px; height: 16px; }
+    .asm-lightbox-nav {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      width: 42px; height: 42px; border-radius: 50%;
+      background: rgba(255,255,255,.1); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; transition: background 0.2s;
+    }
+    .asm-lightbox-nav:hover { background: rgba(255,255,255,.2); }
+    .asm-lightbox-nav svg { width: 18px; height: 18px; }
+    .asm-lightbox-prev { left: 16px; }
+    .asm-lightbox-next { right: 16px; }
   </style>
 </head>
 <body>
@@ -728,11 +828,11 @@
           </div>
           <div>
             <div class="cs-hero__meta-label">Timeline</div>
-            <div class="cs-hero__meta-value">2023 – 2025</div>
+            <div class="cs-hero__meta-value">2023 – 2026</div>
           </div>
           <div>
             <div class="cs-hero__meta-label">Status</div>
-            <div class="cs-hero__meta-value">MVP Delivery · Q4 2025</div>
+            <div class="cs-hero__meta-value">MVP Delivery · Q2 2026</div>
           </div>
         </div>
       </div>
@@ -795,7 +895,7 @@
             <div class="cs-phase-card__body">
               <div class="cs-phase-card__label">Phase · Now</div>
               <div class="cs-phase-card__title">Delivery</div>
-              <div class="cs-phase-card__metric">MVP <strong>Q4 2025</strong></div>
+              <div class="cs-phase-card__metric">MVP <strong>Q2 2026</strong></div>
             </div>
           </a>
         </div>
@@ -840,7 +940,7 @@
             </div>
             <div>
               <div class="asm-contribution-title">Design &amp; Delivery</div>
-              <div class="asm-contribution-desc">Actionable design principles, MVP entitlements experience shipped on JPMorgan's Octagon design system</div>
+              <div class="asm-contribution-desc">Actionable design principles, MVP entitlements experience in delivery on JPMorgan's Octagon design system</div>
             </div>
           </div>
         </div>
@@ -1119,7 +1219,7 @@
         </div>
 
         <div class="fade-in" style="margin-top:28px;">
-          <img src="../assets/images/jpmorgan/asm/discovery journey.png" alt="Discovery journey timeline showing 5 research milestones from CX Assessment through MVP delivery, 2023–2025" style="width:100%; display:block; border-radius:var(--radius-md);" />
+          <img src="../assets/images/jpmorgan/asm/discovery journey.png" alt="Discovery journey timeline showing 5 research milestones from CX Assessment through MVP delivery, 2023–2026" style="width:100%; display:block; border-radius:var(--radius-md);" />
         </div>
 
         <!-- Step 1: Get to Know Our Customers -->
@@ -2005,6 +2105,96 @@
           <img src="../assets/images/jpmorgan/asm/final MVP.png" alt="Final MVP design — the target ASM entitlements experience" style="width:100%; display:block; border-radius:var(--radius-md);" />
         </div>
 
+        <div class="asm-subsection fade-in" style="margin-top:48px;">
+          <p class="cs-section-label">End-to-End Experience</p>
+          <h2 class="cs-section-title">The Add User Experience, End to End</h2>
+          <p class="cs-text">The complete add-user entitlements flow as designed for MVP delivery — from user view through permissions confirmation. Click any screen to expand.</p>
+        </div>
+
+        <div class="asm-gallery fade-in">
+          <div>
+            <div class="asm-gallery-thumb" data-index="0">
+              <img src="../assets/images/jpmorgan/asm/01 User view - MVP View 1.png" alt="01 — User View" loading="lazy" />
+              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+            </div>
+            <p class="asm-gallery-label">01 — User View</p>
+          </div>
+          <div>
+            <div class="asm-gallery-thumb" data-index="1">
+              <img src="../assets/images/jpmorgan/asm/02 Add AU - filled in 1.png" alt="02 — Add Authorized User" loading="lazy" />
+              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+            </div>
+            <p class="asm-gallery-label">02 — Add Authorized User</p>
+          </div>
+          <div>
+            <div class="asm-gallery-thumb" data-index="2">
+              <img src="../assets/images/jpmorgan/asm/03 CBO - User Type - Happy Path _ Desktop 1.png" alt="03 — User Type Selection" loading="lazy" />
+              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+            </div>
+            <p class="asm-gallery-label">03 — User Type Selection</p>
+          </div>
+          <div>
+            <div class="asm-gallery-thumb" data-index="3">
+              <img src="../assets/images/jpmorgan/asm/04 Selection - ASM - Authentication - [CBO] 1.png" alt="04 — Authentication" loading="lazy" />
+              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+            </div>
+            <p class="asm-gallery-label">04 — Authentication</p>
+          </div>
+          <div>
+            <div class="asm-gallery-thumb" data-index="4">
+              <img src="../assets/images/jpmorgan/asm/05 CBO - Verify - Add User - CDCA Off _ Desktop 1.png" alt="05 — Verify Add User" loading="lazy" />
+              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+            </div>
+            <p class="asm-gallery-label">05 — Verify Add User</p>
+          </div>
+          <div>
+            <div class="asm-gallery-thumb" data-index="5">
+              <img src="../assets/images/jpmorgan/asm/06 CBO - Confirmation - CDCA Off _ Desktop 1.png" alt="06 — Confirmation" loading="lazy" />
+              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+            </div>
+            <p class="asm-gallery-label">06 — Confirmation</p>
+          </div>
+          <div>
+            <div class="asm-gallery-thumb" data-index="6">
+              <img src="../assets/images/jpmorgan/asm/07 Permissions - DDA See activity & Transact 1.png" alt="07 — Permissions" loading="lazy" />
+              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+            </div>
+            <p class="asm-gallery-label">07 — Permissions</p>
+          </div>
+          <div>
+            <div class="asm-gallery-thumb" data-index="7">
+              <img src="../assets/images/jpmorgan/asm/08 Review Permissions 1.png" alt="08 — Review Permissions" loading="lazy" />
+              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+            </div>
+            <p class="asm-gallery-label">08 — Review Permissions</p>
+          </div>
+          <div>
+            <div class="asm-gallery-thumb" data-index="8">
+              <img src="../assets/images/jpmorgan/asm/09 CBO - Permissions Confirmation - CDCA OFF _ Desktop (Updated) 1.png" alt="09 — Permissions Confirmation" loading="lazy" />
+              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+            </div>
+            <p class="asm-gallery-label">09 — Permissions Confirmation</p>
+          </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div class="asm-lightbox" id="asmLightbox" role="dialog" aria-modal="true" aria-label="Screenshot viewer">
+          <div class="asm-lightbox-inner">
+            <button class="asm-lightbox-close" id="asmLightboxClose" aria-label="Close">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+            <img class="asm-lightbox-img" id="asmLightboxImg" src="" alt="" />
+            <p class="asm-lightbox-caption" id="asmLightboxCaption"></p>
+            <p class="asm-lightbox-counter" id="asmLightboxCounter"></p>
+          </div>
+          <button class="asm-lightbox-nav asm-lightbox-prev" id="asmLightboxPrev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="asm-lightbox-nav asm-lightbox-next" id="asmLightboxNext" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+
         <div class="asm-subsection fade-in">
           <p class="cs-section-label">Retrospective</p>
           <h2 class="cs-section-title">What We've Learned Along This Journey</h2>
@@ -2186,6 +2376,52 @@
 
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && lb.classList.contains('open')) { lbClose2(); }
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const thumbs = Array.from(document.querySelectorAll('.asm-gallery-thumb'));
+      const lightbox = document.getElementById('asmLightbox');
+      const lbImg = document.getElementById('asmLightboxImg');
+      const lbCaption = document.getElementById('asmLightboxCaption');
+      const lbCounter = document.getElementById('asmLightboxCounter');
+      let current = 0;
+
+      const images = thumbs.map(t => ({
+        src: t.querySelector('img').src,
+        alt: t.querySelector('img').alt
+      }));
+
+      function open(index) {
+        current = index;
+        lbImg.src = images[current].src;
+        lbImg.alt = images[current].alt;
+        lbCaption.textContent = images[current].alt;
+        lbCounter.textContent = (current + 1) + ' / ' + images.length;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      function prev() { open((current - 1 + images.length) % images.length); }
+      function next() { open((current + 1) % images.length); }
+
+      thumbs.forEach((t, i) => t.addEventListener('click', () => open(i)));
+      document.getElementById('asmLightboxClose').addEventListener('click', close);
+      document.getElementById('asmLightboxPrev').addEventListener('click', prev);
+      document.getElementById('asmLightboxNext').addEventListener('click', next);
+      lightbox.addEventListener('click', function (e) { if (e.target === lightbox) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') prev();
+        if (e.key === 'ArrowRight') next();
       });
     })();
   </script>
