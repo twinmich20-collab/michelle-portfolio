@@ -170,8 +170,9 @@ ul, ol { list-style: none; }
   padding-inline: clamp(1.25rem, 4vw, 2.5rem);
 }
 
-/* Brand — wordmark only, no dot */
+/* Brand — logo + wordmark */
 .nav-brand {
+  display: flex; align-items: center; gap: .5rem;
   font-family: var(--font-display);
   font-size: .8125rem; font-weight: 700;
   letter-spacing: .12em; text-transform: uppercase;
@@ -179,6 +180,11 @@ ul, ol { list-style: none; }
   transition: color var(--transition);
 }
 .nav-brand:hover { color: #fff; }
+.nav-logo {
+  width: 28px; height: 28px;
+  opacity: 1;
+  filter: brightness(0) invert(1);
+}
 
 .nav-menu { display: flex; align-items: center; gap: .25rem; margin-left: auto; }
 
@@ -715,17 +721,17 @@ ul, ol { list-style: none; }
 .footer-mark {
   font-family: var(--font-display);
   font-size: 1.25rem; font-weight: 300; font-style: italic;
-  color: rgba(58,171,245,.4); letter-spacing: -0.03em;
+  color: rgba(58,171,245,1); letter-spacing: -0.03em;
 }
-.footer-meta { font-size: .75rem; color: rgba(255,255,255,.28); letter-spacing: .06em; }
+.footer-meta { font-size: .75rem; color: rgba(255,255,255,.55); letter-spacing: .06em; }
 .footer-right { display: flex; align-items: center; gap: 1rem; }
-.social-link { color: rgba(255,255,255,.3); transition: color var(--transition); }
+.social-link { color: rgba(255,255,255,.5); transition: color var(--transition); }
 .social-link:hover { color: var(--blue-500); }
 .back-to-top {
   display: flex; align-items: center; gap: .375rem;
   font-size: .6875rem; font-weight: 500;
   letter-spacing: .1em; text-transform: uppercase;
-  color: rgba(255,255,255,.3); text-decoration: none;
+  color: rgba(255,255,255,.5); text-decoration: none;
   transition: color var(--transition);
 }
 .back-to-top:hover { color: var(--blue-500); }
