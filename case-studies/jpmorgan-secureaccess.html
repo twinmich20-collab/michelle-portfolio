@@ -980,6 +980,8 @@
       justify-content: center;
       color: var(--blue-700);
       margin-bottom: 20px;
+      flex-shrink: 0;
+      overflow: hidden;
     }
     .sa-exec-col-title {
       font-family: var(--font-display);
@@ -1446,7 +1448,7 @@
         <div class="sa-exec-grid fade-in">
           <div class="sa-exec-col">
             <div class="sa-exec-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
             </div>
             <div class="sa-exec-col-title">Problem Statement</div>
             <div class="sa-exec-item">
@@ -1562,7 +1564,10 @@
             </div>
           </div>
           <figure class="sa-problem-img">
-            <img src="../assets/images/jpmorgan/secureaccess/current state.png" alt="Current state of the bank's Access &amp; Security Manager — the dense, guidance-free permissions interface SecureAccess was designed to replace." loading="lazy" style="width:100%;display:block;border-radius:var(--radius-md);border:1px solid var(--gray-200);" />
+            <button class="sa-flow-img" data-modal-src="../assets/images/jpmorgan/secureaccess/current state.png" aria-label="View current ASM interface full size" style="width:100%;border-radius:var(--radius-md);">
+              <img src="../assets/images/jpmorgan/secureaccess/current state.png" alt="Current state of the bank's Access &amp; Security Manager — the dense, guidance-free permissions interface SecureAccess was designed to replace." loading="lazy" style="width:100%;display:block;border-radius:var(--radius-md);" />
+              <span class="sa-flow-img-hint">Click to enlarge</span>
+            </button>
             <figcaption style="font-size:0.75rem;color:var(--gray-400);text-align:center;margin-top:10px;font-style:italic;">Current state — the dense, guidance-free ASM experience</figcaption>
           </figure>
         </div>
@@ -1634,22 +1639,27 @@
 
         <div class="asm-findings-grid fade-in">
           <div class="asm-finding-card">
+            <div class="sa-mitigation-num">01</div>
             <div class="asm-finding-title">Need for Simpler Guidance</div>
             <div class="asm-finding-desc">Users wanted easier, step-by-step help when setting up permissions — with clearer explanations and suggestions tailored to their business type and employee roles.</div>
           </div>
           <div class="asm-finding-card">
+            <div class="sa-mitigation-num">02</div>
             <div class="asm-finding-title">Desire for Control</div>
             <div class="asm-finding-desc">Users were open to AI assistance but wanted to retain final decision-making authority — especially concerning financial access levels. AI must advise, not decide.</div>
           </div>
           <div class="asm-finding-card">
+            <div class="sa-mitigation-num">03</div>
             <div class="asm-finding-title">AI for Error Checking &amp; Alerts</div>
             <div class="asm-finding-desc">Users were comfortable with AI helping to spot problems, suggest improvements, and send security alerts — but not for making final permission decisions autonomously.</div>
           </div>
           <div class="asm-finding-card">
+            <div class="sa-mitigation-num">04</div>
             <div class="asm-finding-title">Security as a Top Priority</div>
             <div class="asm-finding-desc">Business owners prioritized data protection above all. AI-driven features needed to feel secure, transparent, and easy to understand — or they would be distrusted.</div>
           </div>
           <div class="asm-finding-card">
+            <div class="sa-mitigation-num">05</div>
             <div class="asm-finding-title">Frustration with Existing Bank Processes</div>
             <div class="asm-finding-desc">Users found adding employees to bank accounts confusing and time-consuming — lacking feedback, confirmation, or guidance. Many resorted to calling support just to complete basic access changes.</div>
           </div>
