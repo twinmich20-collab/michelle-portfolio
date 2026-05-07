@@ -575,6 +575,8 @@ ul, ol { list-style: none; }
 }
 .pullquote-attr { font-size: .8125rem; color: var(--text-muted); }
 .pullquote-attr strong { color: var(--text); font-weight: 600; }
+.pullquote-body strong { font-weight: 700; color: var(--blue-700); }
+[data-theme="dark"] .pullquote-body strong { color: var(--blue-500); }
 
 /* ============================================
    EXPERIENCE — TIMELINE
