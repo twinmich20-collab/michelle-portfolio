@@ -250,6 +250,20 @@
 
     .asm-problem-jtbd-text { font-family: var(--font-display); font-size: 0.9375rem; font-weight: 400; line-height: 1.7; color: var(--gray-600); margin: 0; }
 
+    /* JTBD dark panel */
+    .asm-jtbd-card {
+      background: var(--hero-bg);
+      border-radius: var(--radius-md);
+      padding: 28px 32px;
+      border-left: 3px solid var(--blue-500);
+    }
+    .asm-jtbd-card .asm-problem-eyebrow { color: var(--blue-400); }
+    .asm-jtbd-card .asm-problem-jtbd-text {
+      color: rgba(255,255,255,0.82);
+      font-size: 1.075rem;
+      font-weight: 400;
+    }
+
     .asm-problem-headline {
       font-family: var(--font-display);
       font-size: clamp(1.25rem, 2.6vw, 1.625rem);
@@ -851,7 +865,6 @@
 
         <div class="cs-hero__top">
           <div class="cs-hero__eyebrow">Case Study 001 · Fintech &amp; Banking</div>
-          <div class="cs-hero__index">001 / 04</div>
         </div>
 
         <h1 class="cs-hero__title">The Journey to a<br><strong>Customer-Centric</strong><br>Access Platform.</h1>
@@ -1164,7 +1177,7 @@
           <!-- Problem section — unified unit -->
           <div class="asm-problem-section">
 
-            <div class="asm-problem-block">
+            <div class="asm-problem-block asm-jtbd-card">
               <span class="asm-problem-eyebrow">Job to Be Done</span>
               <p class="asm-problem-jtbd-text">As a business owner, I need to delegate financial management to staff and trusted partners (bookkeepers, accountants, advisors) without giving up control or introducing risk.</p>
             </div>
