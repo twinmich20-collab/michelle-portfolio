@@ -58,6 +58,13 @@
     /* Spacing utility — subsection dividers within a phase */
     .asm-subsection { margin-top: 56px; padding-top: 44px; border-top: 1px solid var(--gray-200); }
     .asm-subsection--sm { margin-top: 36px; padding-top: 32px; border-top: 1px solid var(--gray-200); }
+    .asm-step-header { margin-top: 80px; padding-top: 40px; border-top: 2px solid var(--gray-900); }
+    .asm-step-header .cs-section-label { color: var(--gray-700); }
+    .asm-step-header .cs-section-title { font-size: clamp(1.75rem, 3.5vw, 2.25rem); font-weight: 400; }
+    @media (max-width: 640px) { .asm-step-header { margin-top: 48px; padding-top: 28px; } }
+    .asm-co-create-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    @media (max-width: 720px) { .asm-co-create-layout { grid-template-columns: 1fr; } }
+    @media (max-width: 720px) { .asm-co-create-layout img { aspect-ratio: 16/7; } }
 
     /* Sub-section headings (h3 level, within a section) */
     .asm-sub-label {
@@ -668,13 +675,43 @@
     }
 
     /* ── Screenshot gallery ── */
-    .asm-gallery {
+    /* ── End-to-End slider ── */
+    .asm-slider { margin-top: 24px; }
+    .asm-slider-viewport { overflow: hidden; }
+    .asm-slider-track {
+      display: flex;
+      transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .asm-slider-page {
+      min-width: 100%;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
-      margin-top: 24px;
     }
-    @media (max-width: 600px) { .asm-gallery { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .asm-slider-page { grid-template-columns: repeat(2, 1fr); } }
+    .asm-slider-footer {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; margin-top: 14px;
+    }
+    .asm-slider-btn {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--gray-50); border: 1px solid var(--gray-200);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      color: var(--gray-600); flex-shrink: 0;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .asm-slider-btn:hover:not(:disabled) { background: var(--gray-100); border-color: var(--gray-300); }
+    .asm-slider-btn:disabled { opacity: 0.3; cursor: default; }
+    .asm-slider-btn svg { width: 13px; height: 13px; }
+    .asm-slider-dots { display: flex; gap: 6px; align-items: center; }
+    .asm-slider-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gray-300); border: none; padding: 0; cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .asm-slider-dot.active { background: var(--gray-600); transform: scale(1.25); }
+    .asm-slide { min-width: 100%; }
+    .asm-slide img { width: 100%; display: block; border-radius: var(--radius-md); cursor: zoom-in; }
     .asm-gallery-thumb {
       position: relative;
       aspect-ratio: 16/10;
@@ -1011,7 +1048,7 @@
             </div>
             <div>
               <div class="asm-contribution-title">Design &amp; Delivery</div>
-              <div class="asm-contribution-desc">Actionable design principles, MVP entitlements experience in delivery on the bank's Octagon design system</div>
+              <div class="asm-contribution-desc">Actionable design principles, MVP entitlements experience in delivery — migrating from legacy BlueJS to React with fully composable components</div>
             </div>
           </div>
         </div>
@@ -1102,6 +1139,62 @@
         </div>
 
         <div class="fade-in" style="margin-top:36px;">
+          <p class="cs-section-label">Current State</p>
+          <div class="asm-slider" style="margin-top:10px;">
+            <div class="asm-slider-viewport">
+              <div class="asm-slider-track" id="asmCurrentTrack">
+                <!-- Page 1: screens 01–03 -->
+                <div class="asm-slider-page">
+                  <div><div class="asm-gallery-thumb" style="cursor:zoom-in;"><img src="../assets/images/jpmorgan/asm/01 1.png" alt="Current state — screen 01" loading="lazy" /></div></div>
+                  <div><div class="asm-gallery-thumb" style="cursor:zoom-in;"><img src="../assets/images/jpmorgan/asm/02 1.png" alt="Current state — screen 02" loading="lazy" /></div></div>
+                  <div><div class="asm-gallery-thumb" style="cursor:zoom-in;"><img src="../assets/images/jpmorgan/asm/03 1.png" alt="Current state — screen 03" loading="lazy" /></div></div>
+                </div>
+                <!-- Page 2: screens 04–06 -->
+                <div class="asm-slider-page">
+                  <div><div class="asm-gallery-thumb" style="cursor:zoom-in;"><img src="../assets/images/jpmorgan/asm/04 1.png" alt="Current state — screen 04" loading="lazy" /></div></div>
+                  <div><div class="asm-gallery-thumb" style="cursor:zoom-in;"><img src="../assets/images/jpmorgan/asm/05 1.png" alt="Current state — screen 05" loading="lazy" /></div></div>
+                  <div><div class="asm-gallery-thumb" style="cursor:zoom-in;"><img src="../assets/images/jpmorgan/asm/06 1.png" alt="Current state — screen 06" loading="lazy" /></div></div>
+                </div>
+                <!-- Page 3: screen 07 -->
+                <div class="asm-slider-page">
+                  <div><div class="asm-gallery-thumb" style="cursor:zoom-in;"><img src="../assets/images/jpmorgan/asm/07 1.png" alt="Current state — screen 07" loading="lazy" /></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="asm-slider-footer">
+              <button class="asm-slider-btn" id="asmCurrentPrev" aria-label="Previous" disabled>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <div class="asm-slider-dots">
+                <button class="asm-slider-dot active" aria-label="Page 1"></button>
+                <button class="asm-slider-dot" aria-label="Page 2"></button>
+                <button class="asm-slider-dot" aria-label="Page 3"></button>
+              </div>
+              <button class="asm-slider-btn" id="asmCurrentNext" aria-label="Next">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Current state lightbox -->
+        <div class="asm-lightbox" id="asmCurrentLightbox" role="dialog" aria-modal="true" aria-label="Current state viewer">
+          <div class="asm-lightbox-inner">
+            <button class="asm-lightbox-close" id="asmCurrentLbClose" aria-label="Close">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+            <img class="asm-lightbox-img" id="asmCurrentLbImg" src="" alt="" />
+            <p class="asm-lightbox-counter" id="asmCurrentLbCounter"></p>
+          </div>
+          <button class="asm-lightbox-nav asm-lightbox-prev" id="asmCurrentLbPrev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="asm-lightbox-nav asm-lightbox-next" id="asmCurrentLbNext" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+
+        <div class="fade-in" style="margin-top:36px;">
           <img src="../assets/images/jpmorgan/asm/ASM original design.png" alt="ASM original design — the existing permissions interface showing its complexity and fragmented layout" style="width:100%; display:block; border-radius:var(--radius-md);" />
         </div>
       </div>
@@ -1181,55 +1274,11 @@
 
         <div class="fade-in">
           <p class="cs-section-label">Aligning on the Problem</p>
-          <h2 class="cs-section-title">Understanding the Problem</h2>
+          <h2 class="cs-section-title">A Shared Starting Point</h2>
           <p class="cs-text">Before any research or design work could begin, the team needed a shared definition of what ASM was supposed to help customers accomplish — and what was getting in the way.</p>
 
-          <!-- Problem section — unified unit -->
-          <div class="asm-problem-section">
-
-            <div class="asm-problem-block asm-jtbd-card">
-              <span class="asm-problem-eyebrow">Job to Be Done</span>
-              <p class="asm-problem-jtbd-text">As a business owner, I need to delegate financial management to staff and trusted partners (bookkeepers, accountants, advisors) without giving up control or introducing risk.</p>
-            </div>
-
-            <div class="asm-problem-block">
-              <span class="asm-problem-eyebrow">The Problem</span>
-              <p class="asm-problem-headline">Adding and entitling sub-users is so <em>overwhelming</em> and unclear that owners abandon the task — or worse, hand out full access just to move on.</p>
-            </div>
-
-            <div class="asm-problem-block">
-              <span class="asm-problem-eyebrow">Why it breaks down</span>
-              <div class="asm-problem-breakdown">
-                <div class="asm-problem-bd-item">
-                  <div class="asm-problem-bd-num">01</div>
-                  <div class="asm-problem-bd-label">Disorganized entitlements</div>
-                  <p class="asm-problem-bd-text">Permissions are hard to map to real business roles and needs.</p>
-                </div>
-                <div class="asm-problem-bd-item">
-                  <div class="asm-problem-bd-num">02</div>
-                  <div class="asm-problem-bd-label">Lack of guidance</div>
-                  <p class="asm-problem-bd-text">Documentation doesn't build confidence in security decisions.</p>
-                </div>
-                <div class="asm-problem-bd-item">
-                  <div class="asm-problem-bd-num">03</div>
-                  <div class="asm-problem-bd-label">No confirmation</div>
-                  <p class="asm-problem-bd-text">Notifications fail to confirm whether actions actually succeeded.</p>
-                </div>
-                <div class="asm-problem-bd-item">
-                  <div class="asm-problem-bd-num">04</div>
-                  <div class="asm-problem-bd-label">Friction causes abandonment</div>
-                  <p class="asm-problem-bd-text">The overall difficulty of the entitlements experience makes owners want to abandon the task entirely.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="asm-problem-block">
-              <span class="asm-problem-eyebrow">The Cost</span>
-              <div class="asm-problem-cost">
-                <p>Owners either over-permission their teams, second-guess every decision, or absorb the work themselves — concentrating risk and bottlenecking the business.</p>
-              </div>
-            </div>
-
+          <div style="margin-top:24px;">
+            <img src="../assets/images/jpmorgan/asm/problem statement.png" alt="ASM problem statement — JTBD, problem definition, root causes, and cost" style="width:100%; display:block; border-radius:var(--radius-md);" />
           </div>
         </div>
 
@@ -1294,42 +1343,10 @@
         </div>
 
         <!-- Step 1: Get to Know Our Customers -->
-        <div class="asm-subsection fade-in">
+        <div class="asm-subsection asm-step-header fade-in">
           <p class="cs-section-label">Discovery Journey — Step 1</p>
           <h2 class="cs-section-title">Get to Know Our Customers</h2>
-          <div class="asm-cx-card" style="margin-top:20px;">
-            <div class="asm-cx-card__body">
-              <div class="asm-cx-card__col" style="gap:20px;">
-                <div style="display:flex; flex-direction:column; gap:5px;">
-                  <span class="asm-cx-card__col-heading" style="margin-bottom:0;">Activity</span>
-                  <span style="font-size:0.875rem; color:var(--gray-600); line-height:1.55;">Define our Personas</span>
-                </div>
-                <div style="display:flex; flex-direction:column; gap:5px; padding-top:16px; border-top:1px solid var(--gray-200);">
-                  <span class="asm-cx-card__col-heading" style="margin-bottom:0;">Outcome</span>
-                  <span style="font-size:0.875rem; color:var(--gray-600); line-height:1.55;">4 SB Personas, their JTBD and Entitlement needs</span>
-                </div>
-              </div>
-              <div class="asm-cx-card__col asm-cx-card__col--border">
-                <p class="asm-cx-card__col-heading">What did we want to learn?</p>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Design</span>
-                  <span class="asm-cx-learn-desc">Better understand our customers and the users they hire, their JTBD, unique needs and pain points</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Data</span>
-                  <span class="asm-cx-learn-desc">How to improve the product by moving from a mindset of features to a scalable product</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Tech</span>
-                  <span class="asm-cx-learn-desc">Our current platform and how to create a "One Bank Customer"</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Product</span>
-                  <span class="asm-cx-learn-desc">Wanted to see how many SBOs gave entitlements</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <p class="cs-text">Each discipline entered this step with a different question. Design needed to understand the jobs customers hire their employees to do. Tech was mapping toward a "One Bank Customer" architecture. Product needed baseline data on how many SBOs were actually granting entitlements. Persona definition gave all four a shared foundation to build from.</p>
         </div>
 
         <!-- Personas -->
@@ -1376,7 +1393,47 @@
 
         <div class="fade-in" style="margin-top:36px;">
           <p class="cs-section-label">Workshop Output</p>
-          <img src="../assets/images/jpmorgan/asm/profile harm business owner.png" alt="Profile harmonization — business owner workshop output" style="width:100%; display:block; border-radius:var(--radius-md);" />
+          <div class="asm-slider" style="margin-top:10px;">
+            <div class="asm-slider-viewport">
+              <div class="asm-slider-track" id="asmWorkshopTrack">
+                <div class="asm-slide"><img src="../assets/images/jpmorgan/asm/1.png" alt="Workshop output — slide 1" loading="lazy" data-ws-index="0" /></div>
+                <div class="asm-slide"><img src="../assets/images/jpmorgan/asm/2.png" alt="Workshop output — slide 2" loading="lazy" data-ws-index="1" /></div>
+                <div class="asm-slide"><img src="../assets/images/jpmorgan/asm/3.png" alt="Workshop output — slide 3" loading="lazy" data-ws-index="2" /></div>
+                <div class="asm-slide"><img src="../assets/images/jpmorgan/asm/4.png" alt="Workshop output — slide 4" loading="lazy" data-ws-index="3" /></div>
+              </div>
+            </div>
+            <div class="asm-slider-footer">
+              <button class="asm-slider-btn" id="asmWorkshopPrev" aria-label="Previous" disabled>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <div class="asm-slider-dots">
+                <button class="asm-slider-dot active" aria-label="Slide 1"></button>
+                <button class="asm-slider-dot" aria-label="Slide 2"></button>
+                <button class="asm-slider-dot" aria-label="Slide 3"></button>
+                <button class="asm-slider-dot" aria-label="Slide 4"></button>
+              </div>
+              <button class="asm-slider-btn" id="asmWorkshopNext" aria-label="Next">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Workshop lightbox -->
+        <div class="asm-lightbox" id="asmWorkshopLightbox" role="dialog" aria-modal="true" aria-label="Workshop output viewer">
+          <div class="asm-lightbox-inner">
+            <button class="asm-lightbox-close" id="asmWorkshopLbClose" aria-label="Close">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+            <img class="asm-lightbox-img" id="asmWorkshopLbImg" src="" alt="" />
+            <p class="asm-lightbox-counter" id="asmWorkshopLbCounter"></p>
+          </div>
+          <button class="asm-lightbox-nav asm-lightbox-prev" id="asmWorkshopLbPrev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="asm-lightbox-nav asm-lightbox-next" id="asmWorkshopLbNext" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
         </div>
 
         <!-- Customer themes -->
@@ -1469,60 +1526,10 @@
         </div>
 
         <!-- CX Assessment — Step 2 (merged) -->
-        <div class="asm-subsection fade-in">
+        <div class="asm-subsection asm-step-header fade-in">
           <p class="cs-section-label">Discovery Journey — Step 2</p>
           <h2 class="cs-section-title">ASM CX Assessment</h2>
-
-          <!-- Unified overview card -->
-          <div class="asm-cx-card fade-in">
-            <div class="asm-cx-card__meta">
-              <div class="asm-cx-card__meta-item">
-                <span class="asm-cx-card__meta-label">Activity</span>
-                <span class="asm-cx-card__meta-value">ASM CX Assessment</span>
-              </div>
-              <div class="asm-cx-card__meta-item">
-                <span class="asm-cx-card__meta-label">Outcome</span>
-                <span class="asm-cx-card__meta-value">Prioritized gaps in ASM product backlog</span>
-              </div>
-              <div class="asm-cx-card__meta-item">
-                <span class="asm-cx-card__meta-label">Scope</span>
-                <span class="asm-cx-card__meta-value">Business Banking · Digital (Web / Mobile)</span>
-              </div>
-              <div class="asm-cx-card__meta-item">
-                <span class="asm-cx-card__meta-label">Features</span>
-                <span class="asm-cx-card__meta-value">Manage Users · Managing Entitlements · Communications &amp; Notifications</span>
-              </div>
-            </div>
-            <div class="asm-cx-card__body">
-              <div class="asm-cx-card__col">
-                <p class="asm-cx-card__col-heading">What did we want to learn?</p>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Design</span>
-                  <span class="asm-cx-learn-desc">Understand our ASM entitlement experience</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Data</span>
-                  <span class="asm-cx-learn-desc">Understand the data usage</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Tech</span>
-                  <span class="asm-cx-learn-desc">Understand constraints on legacy platforms e.g. GWS that affect the customer experience</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Product</span>
-                  <span class="asm-cx-learn-desc">Understand where the pain points are within our product entitlements</span>
-                </div>
-              </div>
-              <div class="asm-cx-card__col asm-cx-card__col--border">
-                <p class="asm-cx-card__col-heading">Key Use Cases</p>
-                <ul class="asm-cx-usecase-list">
-                  <li>Onboarding / entitling authorized users</li>
-                  <li>Sharing primary admin duties</li>
-                  <li>Duplicating rights between authorized users</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          <p class="cs-text">We assessed the full Business Banking entitlements experience across web and mobile, focused on three core use cases: onboarding authorized users, sharing admin duties, and duplicating rights between users. Tech flagged early that legacy platform constraints (GWS) would bound the solution space; Data mapped usage patterns; Design and Product aligned on where the experience was most broken. The output was a prioritized gap backlog that drove everything that followed.</p>
         </div>
 
         <!-- Service Blueprint -->
@@ -1616,42 +1623,10 @@
         </div>
 
         <!-- Step 3: Future State Explorations -->
-        <div class="asm-subsection fade-in">
+        <div class="asm-subsection asm-step-header fade-in">
           <p class="cs-section-label">Discovery Journey — Step 3</p>
           <h2 class="cs-section-title">Future State Explorations</h2>
-          <div class="asm-cx-card" style="margin-top:20px;">
-            <div class="asm-cx-card__body">
-              <div class="asm-cx-card__col" style="gap:20px;">
-                <div style="display:flex; flex-direction:column; gap:5px;">
-                  <span class="asm-cx-card__col-heading" style="margin-bottom:0;">Activity</span>
-                  <span style="font-size:0.875rem; color:var(--gray-600); line-height:1.55;">De-risk new concepts by gathering early insights from BRMs and users through concept sketching and testing</span>
-                </div>
-                <div style="display:flex; flex-direction:column; gap:5px; padding-top:16px; border-top:1px solid var(--gray-200);">
-                  <span class="asm-cx-card__col-heading" style="margin-bottom:0;">Outcome</span>
-                  <span style="font-size:0.875rem; color:var(--gray-600); line-height:1.55;">Discovery and validation of key entitlement features for our future state ASM Redesign</span>
-                </div>
-              </div>
-              <div class="asm-cx-card__col asm-cx-card__col--border">
-                <p class="asm-cx-card__col-heading">What did we want to learn?</p>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Design</span>
-                  <span class="asm-cx-learn-desc">Explore a reimagined ASM experience centered around role-based templates and new features</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Data</span>
-                  <span class="asm-cx-learn-desc">How to support product with data that aligns to a future state of ASM</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Tech</span>
-                  <span class="asm-cx-learn-desc">Provide early feedback on feasibility</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Product</span>
-                  <span class="asm-cx-learn-desc">Understand desirability</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <p class="cs-text">The goal was to de-risk new concepts before committing to a direction — gathering early signal from BRMs and customers through concept sketching and testing. Design led explorations centered on role-based templates as the organizing principle. Tech provided early feasibility reads, and Product focused on desirability. The output validated which features were worth carrying into co-creation.</p>
         </div>
 
         <!-- BRM Advisory -->
@@ -1691,8 +1666,8 @@
         </div>
 
         <div class="asm-subsection fade-in">
-          <p class="cs-section-label">Prototype Insights</p>
-          <h2 class="cs-section-title">What the Prototypes Revealed</h2>
+          <p class="cs-section-label">Concept Insights</p>
+          <h2 class="cs-section-title">What the Concepts Revealed</h2>
         </div>
 
         <div class="asm-findings-grid fade-in">
@@ -1718,41 +1693,16 @@
           </div>
         </div>
 
-        <!-- Step 5: Co-Creation -->
-        <div class="asm-subsection fade-in">
-          <p class="cs-section-label">Discovery Journey — Step 5</p>
-          <h2 class="cs-section-title">Co-Creation</h2>
-          <div class="asm-cx-card" style="margin-top:20px;">
-            <div class="asm-cx-card__body">
-              <div class="asm-cx-card__col" style="gap:20px;">
-                <div style="display:flex; flex-direction:column; gap:5px;">
-                  <span class="asm-cx-card__col-heading" style="margin-bottom:0;">Activity</span>
-                  <span style="font-size:0.875rem; color:var(--gray-600); line-height:1.55;">2 Day Co-Creation Workshop</span>
-                </div>
-                <div style="display:flex; flex-direction:column; gap:5px; padding-top:16px; border-top:1px solid var(--gray-200);">
-                  <span class="asm-cx-card__col-heading" style="margin-bottom:0;">Outcome</span>
-                  <span style="font-size:0.875rem; color:var(--gray-600); line-height:1.55;">4 Entitlement Concepts</span>
-                </div>
-              </div>
-              <div class="asm-cx-card__col asm-cx-card__col--border">
-                <p class="asm-cx-card__col-heading">What did we want to learn?</p>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Design</span>
-                  <span class="asm-cx-learn-desc">Understand how BRMs and customers perceive role-based entitlements and the mental model they use to entitle users</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Data</span>
-                  <span class="asm-cx-learn-desc">Wanted to see how to define data</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Tech</span>
-                  <span class="asm-cx-learn-desc">Provide early feedback on feasibility</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Product</span>
-                  <span class="asm-cx-learn-desc">Understand desirability</span>
-                </div>
-              </div>
+        <!-- Step 4: Co-Creation -->
+        <div class="asm-subsection asm-step-header fade-in">
+          <div class="asm-co-create-layout">
+            <div>
+              <p class="cs-section-label">Discovery Journey — Step 4</p>
+              <h2 class="cs-section-title" style="margin-bottom:1rem;">Co-Creation</h2>
+              <p class="cs-text">Over two days, the ASM Quad co-designed alongside BRMs and six small business customers around a shared question: how do business owners actually think about assigning access to the people they hire? Design led the mental model exploration, Tech and Product stress-tested feasibility and desirability in real time. By day two we had four concrete entitlement concepts to bring into validation.</p>
+            </div>
+            <div>
+              <img src="https://images.unsplash.com/photo-1758873271687-ec6b5bc28fe8?auto=format&fit=crop&w=800&q=80" alt="Team collaborating around a table in a co-creation workshop" style="width:100%; display:block; border-radius:var(--radius-md); object-fit:cover; aspect-ratio:16/9;" />
             </div>
           </div>
         </div>
@@ -1803,43 +1753,37 @@
           </div>
         </div>
 
-        <!-- Last Step: Test Current State Experience -->
+        <!-- Co-Creation Key Findings -->
         <div class="asm-subsection fade-in">
+          <p class="cs-section-label">Co-Creation Workshop — Key Findings</p>
+          <h2 class="cs-section-title">Key Findings Across All Concepts</h2>
+          <p class="cs-text">Four consistent signals emerged regardless of which concept customers engaged with — forming the design principles carried into the Define phase.</p>
+        </div>
+
+        <div class="asm-findings-grid fade-in">
+          <div class="asm-finding-card">
+            <div class="asm-finding-title">User Information Flow</div>
+            <div class="asm-finding-desc">Customers preferred entering user information before assigning entitlements — a clear mental model preference that needed to be built into the core flow.</div>
+          </div>
+          <div class="asm-finding-card">
+            <div class="asm-finding-title">Customization and Flexibility</div>
+            <div class="asm-finding-desc">SBOs consistently valued the ability to customize and fine-tune entitlements and permissions beyond any preset template.</div>
+          </div>
+          <div class="asm-finding-card">
+            <div class="asm-finding-title">Trust and Simplicity</div>
+            <div class="asm-finding-desc">High trust in Chase's recommendations — and a strong preference for straightforward, user-friendly experiences over complex control panels.</div>
+          </div>
+          <div class="asm-finding-card">
+            <div class="asm-finding-title">Role and Entitlement Clarity</div>
+            <div class="asm-finding-desc">Clear and accurate categorization of roles and entitlements was essential — ambiguous labels eroded confidence in every concept tested.</div>
+          </div>
+        </div>
+
+        <!-- Last Step: Test Current State Experience -->
+        <div class="asm-subsection asm-step-header fade-in">
           <p class="cs-section-label">Discovery Journey — Last Step</p>
           <h2 class="cs-section-title">Test Current State Experience</h2>
-          <div class="asm-cx-card" style="margin-top:20px;">
-            <div class="asm-cx-card__body">
-              <div class="asm-cx-card__col" style="gap:20px;">
-                <div style="display:flex; flex-direction:column; gap:5px;">
-                  <span class="asm-cx-card__col-heading" style="margin-bottom:0;">Activity</span>
-                  <span style="font-size:0.875rem; color:var(--gray-600); line-height:1.55;">Benchmark Test</span>
-                </div>
-                <div style="display:flex; flex-direction:column; gap:5px; padding-top:16px; border-top:1px solid var(--gray-200);">
-                  <span class="asm-cx-card__col-heading" style="margin-bottom:0;">Outcome</span>
-                  <span style="font-size:0.875rem; color:var(--gray-600); line-height:1.55;">Customer Insights</span>
-                </div>
-              </div>
-              <div class="asm-cx-card__col asm-cx-card__col--border">
-                <p class="asm-cx-card__col-heading">What did we want to learn?</p>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Design</span>
-                  <span class="asm-cx-learn-desc">Validate identified gaps through current state usability test with our customers</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Data</span>
-                  <span class="asm-cx-learn-desc">Understand current data constraints</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Tech</span>
-                  <span class="asm-cx-learn-desc">Understand constraints on legacy platforms e.g. GWS that affect the customer experience</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Product</span>
-                  <span class="asm-cx-learn-desc">Understand where the pain points are within our current ASM experience</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <p class="cs-text">Before measuring against a redesign, we needed a baseline. Design ran current-state usability tests with real customers to validate the gaps already identified — turning heuristic findings into confirmed evidence. Data mapped underlying constraints, and Tech confirmed which GWS legacy platform limitations would define the boundaries of the solution space.</p>
         </div>
 
         <!-- Benchmark -->
@@ -1898,41 +1842,9 @@
 
         <!-- Define step framing card -->
         <div class="fade-in">
-          <p class="cs-section-label">Define Journey — First Step</p>
+          <p class="cs-section-label">Define Journey</p>
           <h2 class="cs-section-title">Define, Refine and Test</h2>
-          <div class="asm-cx-card" style="margin-top:20px;">
-            <div class="asm-cx-card__body">
-              <div class="asm-cx-card__col" style="gap:20px;">
-                <div style="display:flex; flex-direction:column; gap:5px;">
-                  <span class="asm-cx-card__col-heading" style="margin-bottom:0;">Activity</span>
-                  <span style="font-size:0.875rem; color:var(--gray-600); line-height:1.55;">Define and test role-based entitlement concepts that solve our customer's needs</span>
-                </div>
-                <div style="display:flex; flex-direction:column; gap:5px; padding-top:16px; border-top:1px solid var(--gray-200);">
-                  <span class="asm-cx-card__col-heading" style="margin-bottom:0;">Outcome</span>
-                  <span style="font-size:0.875rem; color:var(--gray-600); line-height:1.55;">Most feasible and desirable entitlement approach</span>
-                </div>
-              </div>
-              <div class="asm-cx-card__col asm-cx-card__col--border">
-                <p class="asm-cx-card__col-heading">What did we want to learn?</p>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Design</span>
-                  <span class="asm-cx-learn-desc">Which entitlement experience solves our customer's needs to complete the jobs they are hired for</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Data</span>
-                  <span class="asm-cx-learn-desc">How to improve the product by moving from a mindset of features to a scalable product</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Tech</span>
-                  <span class="asm-cx-learn-desc">What is feasible with the new entitlement experience approach</span>
-                </div>
-                <div class="asm-cx-learn-row">
-                  <span class="asm-cx-learn-label">Product</span>
-                  <span class="asm-cx-learn-desc">How our customers view our new entitlement experience and its desirability</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <p class="cs-text">The mandate was to move from ideation to evidence — define and test role-based entitlement concepts with BRMs and customers until one direction proved both feasible and desirable. Design led the JTBD-centered framing, Tech ran real-time feasibility checks, and Product and Data tracked what customers actually responded to. The output drove every decision in Phase 4.</p>
         </div>
 
         <div class="fade-in" style="margin-top:0; padding-top:56px;">
@@ -2147,13 +2059,13 @@
           <div class="asm-current-badge">Currently in Delivery</div>
           <p class="cs-section-label">Where We Are Today</p>
           <h2 class="cs-section-title">From Discovery to Delivery</h2>
-          <p class="cs-text">The team is currently executing the MVP Entitlements redesign — moving the Octagon component work forward by migrating the legacy BlueJS implementation to React, paired with targeted design enhancements that address the highest-priority CX gaps identified across two years of research.</p>
+          <p class="cs-text">The team is currently executing the MVP Entitlements redesign — migrating the legacy BlueJS implementation to React, rebuilding all components as fully composable and modernized building blocks, paired with targeted design enhancements that address the highest-priority CX gaps identified across two years of research.</p>
         </div>
 
-        <div class="asm-findings-grid fade-in" style="grid-template-columns: repeat(2, 1fr); margin-top: 28px;">
+        <div class="asm-findings-grid fade-in" style="margin-top: 28px;">
           <div class="asm-finding-card">
             <div class="asm-finding-title">MVP Entitlements Redesign — Now</div>
-            <div class="asm-finding-desc">Migrating the entitlements experience from BlueJS to React (Octagon components) with design enhancements that resolve key CX gaps originally identified in discovery — clearer labels, account-first navigation, and improved role assignment flow.</div>
+            <div class="asm-finding-desc">Migrating the entitlements experience from legacy BlueJS to React with fully composable components, paired with design enhancements that resolve key CX gaps from discovery — clearer labels, account-first navigation, and improved role assignment flow.</div>
           </div>
           <div class="asm-finding-card">
             <div class="asm-finding-title">Role-Based Discovery — 2026</div>
@@ -2169,82 +2081,106 @@
         <div class="asm-subsection fade-in">
           <p class="cs-section-label">MVP Delivery · 2026</p>
           <h2 class="cs-section-title">The MVP Entitlements Experience</h2>
-          <p class="cs-text">The first shippable milestone — a redesigned entitlements flow built on the Octagon component system, incorporating the highest-priority CX improvements identified through research. The longer-term north star, a fully role-based entitlements experience, is currently back in active discovery.</p>
+          <p class="cs-text">The first shippable milestone — a full migration of the entitlements experience from legacy BlueJS to React, rebuilding all components as composable, modernized building blocks and addressing the highest-priority UX gaps identified across two years of research. The screens below show the complete add-user flow end to end, from user view through permissions confirmation — click any screen to expand.</p>
         </div>
 
         <div class="fade-in" style="margin-top:24px;">
           <img src="../assets/images/jpmorgan/asm/final MVP.png" alt="Final MVP design — the target ASM entitlements experience" style="width:100%; display:block; border-radius:var(--radius-md);" />
         </div>
 
-        <div class="asm-subsection fade-in" style="margin-top:48px;">
-          <p class="cs-section-label">End-to-End Experience</p>
-          <h2 class="cs-section-title">The Add User Experience, End to End</h2>
-          <p class="cs-text">The complete add-user entitlements flow as designed for MVP delivery — from user view through permissions confirmation. Click any screen to expand.</p>
-        </div>
+        <div class="asm-slider fade-in">
+          <div class="asm-slider-viewport">
+            <div class="asm-slider-track" id="asmSliderTrack">
 
-        <div class="asm-gallery fade-in">
-          <div>
-            <div class="asm-gallery-thumb" data-index="0">
-              <img src="../assets/images/jpmorgan/asm/01 User view - MVP View 1.png" alt="01 — User View" loading="lazy" />
-              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+              <!-- Page 1: screens 01–03 -->
+              <div class="asm-slider-page">
+                <div>
+                  <div class="asm-gallery-thumb" data-index="0">
+                    <img src="../assets/images/jpmorgan/asm/01 User view - MVP View 1.png" alt="01 — User View" loading="lazy" />
+                    <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                  </div>
+                  <p class="asm-gallery-label">01 — User View</p>
+                </div>
+                <div>
+                  <div class="asm-gallery-thumb" data-index="1">
+                    <img src="../assets/images/jpmorgan/asm/02 Add AU - filled in 1.png" alt="02 — Add Authorized User" loading="lazy" />
+                    <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                  </div>
+                  <p class="asm-gallery-label">02 — Add Authorized User</p>
+                </div>
+                <div>
+                  <div class="asm-gallery-thumb" data-index="2">
+                    <img src="../assets/images/jpmorgan/asm/03 CBO - User Type - Happy Path _ Desktop 1.png" alt="03 — User Type Selection" loading="lazy" />
+                    <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                  </div>
+                  <p class="asm-gallery-label">03 — User Type Selection</p>
+                </div>
+              </div>
+
+              <!-- Page 2: screens 04–06 -->
+              <div class="asm-slider-page">
+                <div>
+                  <div class="asm-gallery-thumb" data-index="3">
+                    <img src="../assets/images/jpmorgan/asm/04 Selection - ASM - Authentication - [CBO] 1.png" alt="04 — Authentication" loading="lazy" />
+                    <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                  </div>
+                  <p class="asm-gallery-label">04 — Authentication</p>
+                </div>
+                <div>
+                  <div class="asm-gallery-thumb" data-index="4">
+                    <img src="../assets/images/jpmorgan/asm/05 CBO - Verify - Add User - CDCA Off _ Desktop 1.png" alt="05 — Verify Add User" loading="lazy" />
+                    <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                  </div>
+                  <p class="asm-gallery-label">05 — Verify Add User</p>
+                </div>
+                <div>
+                  <div class="asm-gallery-thumb" data-index="5">
+                    <img src="../assets/images/jpmorgan/asm/06 CBO - Confirmation - CDCA Off _ Desktop 1.png" alt="06 — Confirmation" loading="lazy" />
+                    <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                  </div>
+                  <p class="asm-gallery-label">06 — Confirmation</p>
+                </div>
+              </div>
+
+              <!-- Page 3: screens 07–09 -->
+              <div class="asm-slider-page">
+                <div>
+                  <div class="asm-gallery-thumb" data-index="6">
+                    <img src="../assets/images/jpmorgan/asm/07 Permissions - DDA See activity & Transact 1.png" alt="07 — Permissions" loading="lazy" />
+                    <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                  </div>
+                  <p class="asm-gallery-label">07 — Permissions</p>
+                </div>
+                <div>
+                  <div class="asm-gallery-thumb" data-index="7">
+                    <img src="../assets/images/jpmorgan/asm/08 Review Permissions 1.png" alt="08 — Review Permissions" loading="lazy" />
+                    <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                  </div>
+                  <p class="asm-gallery-label">08 — Review Permissions</p>
+                </div>
+                <div>
+                  <div class="asm-gallery-thumb" data-index="8">
+                    <img src="../assets/images/jpmorgan/asm/09 CBO - Permissions Confirmation - CDCA OFF _ Desktop (Updated) 1.png" alt="09 — Permissions Confirmation" loading="lazy" />
+                    <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+                  </div>
+                  <p class="asm-gallery-label">09 — Permissions Confirmation</p>
+                </div>
+              </div>
+
             </div>
-            <p class="asm-gallery-label">01 — User View</p>
           </div>
-          <div>
-            <div class="asm-gallery-thumb" data-index="1">
-              <img src="../assets/images/jpmorgan/asm/02 Add AU - filled in 1.png" alt="02 — Add Authorized User" loading="lazy" />
-              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="asm-slider-footer">
+            <button class="asm-slider-btn" id="asmSliderPrev" aria-label="Previous" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="asm-slider-dots" id="asmSliderDots">
+              <button class="asm-slider-dot active" aria-label="Page 1"></button>
+              <button class="asm-slider-dot" aria-label="Page 2"></button>
+              <button class="asm-slider-dot" aria-label="Page 3"></button>
             </div>
-            <p class="asm-gallery-label">02 — Add Authorized User</p>
-          </div>
-          <div>
-            <div class="asm-gallery-thumb" data-index="2">
-              <img src="../assets/images/jpmorgan/asm/03 CBO - User Type - Happy Path _ Desktop 1.png" alt="03 — User Type Selection" loading="lazy" />
-              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-            </div>
-            <p class="asm-gallery-label">03 — User Type Selection</p>
-          </div>
-          <div>
-            <div class="asm-gallery-thumb" data-index="3">
-              <img src="../assets/images/jpmorgan/asm/04 Selection - ASM - Authentication - [CBO] 1.png" alt="04 — Authentication" loading="lazy" />
-              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-            </div>
-            <p class="asm-gallery-label">04 — Authentication</p>
-          </div>
-          <div>
-            <div class="asm-gallery-thumb" data-index="4">
-              <img src="../assets/images/jpmorgan/asm/05 CBO - Verify - Add User - CDCA Off _ Desktop 1.png" alt="05 — Verify Add User" loading="lazy" />
-              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-            </div>
-            <p class="asm-gallery-label">05 — Verify Add User</p>
-          </div>
-          <div>
-            <div class="asm-gallery-thumb" data-index="5">
-              <img src="../assets/images/jpmorgan/asm/06 CBO - Confirmation - CDCA Off _ Desktop 1.png" alt="06 — Confirmation" loading="lazy" />
-              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-            </div>
-            <p class="asm-gallery-label">06 — Confirmation</p>
-          </div>
-          <div>
-            <div class="asm-gallery-thumb" data-index="6">
-              <img src="../assets/images/jpmorgan/asm/07 Permissions - DDA See activity & Transact 1.png" alt="07 — Permissions" loading="lazy" />
-              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-            </div>
-            <p class="asm-gallery-label">07 — Permissions</p>
-          </div>
-          <div>
-            <div class="asm-gallery-thumb" data-index="7">
-              <img src="../assets/images/jpmorgan/asm/08 Review Permissions 1.png" alt="08 — Review Permissions" loading="lazy" />
-              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-            </div>
-            <p class="asm-gallery-label">08 — Review Permissions</p>
-          </div>
-          <div>
-            <div class="asm-gallery-thumb" data-index="8">
-              <img src="../assets/images/jpmorgan/asm/09 CBO - Permissions Confirmation - CDCA OFF _ Desktop (Updated) 1.png" alt="09 — Permissions Confirmation" loading="lazy" />
-              <div class="asm-gallery-expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
-            </div>
-            <p class="asm-gallery-label">09 — Permissions Confirmation</p>
+            <button class="asm-slider-btn" id="asmSliderNext" aria-label="Next">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
           </div>
         </div>
 
@@ -2349,7 +2285,7 @@
           <p class="cs-text">With the MVP entitlements redesign in delivery, the next chapter brings two parallel threads together — a return to role-based discovery to design and validate the full entitlements experience, and the introduction of SecureAccess, a vision for what ASM becomes when AI is built into the core of how access is managed.</p>
         </div>
 
-        <div class="asm-findings-grid fade-in" style="grid-template-columns: repeat(2, 1fr); margin-top: 32px;">
+        <div class="asm-findings-grid fade-in" style="margin-top: 32px;">
           <div class="asm-finding-card" style="border-left-color: var(--blue-700);">
             <div class="asm-finding-title" style="color: var(--blue-700);">Role-Based Design — Back in Discovery</div>
             <div class="asm-finding-desc">Building on validated concept directions, the team is re-entering discovery to design and test role-based entitlement templates with customers — moving toward the full future-state ASM experience.</div>
@@ -2452,6 +2388,124 @@
   </script>
 
   <script>
+    (function () {
+      /* ── Current state slider + lightbox ── */
+      const csTrack  = document.getElementById('asmCurrentTrack');
+      const csPrev   = document.getElementById('asmCurrentPrev');
+      const csNext   = document.getElementById('asmCurrentNext');
+      const csDots   = Array.from(csTrack.closest('.asm-slider').querySelectorAll('.asm-slider-dot'));
+      const csImgs   = Array.from(csTrack.querySelectorAll('img'));
+      const csLb     = document.getElementById('asmCurrentLightbox');
+      const csLbImg  = document.getElementById('asmCurrentLbImg');
+      const csLbCtr  = document.getElementById('asmCurrentLbCounter');
+      const csPages  = csDots.length;
+      let csPage = 0, csLbIdx = 0;
+
+      function csGoTo(p) {
+        csPage = Math.max(0, Math.min(p, csPages - 1));
+        csTrack.style.transform = 'translateX(-' + (csPage * 100) + '%)';
+        csDots.forEach((d, i) => d.classList.toggle('active', i === csPage));
+        csPrev.disabled = csPage === 0;
+        csNext.disabled = csPage === csPages - 1;
+      }
+      function csLbOpen(i) {
+        csLbIdx = i;
+        csLbImg.src = csImgs[i].src;
+        csLbImg.alt = csImgs[i].alt;
+        csLbCtr.textContent = (i + 1) + ' / ' + csImgs.length;
+        csLb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function csLbClose() { csLb.classList.remove('open'); document.body.style.overflow = ''; }
+      function csLbPrev() { csLbOpen((csLbIdx - 1 + csImgs.length) % csImgs.length); }
+      function csLbNext() { csLbOpen((csLbIdx + 1) % csImgs.length); }
+
+      csPrev.addEventListener('click', () => csGoTo(csPage - 1));
+      csNext.addEventListener('click', () => csGoTo(csPage + 1));
+      csDots.forEach((d, i) => d.addEventListener('click', () => csGoTo(i)));
+      csImgs.forEach((img, i) => img.addEventListener('click', () => csLbOpen(i)));
+      document.getElementById('asmCurrentLbClose').addEventListener('click', csLbClose);
+      document.getElementById('asmCurrentLbPrev').addEventListener('click', csLbPrev);
+      document.getElementById('asmCurrentLbNext').addEventListener('click', csLbNext);
+      csLb.addEventListener('click', e => { if (e.target === csLb) csLbClose(); });
+      document.addEventListener('keydown', e => {
+        if (!csLb.classList.contains('open')) return;
+        if (e.key === 'Escape') csLbClose();
+        if (e.key === 'ArrowLeft') csLbPrev();
+        if (e.key === 'ArrowRight') csLbNext();
+      });
+    })();
+
+    (function () {
+      /* ── Workshop slider + lightbox ── */
+      const wsTrack = document.getElementById('asmWorkshopTrack');
+      const wsPrev  = document.getElementById('asmWorkshopPrev');
+      const wsNext  = document.getElementById('asmWorkshopNext');
+      const wsDots  = Array.from(wsTrack.closest('.asm-slider').querySelectorAll('.asm-slider-dot'));
+      const wsImgs  = Array.from(wsTrack.querySelectorAll('img'));
+      const wsLb    = document.getElementById('asmWorkshopLightbox');
+      const wsLbImg = document.getElementById('asmWorkshopLbImg');
+      const wsLbCtr = document.getElementById('asmWorkshopLbCounter');
+      let wsPage = 0, wsLbIdx = 0;
+
+      function wsGoTo(p) {
+        wsPage = Math.max(0, Math.min(p, wsImgs.length - 1));
+        wsTrack.style.transform = 'translateX(-' + (wsPage * 100) + '%)';
+        wsDots.forEach((d, i) => d.classList.toggle('active', i === wsPage));
+        wsPrev.disabled = wsPage === 0;
+        wsNext.disabled = wsPage === wsImgs.length - 1;
+      }
+
+      function wsLbOpen(i) {
+        wsLbIdx = i;
+        wsLbImg.src = wsImgs[i].src;
+        wsLbImg.alt = wsImgs[i].alt;
+        wsLbCtr.textContent = (i + 1) + ' / ' + wsImgs.length;
+        wsLb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function wsLbClose() { wsLb.classList.remove('open'); document.body.style.overflow = ''; }
+      function wsLbPrev() { wsLbOpen((wsLbIdx - 1 + wsImgs.length) % wsImgs.length); }
+      function wsLbNext() { wsLbOpen((wsLbIdx + 1) % wsImgs.length); }
+
+      wsPrev.addEventListener('click', () => wsGoTo(wsPage - 1));
+      wsNext.addEventListener('click', () => wsGoTo(wsPage + 1));
+      wsDots.forEach((d, i) => d.addEventListener('click', () => wsGoTo(i)));
+      wsImgs.forEach((img, i) => img.addEventListener('click', () => wsLbOpen(i)));
+      document.getElementById('asmWorkshopLbClose').addEventListener('click', wsLbClose);
+      document.getElementById('asmWorkshopLbPrev').addEventListener('click', wsLbPrev);
+      document.getElementById('asmWorkshopLbNext').addEventListener('click', wsLbNext);
+      wsLb.addEventListener('click', e => { if (e.target === wsLb) wsLbClose(); });
+      document.addEventListener('keydown', e => {
+        if (!wsLb.classList.contains('open')) return;
+        if (e.key === 'Escape') wsLbClose();
+        if (e.key === 'ArrowLeft') wsLbPrev();
+        if (e.key === 'ArrowRight') wsLbNext();
+      });
+    })();
+
+    (function () {
+      /* ── Slider ── */
+      const track = document.getElementById('asmSliderTrack');
+      const prevBtn = document.getElementById('asmSliderPrev');
+      const nextBtn = document.getElementById('asmSliderNext');
+      const dots = Array.from(document.querySelectorAll('.asm-slider-dot'));
+      const totalPages = dots.length;
+      let page = 0;
+
+      function goTo(p) {
+        page = Math.max(0, Math.min(p, totalPages - 1));
+        track.style.transform = 'translateX(-' + (page * 100) + '%)';
+        dots.forEach((d, i) => d.classList.toggle('active', i === page));
+        prevBtn.disabled = page === 0;
+        nextBtn.disabled = page === totalPages - 1;
+      }
+
+      prevBtn.addEventListener('click', () => goTo(page - 1));
+      nextBtn.addEventListener('click', () => goTo(page + 1));
+      dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+    })();
+
     (function () {
       const thumbs = Array.from(document.querySelectorAll('.asm-gallery-thumb'));
       const lightbox = document.getElementById('asmLightbox');
