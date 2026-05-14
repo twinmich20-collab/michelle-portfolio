@@ -738,6 +738,38 @@ ul, ol { list-style: none; }
 }
 .back-to-top:hover { color: var(--blue-500); }
 
+#scroll-top-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 28px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  color: var(--gray-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .2s, transform .2s, color .15s, border-color .15s;
+  pointer-events: none;
+  z-index: 800;
+  text-decoration: none;
+}
+#scroll-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scroll-top-btn:hover {
+  color: var(--blue-700);
+  border-color: var(--blue-300);
+}
+
 /* ============================================
    CASE STUDY — shared styles used across pages
    ============================================ */
