@@ -898,7 +898,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 64px;
-      align-items: center;
+      align-items: stretch;
     }
     .sa-closing-list {
       list-style: none;
@@ -1223,9 +1223,9 @@
     .sa-solution-intro-text { color: var(--white); }
     .sa-solution-intro-eyebrow {
       font-family: var(--font-display);
-      font-size: 10px;
+      font-size: 0.625rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--blue-200);
       margin-bottom: 16px;
@@ -1275,6 +1275,49 @@
       text-wrap: pretty;
     }
 
+    /* ── Problem Reframe strip ── */
+    .sa-reframe-strip { display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: center; margin-top: 36px; }
+    .sa-reframe-q { border-radius: var(--radius-md); padding: 24px; }
+    .sa-reframe-q--old { background: var(--white); border: 1px solid var(--gray-200); }
+    .sa-reframe-q--new { background: var(--blue-50); border: 1px solid var(--blue-200); }
+    .sa-reframe-q-label { font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 10px; }
+    .sa-reframe-q--old .sa-reframe-q-label { color: var(--gray-400); }
+    .sa-reframe-q--new .sa-reframe-q-label { color: var(--blue-600); }
+    .sa-reframe-q-text { font-family: var(--font-display); font-size: 1rem; font-weight: 500; line-height: 1.5; font-style: italic; }
+    .sa-reframe-q--old .sa-reframe-q-text { color: var(--gray-500); }
+    .sa-reframe-q--new .sa-reframe-q-text { color: var(--gray-900); }
+    .sa-reframe-arrow { color: var(--blue-400); flex-shrink: 0; }
+    /* Research quote */
+    .sa-research-quote { margin: 40px 0 0; padding: 24px 28px; background: var(--white); border: 1px solid var(--gray-200); border-left: 3px solid var(--blue-600); border-radius: var(--radius-md); }
+    .sa-research-quote-text { font-family: var(--font-display); font-size: 1rem; font-style: italic; color: var(--gray-700); line-height: 1.65; margin: 0 0 12px; }
+    .sa-research-quote-cite { font-size: 0.75rem; color: var(--gray-400); font-style: normal; font-weight: 500; display: block; }
+
+    /* ── Pivot section — typographic layout ── */
+    .sa-pivot-insight { padding: 40px 0 32px; max-width: 700px; }
+    .sa-pivot-insight-lead { font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65; margin-bottom: 20px; }
+    .sa-pivot-insight-kicker { display: block; font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--blue-600); margin-bottom: 10px; }
+    .sa-pivot-insight-claim { font-family: var(--font-display); font-size: clamp(1.35rem, 3vw, 1.85rem); font-weight: 300; color: var(--gray-900); line-height: 1.3; display: block; margin-bottom: 16px; }
+    .sa-pivot-insight-claim em { font-style: normal; font-weight: 700; color: var(--blue-700); }
+    .sa-pivot-insight-sub { font-size: 0.875rem; color: var(--gray-500); line-height: 1.65; max-width: 580px; display: block; }
+    /* Question shift — vertical */
+    .sa-pivot-shift { display: flex; flex-direction: column; align-items: flex-start; margin: 40px 0 32px; max-width: 560px; }
+    .sa-pivot-q-sublabel { font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; display: block; margin-bottom: 8px; color: var(--gray-400); }
+    .sa-pivot-q-sublabel--new { color: var(--blue-600); }
+    .sa-pivot-old { padding: 0 0 0 20px; border-left: 2px solid var(--gray-200); }
+    .sa-pivot-q-old { font-family: var(--font-display); font-size: 1.05rem; color: var(--gray-400); font-style: italic; text-decoration: line-through; text-decoration-color: var(--gray-300); text-decoration-thickness: 1.5px; }
+    .sa-pivot-connector { display: flex; flex-direction: column; align-items: flex-start; padding-left: 19px; margin: 10px 0; gap: 2px; color: var(--blue-400); }
+    .sa-pivot-connector-line { width: 1px; height: 22px; background: linear-gradient(to bottom, var(--gray-200), var(--blue-300)); }
+    .sa-pivot-new { padding: 20px 24px; background: var(--white); border-left: 3px solid var(--blue-600); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+    .sa-pivot-q-new { font-family: var(--font-display); font-size: clamp(1.05rem, 2.5vw, 1.25rem); color: var(--gray-900); line-height: 1.5; }
+    .sa-pivot-q-new strong { color: var(--blue-700); font-weight: 700; }
+    /* Constraint rows — open, no cards */
+    .sa-pivot-constraints { display: grid; grid-template-columns: 1fr 1fr; gap: 36px 56px; margin-top: 56px; padding-top: 48px; border-top: 1px solid var(--gray-200); }
+    .sa-pivot-constraint { display: flex; gap: 20px; align-items: flex-start; }
+    .sa-pivot-constraint-num { font-family: 'JetBrains Mono', monospace; font-size: 1.75rem; font-weight: 700; color: var(--blue-200); line-height: 1; flex-shrink: 0; padding-top: 2px; }
+    .sa-pivot-constraint-label { font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--blue-600); margin-bottom: 4px; }
+    .sa-pivot-constraint-title { font-size: 0.9rem; font-weight: 700; color: var(--gray-900); margin-bottom: 8px; }
+    .sa-pivot-constraint-desc { font-size: 0.82rem; color: var(--gray-600); line-height: 1.6; }
+
     @media (max-width: 768px) {
       .sa-rings         { grid-template-columns: 1fr; }
       .sa-insight-grid  { grid-template-columns: 1fr; }
@@ -1296,6 +1339,31 @@
       .sa-research-grid { grid-template-columns: 1fr; }
       .sa-opportunity   { grid-template-columns: 1fr; }
       .sa-solution-intro { grid-template-columns: 1fr; padding: 32px 24px; }
+      .sa-reframe-strip { grid-template-columns: 1fr; }
+      .sa-reframe-arrow { display: none; }
+      .sa-pivot-constraints { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* ── Pain point grid — 2-col forced, stacks at mobile ── */
+    .sa-pain-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    @media (max-width: 560px) {
+      .sa-pain-grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* ── Context section 2-col ── */
+    .sa-context-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .sa-context-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 768px) {
+      .sa-context-grid { grid-template-columns: 1fr; gap: 32px; }
     }
 
     /* ── Floating back-to-top ── */
@@ -1514,11 +1582,11 @@
         <h1 class="cs-hero__title">SecureAccess:<br><strong>AI-Powered</strong><br>Permission Management.</h1>
 
         <div class="cs-hero__main">
-          <p class="cs-hero__lede">A product design concept — an AI assistant for small business owners to simplify the complexity of user permission management, delivering guided setup, smart suggestions, and proactive security controls while keeping business owners firmly in charge.</p>
+          <p class="cs-hero__lede">A product design concept — an AI assistant for small business owners to manage user permissions with confidence. Guided setup, smart suggestions, and proactive security controls, with business owners firmly in charge of every decision.</p>
           <div class="cs-hero__panel">
-            <div class="cs-hero__panel-label">Design Outcome</div>
+            <div class="cs-hero__panel-label">Projected Impact</div>
             <div class="cs-hero__panel-stat">−<strong>42%</strong></div>
-            <div class="cs-hero__panel-caption">Reduction in permission-related support tickets within 90 days of launch.</div>
+            <div class="cs-hero__panel-caption">Projected reduction in permission-related support tickets — based on comparable AI-assisted workflow implementations.</div>
           </div>
         </div>
 
@@ -1541,15 +1609,28 @@
           </div>
           <div>
             <div class="cs-hero__meta-label">Status</div>
-            <div class="cs-hero__meta-value">Proposed Concept (2025)</div>
+            <div class="cs-hero__meta-value">Proposed Concept</div>
           </div>
         </div>
       </div>
     </section>
 
 
-    <!-- Executive Summary -->
+    <!-- Overview -->
     <section class="cs-section">
+      <div class="container">
+        <div class="fade-in">
+          <p class="cs-section-label">Overview</p>
+          <h2 class="cs-section-title">A Concept Design from ASM Research</h2>
+          <div class="cs-callout" style="margin-top: 20px;">
+            <p><strong>SecureAccess is a concept design</strong> built from ASM research insights, showing how I translated permission management research into a complete service architecture centered on AI-assisted decision-making. It was never shipped to production at JPMorgan Chase, but it's a full design hypothesis — backed by real research and strategic reasoning about how to make humans confident decision-makers when working alongside AI.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Executive Summary -->
+    <section class="cs-section cs-section--alt">
       <div class="container">
         <div class="fade-in">
           <p class="cs-section-label">Executive Summary</p>
@@ -1595,48 +1676,6 @@
       </div>
     </section>
 
-    <!-- Expected Benefits -->
-    <section class="cs-section cs-section--alt">
-      <div class="container">
-        <div class="fade-in">
-          <p class="cs-section-label">Expected Benefits</p>
-          <h2 class="cs-section-title">What SecureAccess Delivers for Business Owners</h2>
-          <p class="cs-text">Every feature maps directly to a pain point uncovered in research — reducing risk, workload, and uncertainty while keeping the business owner firmly in control.</p>
-        </div>
-
-        <div class="sa-benefit-grid fade-in">
-          <div class="sa-benefit-card">
-            <div class="sa-benefit-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <div class="sa-benefit-title">Enhanced Security</div>
-            <div class="sa-benefit-desc">SecureAccess proactively identifies and flags security risks — ensuring robust protection against unauthorized access through continuous, AI-driven monitoring of permission patterns.</div>
-          </div>
-          <div class="sa-benefit-card">
-            <div class="sa-benefit-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            </div>
-            <div class="sa-benefit-title">Streamlined Operations</div>
-            <div class="sa-benefit-desc">Simplifies permission management with guided setup and smart suggestions — reducing administrative workload and the time needed to onboard, modify, or offboard users.</div>
-          </div>
-          <div class="sa-benefit-card">
-            <div class="sa-benefit-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-            </div>
-            <div class="sa-benefit-title">User Empowerment</div>
-            <div class="sa-benefit-desc">Maintains business owner control with AI-driven insights — allowing confident, informed decisions without requiring deep knowledge of security protocols.</div>
-          </div>
-          <div class="sa-benefit-card">
-            <div class="sa-benefit-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-            </div>
-            <div class="sa-benefit-title">Transparency &amp; Trust</div>
-            <div class="sa-benefit-desc">Clear explanations for every AI recommendation foster trust — so business owners know why a suggestion is made and can confidently accept, edit, or decline it.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Problem -->
     <section class="cs-section">
       <div class="container">
@@ -1650,8 +1689,8 @@
             <div class="cs-callout">
               <p><strong>As a business owner,</strong> I need a streamlined and intuitive way to assign permissions to my employees that align with my business needs while maintaining robust security. The current process is often overwhelming and lacks clear guidance, leaving me uncertain about making the right choices. Notifications are difficult to manage and fail to provide timely, actionable information. Consequently, I either grant excessive permissions or handle tasks myself — leading to inefficiencies and increased workload.</p>
             </div>
-            <p class="cs-text" style="margin-top: 24px;"><strong>There is a need for a solution that offers clear, step-by-step guidance, AI-driven suggestions, and robust security features — all while ensuring user control and transparency.</strong></p>
-            <div class="asm-shortfall-grid" style="margin-top:28px;grid-template-columns:repeat(2,1fr);">
+            <p class="cs-text" style="margin-top: 24px;"><strong>What was needed was more than a cleaner interface — clear, step-by-step guidance, AI-driven suggestions, and robust security features, all while keeping user control and transparency intact.</strong></p>
+            <div class="asm-shortfall-grid sa-pain-grid" style="margin-top:28px;">
               <div class="asm-shortfall-card">
                 <div class="asm-shortfall-label">Pain Point 01</div>
                 <div class="asm-shortfall-title">Complex Permissions Management</div>
@@ -1700,7 +1739,7 @@
           <div class="asm-hypothesis-text">AI adoption in the banking industry has accelerated, increasing by approximately <span style="font-size:1.5em;font-weight:700;color:var(--blue-700);letter-spacing:-0.03em;vertical-align:-0.05em;">30%</span> over the past two years — as institutions leverage AI to enhance account access, security, user experience, and overall productivity.</div>
         </div>
 
-        <p class="cs-text fade-in" style="margin-top: 28px;">The data showed a clear case for bringing AI-driven assistance into the permission management workflow. Three measurable outcomes already established in adjacent financial AI deployments:</p>
+        <p class="cs-text fade-in" style="margin-top: 28px;">The data showed a clear case for AI-driven assistance in permission management. Three measurable outcomes from adjacent financial AI deployments confirmed the opportunity:</p>
 
         <div class="sa-rings fade-in">
           <div class="sa-ring-item">
@@ -1741,7 +1780,7 @@
           <div>
             <p class="cs-section-label">User Research</p>
             <h2 class="cs-section-title">Five Insights That Shaped the Design Direction</h2>
-            <p class="cs-text">Research with small business owners surfaced consistent, actionable themes. These findings directly informed every design decision — from the AI suggestion model to the transparency and control mechanisms built into SecureAccess.</p>
+            <p class="cs-text">Research with small business owners surfaced five consistent themes — each one directly informing a design decision, from the AI suggestion model to the transparency and control mechanisms built into SecureAccess.</p>
           </div>
           <figure class="sa-research-intro-img" style="margin:0;">
             <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80&auto=format&fit=crop" alt="Small business owners in a research session — representing the participants whose insights shaped SecureAccess" loading="lazy" />
@@ -1783,9 +1822,9 @@
     <section class="cs-section cs-section--alt">
       <div class="container">
         <div class="fade-in">
-          <p class="cs-section-label">Research Takeaways</p>
-          <h2 class="cs-section-title">Additional Insights and Key Takeaways</h2>
-          <p class="cs-text">Secondary research surfaced industry trends and competitive signals that validated the design direction — and revealed specific opportunity areas that user interviews alone wouldn't have uncovered.</p>
+          <p class="cs-section-label">Secondary Research</p>
+          <h2 class="cs-section-title">Industry Signals and Competitive Context</h2>
+          <p class="cs-text">Secondary research surfaced industry trends and competitive signals that shaped the design direction — and revealed opportunity areas that user interviews alone wouldn't have uncovered.</p>
         </div>
 
         <div class="sa-research-grid fade-in">
@@ -1834,34 +1873,99 @@
       </div>
     </section>
 
-    <!-- Opportunity -->
+    <!-- Service Blueprint -->
     <section class="cs-section">
       <div class="container">
         <div class="fade-in">
-          <p class="cs-section-label">The Opportunity</p>
-          <h2 class="cs-section-title">AI Assistant for User Permission Management</h2>
+          <p class="cs-section-label">Current State</p>
+          <h2 class="cs-section-title">The ASM Experience, Mapped End to End</h2>
+          <p class="cs-text">Before designing the future state, we mapped how the Access &amp; Security Manager experience actually worked — end to end, across every touchpoint and behind-the-scenes process. This current-state blueprint surfaced where users got lost, where the system provided no guidance, and where the gaps between frontstage and backstage created the permission complexity owners struggled with daily.</p>
         </div>
 
-        <div class="sa-opportunity fade-in">
-          <div class="sa-opportunity-img">
-            <img src="https://images.unsplash.com/photo-1758626038030-96f813504d15?w=900&q=80&auto=format&fit=crop" alt="Professional using an AI workspace application on a smartphone — illustrating AI-assisted decision-making in everyday business contexts." loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-xl);" />
+        <div class="fade-in" style="margin-top:32px;position:relative;">
+          <button class="sa-flow-img" data-modal-src="../assets/images/jpmorgan/secureaccess/journey%20map.png" aria-label="View ASM current-state service blueprint full size" style="width:100%;display:block;cursor:zoom-in;border:0;padding:0;background:none;">
+            <img
+              src="../assets/images/jpmorgan/secureaccess/journey%20map.png"
+              alt="Current-state service blueprint for JPMorgan's Access &amp; Security Manager — mapping user actions, touchpoints, and backstage processes across the permission management flow."
+              loading="lazy"
+              style="width:100%;display:block;border-radius:var(--radius-lg);border:1px solid var(--gray-200);"
+            />
+            <span class="sa-flow-img-hint">Click to enlarge</span>
+          </button>
+          <figcaption style="font-size:0.8rem;color:var(--gray-400);text-align:center;margin-top:12px;font-style:italic;">Current-state service blueprint — Access &amp; Security Manager (ASM). Mapped from direct experience with the live product and stakeholder input on backend processes.</figcaption>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Redefinition -->
+    <section class="cs-section cs-section--alt">
+      <div class="container">
+
+        <div class="fade-in">
+          <p class="cs-section-label">Strategic Reframe</p>
+          <h2 class="cs-section-title">The Pivot: From Complexity to Confidence</h2>
+          <p class="cs-text">Initial research showed permission management was overwhelming — but that was a symptom, not the root cause. Digging deeper revealed a more fundamental problem that changed everything.</p>
+        </div>
+
+        <div class="fade-in" style="margin-top:32px;">
+          <div class="asm-hypothesis">
+            <div class="asm-hypothesis-label">Core Insight</div>
+            <div class="asm-hypothesis-text">The problem wasn't complexity — it was uncertainty. Business owners couldn't confidently decide what access to grant, and AI was introducing even more uncertainty if mishandled. Simplifying the UI alone would never solve this.</div>
           </div>
-          <div>
-            <div class="asm-hypothesis asm-hypothesis--vision">
-              <div class="asm-hypothesis-label">Design Hypothesis</div>
-              <div class="asm-hypothesis-text">Developing an AI assistant for user permission management offers a significant opportunity to address current challenges and leverage industry trends.</div>
+        </div>
+
+        <div class="sa-reframe-strip fade-in">
+          <div class="sa-reframe-q sa-reframe-q--old">
+            <div class="sa-reframe-q-label">We stopped asking</div>
+            <div class="sa-reframe-q-text">"How do we simplify permissions?"</div>
+          </div>
+          <div class="sa-reframe-arrow" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+          <div class="sa-reframe-q sa-reframe-q--new">
+            <div class="sa-reframe-q-label">We started asking</div>
+            <div class="sa-reframe-q-text">"How do we make business owners confident decision-makers — even with AI suggestions?"</div>
+          </div>
+        </div>
+
+        <p class="cs-text fade-in" style="margin-top:28px;">This reframing changed the entire design approach. We stopped optimising for fewer steps and started designing for informed confidence — ensuring every AI touchpoint made owners feel more capable, not less in control.</p>
+
+        <div class="fade-in" style="margin-top:48px;">
+          <p style="font-size:0.625rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:var(--blue-600);margin-bottom:16px;">Design Constraints from Research</p>
+          <div class="asm-shortfall-grid">
+            <div class="asm-shortfall-card">
+              <div class="asm-shortfall-label">Why Not Fully Autonomous AI</div>
+              <div class="asm-shortfall-title">Human-in-the-Loop by Design</div>
+              <div class="asm-shortfall-desc">Research made clear that business owners managing financial permissions needed to feel authorship over every decision. Full automation removed the accountability signal owners relied on. The AI's role was defined early: inform and suggest, never decide.</div>
             </div>
-            <p class="cs-text" style="margin-top: 24px;">By emphasizing user-centric design, personalized AI solutions, and robust security, this product can transform how businesses manage user access — <strong>enhancing operational efficiency, security, and user experience</strong> simultaneously.</p>
-            <p class="cs-text">Integrating user insights with research findings highlights the potential for this AI assistant to meet business needs while fostering trust and transparency at every step of the permission management journey.</p>
-            <div class="cs-outcomes" style="margin-top: 32px;">
-              <div class="cs-outcome">
-                <div class="cs-outcome-value">8.7M</div>
-                <div class="cs-outcome-label">Business Customers Served</div>
-              </div>
-              <div class="cs-outcome">
-                <div class="cs-outcome-value">25%</div>
-                <div class="cs-outcome-label">Projected Operational Savings</div>
-              </div>
+            <div class="asm-shortfall-card">
+              <div class="asm-shortfall-label">Accept / Edit / Decline Pattern</div>
+              <div class="asm-shortfall-title">Testing the Three-Way Choice</div>
+              <div class="asm-shortfall-desc">The Accept / Edit / Decline pattern is the core interaction model — designed to give owners clear agency in engaging with AI suggestions without feeling forced into blind trust or full rejection. This addresses what research revealed: users fear loss of control more than they fear cognitive load.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Opportunity -->
+    <section class="cs-section">
+      <div class="container">
+        <div class="sa-context-grid fade-in">
+          <div>
+            <p class="cs-section-label">Context</p>
+            <h2 class="cs-section-title">Permission Management at Scale</h2>
+            <p class="cs-text">This concept addresses a real product gap at scale. The ASM experience serves 8.7M small business customers — and the permission management problem the research surfaced isn't an edge case, it's the default experience for most of them.</p>
+          </div>
+          <div class="sa-context-stats">
+            <div class="cs-outcome">
+              <div class="cs-outcome-value">8.7M</div>
+              <div class="cs-outcome-label">Business Customers Served</div>
+            </div>
+            <div class="cs-outcome">
+              <div class="cs-outcome-value">25%</div>
+              <div class="cs-outcome-label">Projected Operational Savings</div>
             </div>
           </div>
         </div>
@@ -1889,62 +1993,94 @@
       </div>
     </section>
 
-    <!-- Features -->
+    <!-- Expected Benefits -->
     <section class="cs-section">
       <div class="container">
         <div class="fade-in">
+          <p class="cs-section-label">Expected Benefits</p>
+          <h2 class="cs-section-title">What SecureAccess Delivers for Business Owners</h2>
+          <p class="cs-text">Every feature maps directly to a pain point uncovered in research — reducing risk, workload, and uncertainty while keeping the business owner firmly in control.</p>
+        </div>
+
+        <div class="sa-benefit-grid fade-in">
+          <div class="sa-benefit-card">
+            <div class="sa-benefit-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="sa-benefit-title">Enhanced Security</div>
+            <div class="sa-benefit-desc">SecureAccess proactively identifies and flags security risks — monitoring permission patterns continuously and surfacing concerns before they become incidents.</div>
+          </div>
+          <div class="sa-benefit-card">
+            <div class="sa-benefit-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="sa-benefit-title">Streamlined Operations</div>
+            <div class="sa-benefit-desc">Simplifies permission management with guided setup and smart suggestions — reducing administrative workload and the time needed to onboard, modify, or offboard users.</div>
+          </div>
+          <div class="sa-benefit-card">
+            <div class="sa-benefit-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div class="sa-benefit-title">User Empowerment</div>
+            <div class="sa-benefit-desc">Maintains business owner control with AI-driven insights — allowing confident, informed decisions without requiring deep knowledge of security protocols.</div>
+          </div>
+          <div class="sa-benefit-card">
+            <div class="sa-benefit-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </div>
+            <div class="sa-benefit-title">Transparency &amp; Trust</div>
+            <div class="sa-benefit-desc">Clear explanations for every AI recommendation foster trust — so business owners know why a suggestion is made and can confidently accept, edit, or decline it.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="cs-section cs-section--alt">
+      <div class="container">
+        <div class="fade-in">
           <p class="cs-section-label">Key Features</p>
-          <h2 class="cs-section-title">Smart, Secure, and Simple User Management for Small Business Owners</h2>
+          <h2 class="cs-section-title">Five Core Capabilities, Each Grounded in Research</h2>
           <p class="cs-text">Five core capabilities — each mapped directly to a research insight — that make the right permission decision the obvious one.</p>
         </div>
 
-        <div class="sa-feature-grid fade-in">
-          <div class="sa-feature-card">
-            <div class="sa-feature-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            </div>
-            <div class="sa-feature-title">Guided Setup</div>
-            <div class="sa-feature-desc">Step-by-step recommendations tailored to the business type and typical role-based access needs — eliminating uncertainty at every decision point.</div>
+        <div class="sa-mitigation-grid fade-in">
+          <div class="sa-mitigation-card">
+            <div class="sa-mitigation-num">01</div>
+            <div class="sa-mitigation-title">Guided Setup</div>
+            <div class="sa-mitigation-desc">Step-by-step recommendations tailored to business type and role-based access needs — eliminating uncertainty at every decision point.</div>
           </div>
-          <div class="sa-feature-card">
-            <div class="sa-feature-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-            </div>
-            <div class="sa-feature-title">Smart Suggestions</div>
-            <div class="sa-feature-desc">AI-driven insights based on industry patterns and business type to prevent over-permissioning — ensuring employees get only the access they need.</div>
+          <div class="sa-mitigation-card">
+            <div class="sa-mitigation-num">02</div>
+            <div class="sa-mitigation-title">Smart Suggestions</div>
+            <div class="sa-mitigation-desc">AI-driven insights based on industry patterns and business type to prevent over-permissioning — ensuring employees get only the access they need.</div>
           </div>
-          <div class="sa-feature-card">
-            <div class="sa-feature-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <div class="sa-feature-title">Security Alerts &amp; Error Checks</div>
-            <div class="sa-feature-desc">Proactively flags risky permissions, unusual access patterns, and potential security gaps — surfacing concerns before they become incidents.</div>
+          <div class="sa-mitigation-card">
+            <div class="sa-mitigation-num">03</div>
+            <div class="sa-mitigation-title">Security Alerts &amp; Error Checks</div>
+            <div class="sa-mitigation-desc">Proactively flags risky permissions, unusual access patterns, and potential security gaps — surfacing concerns before they become incidents.</div>
           </div>
-          <div class="sa-feature-card">
-            <div class="sa-feature-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-            </div>
-            <div class="sa-feature-title">Clear &amp; Timely Notifications</div>
-            <div class="sa-feature-desc">Real-time updates on permission changes and alerts that owners to critical issues — actionable, not just informational.</div>
+          <div class="sa-mitigation-card">
+            <div class="sa-mitigation-num">04</div>
+            <div class="sa-mitigation-title">Clear &amp; Timely Notifications</div>
+            <div class="sa-mitigation-desc">Real-time updates on permission changes and alerts owners to critical issues — actionable, not just informational.</div>
           </div>
-          <div class="sa-feature-card">
-            <div class="sa-feature-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <div class="sa-feature-title">Full Control, No Surprises</div>
-            <div class="sa-feature-desc">AI assists with suggestions and checks, but the final decision always stays with the business owner. Every recommendation can be overridden, and every action is fully transparent — AI serves as a supportive tool, not an authoritative one.</div>
+          <div class="sa-mitigation-card">
+            <div class="sa-mitigation-num">05</div>
+            <div class="sa-mitigation-title">Full Control, No Surprises</div>
+            <div class="sa-mitigation-desc">AI assists with suggestions and checks, but the final decision always stays with the business owner. Every recommendation can be overridden, and every action is fully transparent — AI serves as a supportive tool, not an authoritative one.</div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Dashboard Mockup -->
-    <section class="cs-section cs-section--alt">
+    <section class="cs-section">
       <div class="container">
         <div class="fade-in">
           <p class="cs-section-label">Interface Design</p>
           <h2 class="cs-section-title">Access &amp; Security Dashboard</h2>
-          <p class="cs-text">A complete overview of user management and access control. Real-time alerts surface security concerns immediately. The AI assistant is always accessible for in-context guidance. Account activity is actionable, not just informational.</p>
+          <p class="cs-text">A complete overview of user management and access control — real-time alerts, in-context AI guidance, and account activity designed to be actionable, not just informational.</p>
         </div>
 
         <figure class="fade-in" style="margin-top:32px;">
@@ -2057,7 +2193,7 @@
         <!-- Ethics intro banner -->
         <div class="sa-ethics-intro fade-in">
           <div class="sa-ethics-intro-text">
-            <p class="eyebrow" style="color:var(--blue-200);margin-bottom:12px;">Responsible Design</p>
+            <p class="cs-section-label" style="color:var(--blue-200);margin-bottom:12px;">Responsible Design</p>
             <h2 style="font-family:var(--font-display);font-size:clamp(1.4rem,3vw,2rem);font-weight:300;color:var(--white);line-height:1.2;margin:0 0 12px;">Ethics Review of this <strong style="font-weight:700;color:var(--blue-200);">AI Assistant:</strong> SecureAccess</h2>
             <p style="font-size:0.9375rem;color:rgba(255,255,255,0.75);line-height:1.65;margin:0;">Deploying AI in financial decision-making introduces meaningful ethical obligations. Each concern was addressed through deliberate design choices — woven into the product architecture from the start, not treated as an afterthought.</p>
           </div>
@@ -2158,7 +2294,7 @@
       <div class="container">
         <div class="fade-in">
           <p class="cs-section-label">Action Plan</p>
-          <h2 class="cs-section-title">Proposed Mitigation Strategies</h2>
+          <h2 class="cs-section-title">How Each Risk Was Addressed</h2>
           <p class="cs-text">Five targeted interventions translate the ethical considerations above into concrete product commitments — each addressing a specific failure mode in AI-assisted financial tooling.</p>
         </div>
 
@@ -2197,18 +2333,16 @@
       <div class="container">
         <div class="sa-closing-grid fade-in">
           <div class="sa-closing-text">
-            <p class="cs-section-label">The Vision</p>
-            <h2 style="font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.25rem);font-weight:300;color:var(--gray-900);line-height:1.2;margin:0 0 32px;letter-spacing:-0.02em;">SecureAccess — <strong style="font-weight:700;">Simplifying User Permission Management</strong></h2>
+            <p class="cs-section-label">Design Reflection</p>
+            <h2 style="font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.25rem);font-weight:300;color:var(--gray-900);line-height:1.2;margin:0 0 32px;letter-spacing:-0.02em;">What This Concept <strong style="font-weight:700;">Demonstrates</strong></h2>
             <ul class="sa-closing-list">
-              <li><strong>Empowerment:</strong> SecureAccess helps business owners easily manage user permissions with AI-driven insights.</li>
-              <li><strong>Streamlined Processes:</strong> Through guided setup and smart suggestions, SecureAccess simplifies the complex task of assigning permissions, reducing cognitive load and decision-making stress.</li>
-              <li><strong>Security:</strong> Proactive alerts and checks ensure robust security without compromising control.</li>
-              <li><strong>User-Centric:</strong> Designed for transparency and customization, SecureAccess puts users in charge.</li>
-              <li><strong>Continuous Growth:</strong> We evolve with user feedback to stay ahead in the financial services landscape.</li>
+              <li><strong>AI should augment judgment, not replace it.</strong> Business owners need to feel authorship over every permission decision — the moment they feel bypassed, trust collapses. Every design choice here was in service of that.</li>
+              <li><strong>Transparency is a prerequisite, not a feature.</strong> Users who don't understand why an AI suggestion exists will distrust the entire system. "Why this?" isn't a nice-to-have — it's what makes the AI usable at all.</li>
+              <li><strong>Phased rollout is how you earn the right to expand AI responsibility.</strong> Starting with monitoring-only and graduating to predictive features isn't just risk management — it's the only honest way to introduce AI into a high-stakes workflow.</li>
             </ul>
           </div>
-          <figure class="sa-closing-img" style="margin:0;min-height:430px;border-radius:var(--radius-lg);overflow:hidden;">
-            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=900&q=80&auto=format&fit=crop" onerror="this.src='https://images.unsplash.com/photo-1547082299-de196ea013d6?w=900&q=80&auto=format&fit=crop'" alt="Professional at a computer workstation — representing the business owner SecureAccess is built for" loading="lazy" style="width:100%;height:100%;min-height:430px;display:block;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);" />
+          <figure class="sa-closing-img" style="margin:0;border-radius:var(--radius-lg);overflow:hidden;display:flex;align-items:flex-end;justify-content:center;">
+            <img src="../assets/images/jpmorgan/secureaccess/laptop ai dashboard.png" alt="SecureAccess AI dashboard on laptop — the guided permission management interface for small business owners." loading="lazy" style="width:100%;height:auto;display:block;object-fit:contain;border-radius:var(--radius-lg);" />
           </figure>
         </div>
       </div>
@@ -2220,11 +2354,42 @@
         <div class="fade-in">
           <p class="cs-section-label">Strategic Roadmap</p>
           <h2 class="cs-section-title">Define → Design → Deliver</h2>
-          <p class="cs-text">SecureAccess follows a phased rollout strategy designed to validate assumptions with real users before full deployment — ensuring the AI recommendations are trusted, accurate, and aligned with how business owners actually work.</p>
+          <p class="cs-text">SecureAccess is structured with a phased rollout that minimizes risk while building confidence in AI-assisted decisions — beginning with monitoring-only, gradually introducing Accept/Edit/Decline controls, then expanding to predictive features. This sequencing matters: you earn the right to expand AI responsibility, you don't assume it.</p>
         </div>
         <figure class="fade-in" style="margin-top:36px;">
           <img src="../assets/images/jpmorgan/secureaccess/AI roadmap.png" alt="SecureAccess AI roadmap — phased delivery plan from pilot to full deployment" loading="lazy" style="width:100%;display:block;border-radius:var(--radius-lg);border:1px solid var(--gray-200);" />
         </figure>
+        <div class="fade-in" style="margin-top:36px;">
+          <h3 style="font-family:var(--font-display);font-size:clamp(1rem,2vw,1.25rem);font-weight:300;color:var(--gray-900);line-height:1.3;margin:0 0 20px;letter-spacing:-0.02em;">SecureAccess is a research-backed concept — <strong style="font-weight:600;">if built, my validation approach:</strong></h3>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;">
+
+            <div class="asm-shortfall-card" style="position:relative;overflow:hidden;">
+              <div style="position:absolute;top:10px;right:14px;font-family:'JetBrains Mono',monospace;font-size:2.25rem;font-weight:700;color:var(--blue-100);line-height:1;pointer-events:none;">01</div>
+              <div class="asm-shortfall-label">Stakeholder Alignment</div>
+              <div class="asm-shortfall-title">Does it serve all three actors?</div>
+              <div class="asm-shortfall-desc">Do the business owner, employees, and the bank each feel their needs are met — or does the design create trade-offs that undermine one to serve another?</div>
+            </div>
+
+            <div class="asm-shortfall-card" style="position:relative;overflow:hidden;">
+              <div style="position:absolute;top:10px;right:14px;font-family:'JetBrains Mono',monospace;font-size:2.25rem;font-weight:700;color:var(--blue-100);line-height:1;pointer-events:none;">02</div>
+              <div class="asm-shortfall-label">Interaction Testing</div>
+              <div class="asm-shortfall-title">Does Accept / Edit / Decline work?</div>
+              <div class="asm-shortfall-desc">Does the three-way pattern give owners genuine agency, or does it add cognitive friction without building real confidence in AI suggestions?</div>
+            </div>
+
+            <div class="asm-shortfall-card" style="position:relative;overflow:hidden;">
+              <div style="position:absolute;top:10px;right:14px;font-family:'JetBrains Mono',monospace;font-size:2.25rem;font-weight:700;color:var(--blue-100);line-height:1;pointer-events:none;">03</div>
+              <div class="asm-shortfall-label">Service Model Stress Test</div>
+              <div class="asm-shortfall-title">Where do constraints create friction?</div>
+              <div class="asm-shortfall-desc">What breaks when edge cases hit the system — unusual business types, conflicting permissions, or AI suggestions that miss the mark entirely?</div>
+            </div>
+
+          </div>
+          <div class="asm-hypothesis asm-hypothesis--vision" style="margin-top:24px;">
+            <div class="asm-hypothesis-label">Design Principle</div>
+            <div class="asm-hypothesis-text">Start with strategic thinking, validate with users, then iterate with constraints — in that order, every time.</div>
+          </div>
+        </div>
       </div>
     </section>
 
