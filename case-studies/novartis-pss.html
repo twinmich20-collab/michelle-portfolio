@@ -397,49 +397,9 @@
 
     <!-- Hero -->
     <section class="cs-hero">
-      <svg class="cs-hero-bg-canvas" viewBox="0 0 1400 520" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <defs>
-          <radialGradient id="pss-glow" cx="52%" cy="52%" r="52%">
-            <stop offset="0%" stop-color="#1A8FE3" stop-opacity="0.10"/>
-            <stop offset="100%" stop-color="#08111c" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <rect width="1400" height="520" fill="#08111c"/>
-        <rect width="1400" height="520" fill="url(#pss-glow)"/>
-
-        <!-- Flow streams: angled upward left→right, large amplitude -->
-        <path d="M0,500 C250,452 500,542 750,492 C1000,442 1200,478 1400,400" fill="none" stroke="#1A8FE3" stroke-width="0.7"  stroke-opacity="0.06" stroke-linecap="round"/>
-        <path d="M0,430 C250,478 500,378 750,422 C1000,466 1200,372 1400,330" fill="none" stroke="#3AABF5" stroke-width="0.75" stroke-opacity="0.09" stroke-linecap="round"/>
-        <path d="M0,360 C250,312 500,402 750,352 C1000,302 1200,342 1400,262" fill="none" stroke="#1A8FE3" stroke-width="0.85" stroke-opacity="0.13" stroke-linecap="round"/>
-        <path d="M0,290 C250,242 500,332 750,282 C1000,232 1200,270 1400,192" fill="none" stroke="#1A8FE3" stroke-width="1.0"  stroke-opacity="0.18" stroke-linecap="round"/>
-        <path d="M0,220 C250,268 500,172 750,212 C1000,252 1200,162 1400,122" fill="none" stroke="#3AABF5" stroke-width="0.85" stroke-opacity="0.13" stroke-linecap="round"/>
-        <path d="M0,150 C250,102 500,194 750,148 C1000,102 1200,132 1400,52"  fill="none" stroke="#1A8FE3" stroke-width="0.75" stroke-opacity="0.09" stroke-linecap="round"/>
-        <path d="M0,80  C250,128 500,32  750,78  C1000,124 1150,48  1350,18"  fill="none" stroke="#3AABF5" stroke-width="0.65" stroke-opacity="0.06" stroke-linecap="round"/>
-
-        <!-- Key touchpoint on main stream — knot at (750,282) -->
-        <circle cx="750" cy="282" r="9"   fill="none" stroke="#1A8FE3" stroke-width="0.6" stroke-opacity="0.10"/>
-        <circle cx="750" cy="282" r="5.5" fill="none" stroke="#1A8FE3" stroke-width="0.6" stroke-opacity="0.18"/>
-        <circle cx="750" cy="282" r="3"   fill="none" stroke="#1A8FE3" stroke-width="0.8" stroke-opacity="0.38"/>
-        <circle cx="750" cy="282" r="1.5" fill="#1A8FE3" fill-opacity="0.60"/>
-
-        <!-- Regular touchpoints on main stream — t≈0.5 of each segment -->
-        <circle cx="375" cy="287" r="2.5" fill="none" stroke="#1A8FE3" stroke-width="0.75" stroke-opacity="0.32"/>
-        <circle cx="375" cy="287" r="1.2" fill="#1A8FE3" fill-opacity="0.48"/>
-        <circle cx="1094" cy="248" r="2.5" fill="none" stroke="#1A8FE3" stroke-width="0.75" stroke-opacity="0.30"/>
-        <circle cx="1094" cy="248" r="1.2" fill="#1A8FE3" fill-opacity="0.45"/>
-
-        <!-- Touchpoints on stream 3 (y≈360→262) -->
-        <circle cx="375" cy="356" r="2"  fill="none" stroke="#3AABF5" stroke-width="0.65" stroke-opacity="0.26"/>
-        <circle cx="375" cy="356" r="1"  fill="#3AABF5" fill-opacity="0.40"/>
-        <circle cx="750" cy="352" r="2"  fill="none" stroke="#3AABF5" stroke-width="0.65" stroke-opacity="0.24"/>
-        <circle cx="750" cy="352" r="1"  fill="#3AABF5" fill-opacity="0.38"/>
-
-        <!-- Touchpoints on stream 5 (y≈220→122) -->
-        <circle cx="375" cy="221" r="2"  fill="none" stroke="#3AABF5" stroke-width="0.65" stroke-opacity="0.26"/>
-        <circle cx="375" cy="221" r="1"  fill="#3AABF5" fill-opacity="0.38"/>
-        <circle cx="750" cy="212" r="2"  fill="none" stroke="#3AABF5" stroke-width="0.65" stroke-opacity="0.24"/>
-        <circle cx="750" cy="212" r="1"  fill="#3AABF5" fill-opacity="0.36"/>
-      </svg>
+      <div class="cs-hero-bg-photo" style="background-image:url('../assets/images/pss 01.png')" aria-hidden="true"></div>
+      <div class="cs-hero-bg-overlay" aria-hidden="true"></div>
+      <div class="cs-hero-bg-vignette" aria-hidden="true"></div>
       <div class="container">
         <a href="../index.html#work" class="cs-back">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
