@@ -1,228 +1,358 @@
 # PORTFOLIO_CONTEXT.md
 
-> **Purpose**
+> **Portfolio Source of Truth**
 >
-> This document is the source of truth for Michelle DaSilva's executive
-> portfolio. It captures design direction, storytelling principles,
-> writing style, case study standards, and key decisions. Unlike
-> `CAREER_PROFILE.md`, this document is expected to evolve frequently.
+> This document captures the strategic vision, storytelling principles, and creative direction for Michelle DaSilva's executive portfolio.
+>
+> It answers **why** the portfolio is built the way it is—not **how** it is implemented.
+>
+> Technical implementation, layouts, typography, accessibility, responsive behavior, and development requirements are maintained separately in `PRD.md`.
+>
+> This document should evolve as the portfolio evolves.
 
-------------------------------------------------------------------------
+---
+
+# Document Metadata
+
+**Version:** 2.0  
+**Status:** Active  
+**Created:** July 2026  
+**Owner:** Michelle DaSilva
+
+## Last Updated
+
+- **v2.0 (July 2026)** — Refactored to separate creative strategy from technical implementation.
+
+---
+
+# Portfolio North Star
+
+This portfolio is not intended to showcase UX deliverables.
+
+Its purpose is to demonstrate executive leadership, strategic thinking, and the ability to lead enterprise transformation through Experience Design.
+
+Every page should answer one question:
+
+> **"Can Michelle lead Experience Design at enterprise scale?"**
+
+If a design or content decision doesn't reinforce that goal, reconsider it.
+
+---
 
 # Portfolio Vision
 
-The portfolio should position Michelle as an **Executive Experience
-Design Leader**, not simply a UX designer.
+The portfolio should position Michelle as an Executive Experience Design Leader who helps organizations navigate complexity by connecting business strategy, technology, and human needs.
 
-Visitors should leave with these impressions:
+Visitors should leave believing Michelle can:
 
--   Strategic thinker
--   Enterprise transformation leader
--   Executive partner
--   Business-minded
--   Healthcare and financial services expertise
--   Calm, premium, trustworthy
+- Lead organizational transformation
+- Influence executive stakeholders
+- Build alignment across functions
+- Simplify complex systems
+- Improve measurable business outcomes
 
-The portfolio should feel appropriate for Director, Senior Director, VP,
-and Head of Experience roles.
+The portfolio should feel appropriate for:
 
-------------------------------------------------------------------------
+- Director
+- Senior Director
+- Vice President
+- Head of Experience
+- Executive Design Leadership
 
-# Brand Attributes
+---
 
--   Executive
--   Premium
--   Thoughtful
--   Modern
--   Minimal
--   Confident
--   Human-centered
--   Outcome-driven
+# Executive Brand
 
-Avoid anything that feels trendy, flashy, or overly technical.
+The portfolio should consistently communicate:
 
-------------------------------------------------------------------------
+- Strategic
+- Executive
+- Calm
+- Thoughtful
+- Trustworthy
+- Premium
+- Human
+- Outcome-driven
 
-# Visual Direction
+Avoid anything that feels:
 
-## Overall Style
+- Flashy
+- Trendy
+- Startup-centric
+- Process-heavy
+- Technology for technology's sake
 
--   Dark navy executive aesthetic
--   Architectural and structured
--   Premium keynote feel
--   Sophisticated depth
--   Generous whitespace
--   Calm motion
--   Minimal visual noise
+---
 
-## Color Palette
+# Portfolio Principles
 
-Primary: - Midnight Navy (#08111C) - Executive Blue (#102A46)
+Every decision should follow these principles.
 
-Supporting: - Slate Blue (#2E4D73) - Atmospheric Blue (#5A86C5)
+## 1. Business before Design
 
-Accent: - Champagne Gold (#C9A978) --- use sparingly (2--3%)
+Lead with business context before discussing UX.
 
-Avoid bright gradients, neon colors, and excessive glow.
+---
 
-------------------------------------------------------------------------
+## 2. Leadership before Execution
 
-# Hero Image Principles
+Show how decisions were made—not simply what was designed.
+
+---
+
+## 3. Outcomes before Deliverables
+
+Business impact matters more than screens.
+
+---
+
+## 4. Simplicity builds confidence
+
+Reduce complexity.
+
+Never add visual elements unless they improve understanding.
+
+---
+
+## 5. Story over Process
+
+Tell compelling stories.
+
+Avoid chronological UX walkthroughs.
+
+---
+
+## 6. Every page earns its place
+
+If a section doesn't strengthen Michelle's executive narrative, remove it.
+
+---
+
+# Target Audience
+
+Primary audience:
+
+- Hiring Managers
+- VP/SVP Leaders
+- Product Executives
+- Technology Executives
+- Design Executives
+
+Secondary audience:
+
+- Recruiters
+- Peers
+- Potential collaborators
+
+Everything should be optimized for executive readers with limited time.
+
+---
+
+# Storytelling Framework
+
+Every project should answer these questions:
+
+1. What business problem existed?
+2. Why did it matter?
+3. What strategy was developed?
+4. How was alignment achieved?
+5. What difficult decisions were made?
+6. What changed?
+7. What measurable business outcomes resulted?
+8. What leadership lessons emerged?
+
+Business narrative always comes before UX process.
+
+---
+
+# Standard Case Study Framework
+
+Every case study should follow this structure:
+
+1. Executive Summary
+2. Business Context
+3. Challenge
+4. Strategic Approach
+5. Leadership & Collaboration
+6. Key Decisions
+7. Experience Highlights
+8. Business Results
+9. Reflection
+
+The emphasis is leadership—not process documentation.
+
+---
+
+# Writing Voice
+
+Every page should sound:
+
+- Executive
+- Clear
+- Authentic
+- Confident
+- Conversational
+- Business-first
+
+Avoid:
+
+- UX buzzwords
+- Marketing language
+- Long explanations
+- Academic writing
+
+Prefer:
+
+- Short paragraphs
+- Strong headlines
+- Clear business language
+- Outcome-oriented storytelling
+
+---
+
+# Portfolio Themes
+
+Every project should reinforce one or more of these themes.
+
+- Enterprise Transformation
+- Simplifying Complexity
+- Executive Partnership
+- Customer-Centered Innovation
+- Experience Strategy
+- Organizational Alignment
+- Trust & Governance
+- Business Outcomes
+- Leadership Through Influence
+
+If a project doesn't reinforce these themes, reconsider whether it belongs.
+
+---
+
+# Creative Direction
+
+The portfolio should feel:
+
+- Premium
+- Editorial
+- Architectural
+- Calm
+- Spacious
+- Modern
+- Sophisticated
+
+The experience should communicate confidence through restraint.
+
+Whitespace is intentional.
+
+Visual hierarchy should always outperform visual decoration.
+
+---
+
+# Hero Experience Principles
 
 Hero artwork should communicate:
 
--   Structure
--   Systems
--   Transformation
--   Governance
--   Relationships
--   Clarity
--   Intelligence
+- Structure
+- Systems
+- Relationships
+- Intelligence
+- Governance
+- Transformation
+- Calm confidence
 
-Avoid:
+Avoid literal technology imagery.
 
--   Padlocks
--   Shields
--   Circuit boards
--   Hexagons
--   Literal AI imagery
--   Busy networks
--   Generic technology graphics
+The graphics should feel like invisible systems working quietly behind the scenes.
 
-Preferred inspiration:
+---
 
--   Architecture
--   Modular systems
--   Layered planes
--   Customer journeys
--   Organizational relationships
--   Invisible infrastructure
+# Decision Log
 
-------------------------------------------------------------------------
+Use this section to capture major portfolio decisions.
 
-# Writing Style
+Example:
 
-Portfolio writing should be:
+## July 2026
 
--   Business-first
--   Clear
--   Concise
--   Executive
--   Authentic
--   Outcome-focused
+- Repositioned portfolio from UX Portfolio to Executive Experience Design Portfolio.
+- Adopted business-first storytelling.
+- Standardized executive case study structure.
+- Established architectural visual language.
+- Reduced emphasis on UX process documentation.
 
-Avoid:
+---
 
--   Marketing language
--   UX buzzwords
--   Long process descriptions
--   Explaining obvious UX methods
+# Prompt Library
 
-Lead with:
+Maintain reusable prompts that consistently produce high-quality work.
 
-1.  Business challenge
-2.  Strategic opportunity
-3.  Leadership actions
-4.  Business outcomes
-5.  Design contribution
+Examples:
 
-------------------------------------------------------------------------
+- Executive hero image prompt
+- Homepage copy prompt
+- Case study writing prompt
+- Executive bio prompt
+- Presentation prompt
 
-# Case Study Structure
+This prevents losing valuable prompt iterations over time.
 
-Each case study should follow:
-
-1.  Executive Summary
-2.  Business Context
-3.  Challenge
-4.  Strategic Approach
-5.  Leadership & Collaboration
-6.  Key Decisions
-7.  Solution Highlights
-8.  Business Results
-9.  Reflection / Lessons Learned
-
-The emphasis is on decision-making and impact---not a chronological UX
-process.
-
-------------------------------------------------------------------------
-
-# Portfolio Messaging
-
-Every case study should reinforce one or more of these themes:
-
--   Enterprise transformation
--   Simplifying complexity
--   Executive partnership
--   Customer-centered innovation
--   Measurable business outcomes
--   Leading through influence
-
-------------------------------------------------------------------------
-
-# Design Principles
-
-Every page should feel:
-
--   Calm
--   Intentional
--   Spacious
--   Premium
--   Easy to scan
-
-Less is more.
-
-Whitespace is a design element.
-
-------------------------------------------------------------------------
+---
 
 # Lessons Learned
 
+Capture discoveries as the portfolio evolves.
+
+Examples:
+
 ## Storytelling
 
--   Business before design.
--   Strategy before deliverables.
--   Outcomes before artifacts.
+- Business before UX.
+- Strategy before deliverables.
+- Leadership before execution.
 
-## Visuals
+## Visual Design
 
--   Concentrate visual interest on the right side of hero compositions.
--   Preserve generous negative space for typography.
--   Prefer subtle depth over visual complexity.
+- Simplicity increases credibility.
+- Reduce visual noise.
+- Hero graphics should support—not compete with—the content.
+- Architectural visuals feel more timeless than technology illustrations.
 
-## Content
+## Portfolio
 
--   Use measurable outcomes whenever possible.
--   Focus on leadership, not task execution.
--   Explain why decisions mattered.
+- Show influence more than ownership.
+- Explain decisions, not tasks.
+- Focus on measurable outcomes.
 
-------------------------------------------------------------------------
+---
 
-# Future Enhancements
+# Portfolio Roadmap
 
-Potential additions:
+Future enhancements may include:
 
--   Executive bio page
--   Leadership philosophy
--   Speaking engagements
--   AI & innovation section
--   Thought leadership articles
--   Downloadable resume
--   Contact experience
--   Executive case study summaries
+- Executive Biography
+- Leadership Philosophy
+- AI & Experience Strategy
+- Speaking Engagements
+- Thought Leadership
+- Awards & Recognition
+- Executive Recommendations
+- Downloadable Resume
+- Interactive Case Study Elements
 
-------------------------------------------------------------------------
+---
 
 # Living Document Rules
 
 Update this document whenever:
 
--   Portfolio design evolves
--   New case study is added
--   Visual language changes
--   Writing style is refined
--   New prompts or reusable assets are created
--   A lesson is learned during interviews or portfolio reviews
+- Portfolio strategy changes
+- Storytelling improves
+- New case studies are added
+- Major design decisions are made
+- New prompts are worth preserving
+- Interview feedback changes portfolio messaging
+- New lessons are learned
 
-This document should evolve continuously and remain the reference for
-all future portfolio work.
+This document is the portfolio's creative playbook.
+
+It should explain **why** decisions are made, preserve institutional knowledge, and ensure every future change strengthens Michelle's executive brand.

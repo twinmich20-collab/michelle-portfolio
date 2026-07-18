@@ -1,49 +1,66 @@
 # CAREER_PROFILE.md
 
-> **Purpose**
+> **Professional Source of Truth**
 >
-> This is the long-term source of truth for Michelle DaSilva's
-> professional identity. It should be updated only when there are
-> meaningful career, leadership, or positioning changes.
+> This document captures Michelle DaSilva's enduring professional identity, executive positioning, leadership philosophy, and career direction.
+>
+> It serves as the foundation for resumes, executive bios, interview preparation, portfolio messaging, and future career planning.
+>
+> **This document changes infrequently.** Update it only when there are meaningful changes to career, leadership philosophy, accomplishments, or long-term goals.
 
-------------------------------------------------------------------------
+---
+
+# Document Metadata
+
+**Version:** 1.0  
+**Status:** Active  
+**Created:** July 2026  
+**Owner:** Michelle DaSilva
+
+## Last Updated
+
+- **v1.0 (July 2026)** — Initial creation as the primary professional reference document.
+
+---
 
 # Executive Positioning
 
 ## Executive Brand
 
-Michelle DaSilva is an enterprise Experience Design leader who helps
-organizations navigate complex transformation by connecting business
-strategy, technology, and human needs.
+Michelle DaSilva is an enterprise Experience Design leader who helps organizations navigate complex transformation by connecting business strategy, technology, and human needs.
 
-She specializes in simplifying complex, highly regulated ecosystems
-while aligning cross-functional teams around measurable business
-outcomes.
+She specializes in simplifying complex, highly regulated ecosystems while aligning cross-functional teams around measurable business outcomes.
 
-## Executive Brand Statement
+### Executive Brand Statement
 
-> I help organizations navigate complex transformation by connecting
-> business strategy, technology, and human needs to create experiences
-> that are simpler, more scalable, and more valuable.
+> *I help organizations navigate complex transformation by connecting business strategy, technology, and human needs to create experiences that are simpler, more scalable, and more valuable.*
 
-------------------------------------------------------------------------
+---
+
+# Professional Summary
+
+Enterprise Experience Design executive with leadership experience across healthcare, financial services, consumer products, and enterprise software. Known for translating complex business challenges into customer-centered strategies that improve usability, operational efficiency, and measurable business outcomes.
+
+Experienced leading cross-functional teams, influencing executive stakeholders, and driving enterprise transformation in highly regulated environments.
+
+---
 
 # Core Strengths
 
--   Enterprise transformation
--   Experience strategy
--   Executive stakeholder partnership
--   UX & Experience Design leadership
--   Customer research and service design
--   Design systems
--   AI-enabled product strategy
--   Financial services
--   Healthcare & Life Sciences
--   Regulated environments
--   Business outcome measurement
--   Cross-functional leadership
+- Enterprise Transformation
+- Experience Strategy
+- Executive Stakeholder Partnership
+- UX & Experience Design Leadership
+- Customer Research & Service Design
+- Design Systems
+- AI-Enabled Product Strategy
+- Financial Services
+- Healthcare & Life Sciences
+- Regulated Environments
+- Business Outcome Measurement
+- Cross-functional Leadership
 
-------------------------------------------------------------------------
+---
 
 # Career Summary
 
@@ -51,163 +68,202 @@ outcomes.
 
 **Vice President, Experience Design**
 
--   Leads Experience Design for Access & Security Manager
--   Enterprise platform supporting 8.7M+ customers
--   Permissions, authentication, governance, identity and security
--   Partners with Product, Engineering, Risk, Data, Authentication, and
-    business leadership
--   Drives enterprise transformation and platform modernization
+### Focus
 
-------------------------------------------------------------------------
+Enterprise identity, permissions, governance, authentication, and security experiences.
+
+### Highlights
+
+- Leads Experience Design for Access & Security Manager
+- Enterprise platform supporting **8.7M+ customers**
+- Drives platform modernization and enterprise transformation
+- Partners with Product, Engineering, Risk, Data, Authentication, and executive leadership
+- Aligns business strategy with customer experience improvements
+
+---
 
 ## Novartis
 
 **Associate Director, UX Strategy**
 
--   Led UX strategy for U.S. Pharma
--   Patient experiences
--   Healthcare professional experiences
--   Patient Support Services
--   Salesforce CRM ecosystem
--   Customer Engagement Center
--   Research and usability testing
--   Enterprise design systems
--   Digital transformation
+### Focus
 
-------------------------------------------------------------------------
+Healthcare experiences for patients, healthcare professionals, and internal teams.
+
+### Highlights
+
+- Led UX strategy across U.S. Pharma initiatives
+- Patient Support Services
+- Salesforce CRM ecosystem
+- Customer Engagement Center
+- Enterprise Design System initiatives
+- Research and usability testing
+- Cross-functional healthcare transformation
+
+---
 
 ## Previous Experience
 
--   Hertz
--   Brother International
--   Agency and consulting work
+- Hertz
+- Brother International
+- Agency & Consulting Experience
 
-Industries include: - Financial Services - Healthcare - Consumer -
-Enterprise Software
+### Industry Experience
 
-------------------------------------------------------------------------
+- Healthcare
+- Financial Services
+- Consumer Products
+- Enterprise Software
+
+---
 
 # Leadership Philosophy
 
 I believe leadership is about creating clarity.
 
-My role is to help teams understand where we're going, why it matters,
-and how their work contributes to business outcomes.
+My responsibility is to help organizations understand where they're going, why it matters, and how people contribute to meaningful business outcomes.
 
-I lead through influence, collaboration, coaching, and trust rather than
-authority.
+I lead through:
 
-------------------------------------------------------------------------
+- Influence
+- Collaboration
+- Coaching
+- Trust
+- Strategic alignment
+
+rather than authority alone.
+
+---
 
 # Design Philosophy
 
-Experience Design is a strategic capability---not simply interface
-design.
+Experience Design is a strategic business capability—not simply interface design.
 
-The best experiences come from understanding business goals, customer
-needs, operational realities, and technology constraints together.
+The best solutions emerge by balancing:
 
-------------------------------------------------------------------------
+- Business goals
+- Customer needs
+- Technology constraints
+- Operational realities
+- Organizational priorities
+
+---
 
 # Executive Communication Style
 
-Preferred style:
+Preferred communication style:
 
--   Executive
--   Clear
--   Conversational
--   Authentic
--   Business-first
--   Outcome-oriented
--   Calm and thoughtful
--   Avoid unnecessary buzzwords
+- Executive
+- Clear
+- Authentic
+- Business-first
+- Outcome-oriented
+- Calm and thoughtful
+- Practical
+- Collaborative
 
-------------------------------------------------------------------------
+Avoid unnecessary buzzwords or overly academic UX language.
+
+---
 
 # Professional Positioning
 
 Lead conversations with:
 
-1.  Business problem
-2.  Organizational challenge
-3.  Experience strategy
-4.  Cross-functional leadership
-5.  Business outcomes
+1. Business challenge
+2. Organizational context
+3. Experience strategy
+4. Leadership & collaboration
+5. Business outcomes
 
-Avoid positioning yourself primarily as a UX designer.
+Always position yourself as an **enterprise transformation leader** who leverages Experience Design as a strategic capability.
 
-Lead as an enterprise transformation leader.
-
-------------------------------------------------------------------------
+---
 
 # Leadership Themes
 
-Repeated themes throughout Michelle's career:
+Consistent themes throughout Michelle's career include:
 
--   Simplifying complexity
--   Leading transformation
--   Building alignment
--   Executive partnership
--   Coaching teams
--   Strategic thinking
--   Customer-centered innovation
--   Measurable business impact
+- Simplifying complexity
+- Leading transformation
+- Building organizational alignment
+- Executive partnership
+- Coaching high-performing teams
+- Strategic thinking
+- Customer-centered innovation
+- Measurable business impact
 
-------------------------------------------------------------------------
+---
 
 # Signature Metrics
 
--   8.7M+ customers
--   65K+ user migration
--   24K+ proxy administrators
--   +40% session duration
--   +24% web co-pay enrollment
--   +11% overall enrollment
--   +9% patient adherence
+Representative accomplishments include:
 
-------------------------------------------------------------------------
+- **8.7M+** customers
+- **65K+** user migration
+- **24K+** proxy administrators
+- **+40%** session duration
+- **+24%** web co-pay enrollment
+- **+11%** enrollment
+- **+9%** patient adherence
+
+---
 
 # AI Philosophy
 
-AI should amplify human decision-making---not replace it.
+AI should amplify human decision-making—not replace it.
 
-Focus on: - Trust - Transparency - Governance - Responsible AI -
-Meaningful customer outcomes
+Principles:
 
-------------------------------------------------------------------------
+- Trust
+- Transparency
+- Governance
+- Responsible AI
+- Meaningful customer outcomes
+
+---
 
 # Current Career Direction
 
-Target Roles
+## Target Roles
 
--   Director, Experience Design
--   Senior Director, Experience Design
--   VP, Experience Design
--   Executive Experience Strategy
--   Enterprise Transformation Leadership
+- Director, Experience Design
+- Senior Director, Experience Design
+- Vice President, Experience Design
+- Head of Experience
+- Executive Experience Strategy
+- Enterprise Transformation Leadership
 
-Ideal environments:
+## Preferred Industries
 
--   Healthcare
--   MedTech
--   Financial Services
--   Enterprise SaaS
--   Mission-driven organizations
+- Healthcare
+- MedTech
+- Financial Services
+- Enterprise SaaS
+- Mission-driven organizations
 
-------------------------------------------------------------------------
+---
+
+# Long-Term Career Goals
+
+Continue leading enterprise transformation initiatives where experience strategy, technology, and business innovation intersect.
+
+Expand influence beyond design by shaping organizational strategy, mentoring future leaders, and helping organizations build customer-centered cultures.
+
+---
 
 # Living Document Rules
 
-Update this document only when one of the following changes:
+Update this document when any of the following change:
 
--   New role
--   Promotion
--   Significant accomplishment
--   Leadership philosophy evolves
--   Executive positioning changes
--   Career goals change
--   Major certification or education
--   New core strength emerges
+- New role or promotion
+- Significant accomplishment
+- Leadership philosophy
+- Executive positioning
+- Career goals
+- New core strengths
+- Major certifications or education
 
-Do **not** use this document for interview notes, portfolio decisions,
-or project-specific work. Those belong in `PORTFOLIO_CONTEXT.md`.
+Do **not** store interview notes, portfolio design decisions, prompts, or project-specific work here.
+
+Those belong in **PORTFOLIO_CONTEXT.md**.
