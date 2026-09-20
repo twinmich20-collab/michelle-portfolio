@@ -12,13 +12,14 @@
 
 # Document Metadata
 
-**Version:** 1.0  
+**Version:** 1.1  
 **Status:** Active  
 **Created:** July 2026  
 **Owner:** Michelle DaSilva
 
 ## Last Updated
 
+- **v1.1 (September 2026)** — Added AI-enabled ways of working (ADLC / BMAD pod pilot) to JPMorgan highlights, core strengths, and AI philosophy.
 - **v1.0 (July 2026)** — Initial creation as the primary professional reference document.
 
 ---
@@ -54,6 +55,7 @@ Experienced leading cross-functional teams, influencing executive stakeholders, 
 - Customer Research & Service Design
 - Design Systems
 - AI-Enabled Product Strategy
+- AI-Enabled Ways of Working (Agentic Development Lifecycle)
 - Financial Services
 - Healthcare & Life Sciences
 - Regulated Environments
@@ -79,6 +81,8 @@ Enterprise identity, permissions, governance, authentication, and security exper
 - Drives platform modernization and enterprise transformation
 - Partners with Product, Engineering, Risk, Data, Authentication, and executive leadership
 - Aligns business strategy with customer experience improvements
+- Defining the Agentic Development Lifecycle (ADLC) with her design team (DCE) and partners across Product, Engineering, and Data
+- Designing a cross-functional pod model, with a pilot planned using the BMAD method (Breakthrough Method for Agile AI-Driven Development). As of September 2026 the pilot has not started, so describe it as "defining" and "to be piloted", not as delivered results
 
 ---
 
@@ -220,6 +224,8 @@ Principles:
 - Governance
 - Responsible AI
 - Meaningful customer outcomes
+
+In practice, this shows up in how teams work: the ADLC and pod model keep humans accountable for decisions and quality while AI agents take on more of the build. Position this as organizational and leadership work, not tooling.
 
 ---
 
